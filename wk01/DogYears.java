@@ -4,7 +4,7 @@ public class DogYears {
   public static void main(String args[]) {
     Scanner keys = new Scanner(System.in);
 
-    // declare variables
+    // Declare variables
     int humanYears;
     int dogYears;
 
@@ -17,6 +17,6 @@ public class DogYears {
 
     // Display the result
     System.out.println("Your dog is " + dogYears + " in dog years.");
-    
+
   } // end main()
 } // end DogYears
