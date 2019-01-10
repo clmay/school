@@ -1,5 +1,8 @@
 # CS 1400
-CS 1400: Fundamentals of Programming (in Java), Spring 2019, Weber State University
+CS 1400: Fundamentals of Programming (in Java), Spring 2019
+Kim Murphy, Weber State University
+
+- [Week 1](https://github.com/chsm/cs1400/blob/master/wk01/01-fundamentals-of-programming.md)
 
 ## Course Overview
 
@@ -7,16 +10,16 @@ CS 1400: Fundamentals of Programming (in Java), Spring 2019, Weber State Univers
 - Organize code using an object-oriented programming paradigm
 - Utilize data structures such as lists and arrays
 
-## Textbooks
+### Textbooks
 
 - Option 1: Zybooks' *Programming with Java with ZyLabs* (~$58)
 - Option 2: *Intro to Programming with Java: Problem Solving Approach, 2013* (~$69-82 used, $146.50 new at WSU Bookstore)
 
-## Office hours
+### Office hours
 
 Monday, Wednesday, 9:30a-11:30a
 
-## Assignments
+### Assignments
 
 - Weekly quiz
 - Classwork/programs: about two per week
