@@ -124,7 +124,7 @@ Into this:
 `Students`
 
 | w_number (PK) | first_name | last_name | street_address | zip (FK) |
-| --- | --- | --- | --- |--- | --- | --- |
+| --- | --- | --- | --- |--- |
 | W00012345 | John | Smith | 221B Baker Street | 84401 |
 
 `Cities`
