@@ -6,7 +6,7 @@ Data is stored in tables, which consist of rows of records with associated data.
 
 | w_number | first_name | last_name | address | city | state | zip |
 | --- | --- | --- | --- | --- | --- | -- |
-| 00012345 | John | Smith | 221 B Baker St | Ogden | UT | 84404 |
+| W00012345 | John | Smith | 221 B Baker St | Ogden | UT | 84404 |
 
 `section`
 
@@ -51,7 +51,7 @@ Take unnormalized data and:
 
 | w_number | first_name | last_name | course_number | days | time | room |
 | --- | --- | --- | --- | --- | --- | --- |
-| W12345678 | Chase | May | CS 1400 | MWF | 11:30–1:20 | TechEd 202S |
+| W00012345 | John | Smith | CS 1400 | MWF | 11:30–1:20 | TechEd 202S |
 |  |  |  | CS 2250 | TTh | 8:30–10:20 | TechEd 109C |
 |  |  |  | CS 2550 | TTh | 11:30–1:20 | TechEd 103D |
 
@@ -59,9 +59,9 @@ To this:
 
 | w_number | first_name | last_name | course_number | days | time | room |
 | --- | --- | --- | --- | --- | --- | --- |
-| W12345678 | Chase | May | CS 1400 | MWF | 11:30–1:20 | TechEd 202S |
-| W12345678 | Chase | May | CS 2250 | TTh | 8:30–10:20 | TechEd 109C |
-| W12345678 | Chase | May | CS 2550 | TTh | 11:30–1:20 | TechEd 103D |
+| W00012345 | John | Smith | CS 1400 | MWF | 11:30–1:20 | TechEd 202S |
+| W00012345 | John | Smith | CS 2250 | TTh | 8:30–10:20 | TechEd 109C |
+| W00012345 | John | Smith | CS 2550 | TTh | 11:30–1:20 | TechEd 103D |
 
 ### Second normal form
 
@@ -76,9 +76,9 @@ determined by W# alone.
 
 | w_number (PK) | first_name | last_name | course_number (PK) | days | time | room |
 | --- | --- | --- | --- | --- | --- | --- |
-| W12345678 | Chase | May | CS 1400 | MWF | 11:30–1:20 | TechEd 202S |
-| W12345678 | Chase | May | CS 2250 | TTh | 8:30–10:20 | TechEd 109C |
-| W12345678 | Chase | May | CS 2550 | TTh | 11:30–1:20 | TechEd 103D |
+| W00012345 | John | Smith | CS 1400 | MWF | 11:30–1:20 | TechEd 202S |
+| W00012345 | John | Smith | CS 2250 | TTh | 8:30–10:20 | TechEd 109C |
+| W00012345 | John | Smith | CS 2550 | TTh | 11:30–1:20 | TechEd 103D |
 
 Into these:
 
@@ -86,15 +86,15 @@ Into these:
 
 | w_number (PK) | first_name | last_name |
 | --- | --- | --- |
-| W12345678 | Chase | May |
+| W00012345 | John | Smith |
 
 `Registrations`
 
 | w_number (FK) | course_number (FK) |
 | --- | --- |
-| W12345678 | CS 1400 |
-| W12345678 | CS 2250 |
-| W12345678 | CS 2550 |
+| W00012345 | CS 1400 |
+| W00012345 | CS 2250 |
+| W00012345 | CS 2550 |
 
 `Courses`
 
@@ -117,7 +117,7 @@ other non-PK columns?). *e.g.* `city` and `state` depend on `zip`.
 
 | w_number (PK) | first_name | last_name | street_address | city | state | zip |
 | --- | --- | --- | --- |--- | --- | --- |
-| W12345678 | Chase | May | 221B Baker Street | Ogden | UT | 84401 |
+| W00012345 | John | Smith | 221B Baker Street | Ogden | UT | 84401 |
 
 Into this:
 
@@ -125,7 +125,7 @@ Into this:
 
 | w_number (PK) | first_name | last_name | street_address | zip (FK) |
 | --- | --- | --- | --- |--- | --- | --- |
-| W12345678 | Chase | May | 221B Baker Street | 84401 |
+| W00012345 | John | Smith | 221B Baker Street | 84401 |
 
 `Cities`
 
