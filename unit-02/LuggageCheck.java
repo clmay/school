@@ -31,14 +31,14 @@ public class LuggageCheck {
       tooHeavy = true;
     }
 
-    if (tooLarge && tooHeavy == true {
+    if (tooLarge && tooHeavy == true) {
       System.out.println("Your luggage is both too large and too heavy.");
     } else if (tooLarge == true) {
       System.out.println("Your luggage is too large.");
     } else if (tooHeavy == true) {
       System.out.println("Your luggage is too heavy.");
     } else {
-      System.out.println("Success! Your luggage meets our requirements. You may now board!")
+      System.out.println("Success! Your luggage meets our requirements. You may now board!");
     }
   }
 }
