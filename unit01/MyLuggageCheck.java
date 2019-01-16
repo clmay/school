@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class LuggageCheck {
+public class MyLuggageCheck {
   public static void main(String[] args) {
     Scanner keys = new Scanner(System.in);
 
