@@ -5,10 +5,10 @@ public class PushUps {
     int score, touchdowns, total;
     score = touchdowns = total = 0;
 
-    Scanner in = new Scanner(System.in);
+    Scanner scan = new Scanner(System.in);
 
     System.out.println("Enter Weber's final score: ");
-    score = in.nextInt();
+    score = scan.nextInt();
     touchdowns = score / 7;
 
     for (int i = 1; i < touchdowns + 1; i++) {

@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class MyLuggageCheck {
   public static void main(String[] args) {
-    Scanner keys = new Scanner(System.in);
+    Scanner scan = new Scanner(System.in);
 
     // Maximum dimensions, in inches
     final double MAX_LENGTH = 22;
@@ -16,12 +16,12 @@ public class MyLuggageCheck {
     boolean tooHeavy = false;
 
     System.out.println("Enter the length, width, and height: ");
-    length = keys.nextDouble();
-    width = keys.nextDouble();
-    height = keys.nextDouble();
+    length = scan.nextDouble();
+    width = scan.nextDouble();
+    height = scan.nextDouble();
 
     System.out.println("Enter the weight: ");
-    weight = keys.nextDouble();
+    weight = scan.nextDouble();
 
     if (length > MAX_LENGTH || width > MAX_WIDTH || height > MAX_HEIGHT) {
       tooLarge = true;

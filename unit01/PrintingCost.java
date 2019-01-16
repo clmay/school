@@ -6,10 +6,10 @@ public class PrintingCost {
     double total = 0.00;
     qty = price = 0;
 
-    Scanner in = new Scanner(System.in);
+    Scanner scan = new Scanner(System.in);
 
     System.out.println("How many copies?");
-    qty = in.nextInt();
+    qty = scan.nextInt();
 
     if (qty < 100) {
       price = 30;
