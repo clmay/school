@@ -1,3 +1,5 @@
+# Week One
+
 ## Data
 
 Data is stored in tables, which consist of rows of records with associated data.
