@@ -11,7 +11,7 @@ public class NameGame{
     Scanner scan = new Scanner(System.in);
     String name, subname;
 
-    System.out.println("Enter in your Name: ");
+    System.out.println("Enter your name: ");
     name = scan.nextLine();
     subname = name.substring(1);
 
