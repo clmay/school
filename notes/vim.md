@@ -18,6 +18,10 @@
 - u = undo
 - V = select
 - d = delete
+- =% = to indent a block of text
+- =G = to indent to the end of file
+- gg = jump cursor to start of file
+- G = jump cursor to end of file
 
 ### Window settings
 
