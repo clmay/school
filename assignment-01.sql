@@ -56,7 +56,7 @@ SELECT course_no, section_id, location
 
 -- 8. List the course number, section id and capacity for classes with a capacity
 -- of 12 or 15 (use the IN clause). Order the list by course number and section id.
-s
+
 SELECT course_no, section_id, capacity
     FROM section
         WHERE capacity IN (12, 15)
