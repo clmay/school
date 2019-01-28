@@ -16,19 +16,21 @@ import java.util.Scanner;
 
 public class TemperatureCalculator {
   public static void main(String args[]) {
-    // create handle to stdin
-    Scanner keys = new Scanner(System.in);
 
-    // declare variables
+    // Create handle to stdin
+    Scanner scan = new Scanner(System.in);
+
+    // Declare variables
     double fahrenheit;
     double celsius;
 
-    // get input from the user
+    // Get input from the user
     System.out.println("Enter the temperature in Fahrenheit: ");
-    fahrenheit = keys.nextDouble();
+    fahrenheit = scan.nextDouble();
     celsius = 5.0 * (fahrenheit - 32) / 9.0;
 
-    // display the result
+    // Display the result
     System.out.println(fahrenheit + " degrees Fahrenheit is " + celsius + " degrees Celsius.");
-  }
-}
+
+  } // end `main()`
+} // end `TemperatureCalculator`

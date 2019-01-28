@@ -2,15 +2,19 @@ import java.util.Scanner;
 
 public class PrintingCost {
   public static void main(String[] args) {
-    int qty, price;
-    double total = 0.00;
-    qty = price = 0;
 
+    // Create handle to stdin
     Scanner scan = new Scanner(System.in);
 
+    // Declare & initialize variables
+    int qty, price;
+    double total;
+
+    // Get input from user
     System.out.println("How many copies?");
     qty = scan.nextInt();
 
+    // The price is determined by the number of copies
     if (qty < 100) {
       price = 30;
     } else if (qty < 500) {
@@ -21,7 +25,9 @@ public class PrintingCost {
       price = 25;
     }
 
+    // Output the result
     total = (qty * price) / 100.0;
     System.out.println("Total cost: " + total);
-  }
-}
+
+  } // end `main()`
+} // end `PrintingCost`
