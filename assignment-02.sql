@@ -120,7 +120,7 @@ SELECT
     || ' '
     || street_address
     || ' '
-    || zip
+    || zip as "Instructor Address"
 FROM
     instructor
 WHERE
@@ -149,5 +149,7 @@ ORDER BY
 -- 10. List the student ID, final exam (FI) score and exam result ('PASS' or
 -- 'FAIL') for all students in section 156. A final score of 85 or higher is
 -- required to pass. Arrange the list by student ID.
+
+
 
 -- FIXME: Don't forget to correct line spacing on Problem 1.
