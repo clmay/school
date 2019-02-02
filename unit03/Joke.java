@@ -31,8 +31,16 @@ class Joke extends JPanel {
     window.setVisible(true);
 
     btnPunchline.addActionListener(new ActionListener() {
+      boolean shown = false;
+      
       public void actionPerformed(ActionEvent e) {
-        btnPunchline.setText("Ground beef!");
+        if (shown == false) {
+          btnPunchline.setText("Ground beef!");
+          shown = true;
+        } else {
+          btnPunchline.setText("Show Punchline");
+          shown = false;
+        }
       }
     });
 
