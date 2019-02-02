@@ -1,6 +1,7 @@
 -- 1. Provide an alphabetical list of the full name and phone number of all
 -- students that work for 'New York Culture' (the full name should be displayed as
 -- one column with an alias of 'Student Name').
+
 SELECT
     first_name
     || ' '
@@ -150,6 +151,19 @@ ORDER BY
 -- 'FAIL') for all students in section 156. A final score of 85 or higher is
 -- required to pass. Arrange the list by student ID.
 
-
-
--- FIXME: Don't forget to correct line spacing on Problem 1.
+SELECT
+    student_id,
+    numeric_grade,
+    CASE
+        WHEN numeric_grade >= 85 THEN
+            'Pass'
+        ELSE
+            'Fail'
+    END AS result
+FROM
+    grade
+WHERE
+    grade_type_code = 'FI'
+    AND section_id = 156
+ORDER BY
+    numeric_grade DESC;
