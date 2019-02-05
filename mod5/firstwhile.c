@@ -25,16 +25,27 @@
 int main()
 {
     // Task 1: Calculate the average of user input values
-    int max_count = 0;
+    int user_count = 0;
+    int min_count = 1;
+    int max_count = 10;
     int count = 0;
+    
     float grade = 0;
     float total = 0;
     float avg = 0;
     
     printf("\nHow many grades do you want to enter?\n");
-    scanf("%d", &max_count);
+    scanf("%d", &user_count);
 
-    while (count < max_count) {
+    if (user_count < min_count) {
+        printf("\n%d is less than %d. Setting to %d.\n", user_count, min_count, min_count);
+        user_count = min_count;
+    } else if (user_count > max_count) {
+        printf("\n%d is greater than %d. Setting to %d.\n", user_count, max_count, max_count);
+        user_count = max_count;
+    }
+
+    while (count < user_count) {
         printf("\nEnter %d grade (0.0-100.0): ", count + 1);
         scanf("%f", &grade);
 
