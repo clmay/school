@@ -47,6 +47,15 @@ int main()
 
     printf("\nHow many students do you have?\n");
     scanf("%d", &class_count);
+    
+    // Validate number of entries is within limits
+    if (class_count < MIN_STUDENTS) {
+        printf("\n%d is less than %d. Setting to %d.\n", class_count, MIN_STUDENTS, MIN_STUDENTS);
+        class_count = MIN_STUDENTS;
+    } else if (class_count > MAX_STUDENTS) {
+        printf("\n%d is greater than %d. Setting to %d.\n", class_count, MAX_STUDENTS, MAX_STUDENTS);
+        class_count = MAX_STUDENTS;
+    }
 
     while (student_count < class_count ) {
 
