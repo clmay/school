@@ -81,7 +81,7 @@ class Palindrome extends JPanel {
   private static boolean isPalindrome(String input) {
     input = clean(input);
     String reverse = reverse(input);
-    if (reverse.equalsIgnoreCase(input) == true) {
+    if (reverse.equalsIgnoreCase(input)) {
       return true;
     } else {
       return false;

@@ -56,7 +56,7 @@ class VowelGUI extends JPanel {
     // Listeners
     yCheckbox.addItemListener(new ItemListener() {
       public void itemStateChanged(ItemEvent e) {
-        if (yCheckbox.isSelected() == true) {
+        if (yCheckbox.isSelected()) {
           countYs = true;
         } else {
           countYs = false;
@@ -68,7 +68,7 @@ class VowelGUI extends JPanel {
       public void actionPerformed(ActionEvent e) {
         String input = inputField.getText();
         int count = getVowelCount(input);
-        if (countYs == true) {
+        if (countYs) {
           count += getYCount(input);;
         }
         countLabel.setText("Count: " + count);
@@ -115,7 +115,7 @@ class VowelGUI extends JPanel {
   private static int getVowelCount(String phrase) {
     int count = 0;
     for (int i = 0; i < phrase.length(); i++) {
-      if (isVowel(phrase.charAt(i)) == true) {
+      if (isVowel(phrase.charAt(i))) {
         count++;
       }
     }
@@ -125,7 +125,7 @@ class VowelGUI extends JPanel {
   private static int getYCount(String phrase) {
     int count = 0;
     for (int i = 0; i < phrase.length(); i++) {
-      if (isY(phrase.charAt(i)) == true) {
+      if (isY(phrase.charAt(i))) {
         count++;
       }
     }
