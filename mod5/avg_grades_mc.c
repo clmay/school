@@ -1,119 +1,100 @@
+
 /*
  * =====================================================================================
  *
- *       Filename:  avg_grades_mc.c
+ *       Filename:  avg_grade_mc.c
  *
- *    Description:  
+ *    Description:  learn while loops
  *
  *        Version:  1.0
- *        Created:  02/05/2019 08:36:45 AM
+ *        Created:  02/05/2019 08:36:46 AM
  *       Revision:  none
- *       Compiler:  gcc avg_grades_mc.c -o avg_grades_mc.out
+ *       Compiler:  gcc avg_grade_mc.c -o avg_grade_mc.out
  *
- *         Author:  Chase May (), chasemay@mail.weber.edu
+ *         Author:  Hugo Valle (), hugovalle1@weber.edu
  *   Organization:  WSU
  *
  * =====================================================================================
  */
 #include <stdio.h>
-#include <stdbool.h> // booleans
-#include <stdlib.h> // rand(), srand()
-#include <time.h> // system time
-
+#include <stdbool.h>        // true and false variables
+#include <stdlib.h>         // rand(), srand()
+#include <time.h>           // time()
 // Constants
-
-// #define MIN_COUNT 1
-// #define MAX_COUNT 10
-#define MIN_GRADE 0
-#define MAX_GRADE 100
-#define MIN_COUNT 1
-#define MAX_COUNT 10
-#define MIN_STUDENTS 1
-#define MAX_STUDENTS 10
-
-// Function Prototypes
-
+#define MINCOUNT 2
+#define MAXCOUNT 5
+#define MINGRADE 0
+#define MAXGRADE 100
+#define MAXSTUDENTS 30
 // Main Function
 int main()
 {
-    int class_count = 0;
-    int student_count = 0;
-    int grade_count = 0;
-    int count = 0;
+    // Task 1: Calculate the average of user input values
+    // Task 2: Validate user input for 0 to 100 only
+    // Task 3: Generate random data on how many values they need to enter
+    // Task 4: If user/random enters a number below MINCOUNT set it MINCOUNT
+    //         and if user enters a value greater than MAXCOUNT, set it to MAXCOUNT
+    // Task 5: Support multiple student entries. Calculate class average.
+    // Task 6: Display student letter grade
+    int hw_count;
+    int grade_count = 0, student_count = 1;
+    float grade, avg;
+    float total = 0, class_avg = 0;
 
-    float grade = 0;
-    float total = 0;
-    float avg = 0;
-    float class_total = 0;
-    float class_avg = 0;
+    srand(time(0));    // set random seed
 
-    printf("\nHow many students do you have?\n");
-    scanf("%d", &class_count);
-    
-    // Validate number of entries is within limits
-    if (class_count < MIN_STUDENTS) {
-        printf("\n%d is less than %d. Setting to %d.\n", class_count, MIN_STUDENTS, MIN_STUDENTS);
-        class_count = MIN_STUDENTS;
-    } else if (class_count > MAX_STUDENTS) {
-        printf("\n%d is greater than %d. Setting to %d.\n", class_count, MAX_STUDENTS, MAX_STUDENTS);
-        class_count = MAX_STUDENTS;
-    }
-
-    while (student_count < class_count ) {
-
-        printf("\nHow many grades do you want to enter?\n");
-        scanf("%d", &grade_count);
-
-        // Validate number of entries is within limits
-        if (grade_count < MIN_COUNT) {
-            printf("\n%d is less than %d. Setting to %d.\n", grade_count, MIN_COUNT, MIN_COUNT);
-            grade_count = MIN_COUNT;
-        } else if (grade_count > MAX_COUNT) {
-            printf("\n%d is greater than %d. Setting to %d.\n", grade_count, MAX_COUNT, MAX_COUNT);
-            grade_count = MAX_COUNT;
+    for(student_count = 1; student_count <= MAXSTUDENTS; student_count++)
+    {
+        printf("Processing %d student grades\n", student_count);
+        printf("How many hw values you want to enter (between %d and %d? ",
+                MINCOUNT, MAXCOUNT);
+        //scanf("%d", &hw_count);
+        hw_count = rand() % 10;
+        printf("%d\n", hw_count);
+        if(hw_count < MINCOUNT)
+        {
+            printf("%d is lower than %d. Setting your entry to %d\n",
+                    hw_count, MINCOUNT, MINCOUNT);
+            hw_count = MINCOUNT;
         }
+        if(hw_count >  MAXCOUNT)
+        {
+            printf("%d is greater than %d. Setting your entry to %d\n",
+                    hw_count, MAXCOUNT, MAXCOUNT);
+            hw_count = MAXCOUNT;
+        }
+        // Loop over student grades
+        while(grade_count < MAXCOUNT)
+        {
+            printf("\nEnter %d hw grade(%d-%d): ", grade_count + 1, MINGRADE, MAXGRADE);
+//            scanf("%f", &grade);
+            grade = rand() % 150;  // get a random number 0-150
+            // "Randomly" make it negative
+            grade = grade - (rand() % 100); // subtract a random 0-100 number.
+            printf("%f\n", grade);
 
-        // Loop for students
-
-        // Loop for entries
-        while (count < grade_count) {
-            printf("\nEnter %d grade (0.0-100.0): ", count + 1);
-            scanf("%f", &grade);
-
-            // Validate input
-            if (grade < MIN_GRADE || grade > MAX_GRADE) {
-                continue;
-            } else {
-                total += grade;
+            if(grade < MINGRADE || grade > MAXGRADE)
+            {
+                printf("Invalid input. Please try again\n");
+                continue;       // invalid input
             }
-
-            // Update test condition
-            count++;
-        }
-        // Calculate student average
-        avg = total / grade_count;
-        // Output student average
-        printf("\nStudent average: %f\n", avg);
-
-        // Add student's average to class total
-        class_total += avg;
-
-        // Reset inner loop variables
+            total += grade;     // add up grades
+            grade_count++;            // update test condition: sentinel
+            if(grade_count == hw_count)
+            {
+                break;          // reach the hw_count
+            }
+        } // end of one student loop
+        avg = total/hw_count;
+        class_avg += avg;       // get class avg.
+        printf("Your avg is [%6.2f]\n", avg);
+        // reset value
         grade_count = 0;
         total = 0;
-        count = 0;
 
-        // Increment student count
-        student_count++;
-    }
-
-    class_avg = class_total / student_count;
-
-    printf("\nThe average of the grades is %6.2f%%.\n", class_avg);
-    printf("\nBye\n");
-
+    }  // end of students loop
+    printf("Your class avg is [%6.2f]\n", class_avg/MAXSTUDENTS);
+    printf("\nBye amigo\n");
     return 0;
 }
 // Function Definitions
-
-
