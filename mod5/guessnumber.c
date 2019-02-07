@@ -21,7 +21,8 @@
 
 // Constants
 
-#define MAX 3
+#define MAX 6
+#define LIMIT 100
 
 // Function Prototypes
 
@@ -31,13 +32,18 @@ int main()
     int number, guess;
 
     srand(time(0));
-    number = rand() % 10 + 1;
+    number = rand() % LIMIT + 1;
 
     // before C89 i must be defined outside loop
     for (int i = 0; i < MAX; i++) {
-        printf("Please guess a number between 1 and 10.\n");
+        printf("Please guess a number between 1 and %d.\n", LIMIT);
+        printf("You have %d tries left.\n", MAX - i);
         scanf("%d", &guess);
-        if (number == guess) {
+        if (guess < number) {
+            printf("Higher!\n");
+        } else if (guess > number) {
+            printf("Lower!\n");
+        } else {
             printf("Winner, winner, chicken dinner!\n");
             return 0;
         }
