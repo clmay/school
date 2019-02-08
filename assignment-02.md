@@ -1,26 +1,3 @@
-Write a series of Oracle SQL query statements using the Student database which
-consists of the schema defined in Appendix D of your text.
-
-This assignment will be completed using Oracle. The CS Athena remote terminal
-server has both SQLDeveloper and SQL*Plus installed and available for student use.
-
-You can also connect to Oracle by Installing SQLDeveloper on your own computer.
-General instructions for using SQL Developer are contained in Lab 2.3 of your
-text.
-
-1. Create a notepad text file named FirstNameLastNameCS2550SQL01.txt.
-
-2. Put your name and assignment information at the top of the file.
-
-3. Paste each of your SQL statements into the file, numbering each one.
-
-4. Make sure that each SQL statement is terminated with a semi-colon. You will
-not receive credit for the question if the semi-colon is missing.
-
-N.B.: It is essential that your submitted queries are formatted as specified.
-
----
-
 1. Provide an alphabetical list of the full name and phone number of all
 students that work for 'New York Culture' (the full name should be displayed as
 one column with an alias of 'Student Name')
@@ -39,17 +16,12 @@ their name). List each employer only once and arrange the list alphabetical
 order.
 
     ```
-    EMPLOYER                                        
+    EMPLOYER
     -----------
-
-    Albert Hildegard Co.                              
-
-    Burke & Co.                                       
-
-    Crane Co.                                         
-
-    Finle & Co.                                       
-
+    Albert Hildegard Co.
+    Burke & Co.
+    Crane Co.
+    Finle & Co.
     G.C.Osnos Co.
     ```
 
