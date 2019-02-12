@@ -24,14 +24,20 @@
 
  // Main Function
  int main() {
-   int table_size = 12;
+   int table_size = 10;
 
-   for (int i = 0; i < table_size; i++) {
-     for (int j = 0; j < table_size; j++) {
-       printf("%3d\t", (i + 1) * (j + 1));
+   int tables[table_size][table_size];
+
+   for (int i = 1; i <= table_size; i++) {
+     for (int j = 1; j <= table_size; j++) {
+       printf("%3d\t", (i * j));
+       tables[i - 1][j - 1] = (i * j);
      }
      printf("\n");
    }
+
+   printf("1 * 6 = %d", tables[0][5]);
+
    return 0;
  }
  // Function Definitions
