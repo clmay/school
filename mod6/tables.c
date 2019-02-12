@@ -28,10 +28,10 @@
 
    int tables[table_size][table_size];
 
-   for (int i = 1; i <= table_size; i++) {
-     for (int j = 1; j <= table_size; j++) {
-       printf("%3d\t", (i * j));
-       tables[i - 1][j - 1] = (i * j);
+   for (int i = 0; i < table_size; i++) {
+     for (int j = 0; j < table_size; j++) {
+       printf("%3d\t", (i + 1) * (j + 1));
+       tables[i][j] = (i + 1) * (j + 1);
      }
      printf("\n");
    }
