@@ -25,11 +25,24 @@
 // Main Function
 int main(int argc, char* argv[])
 {
-    if (argc < 3) {
-        printf("Please provide correct input:\n");
-        printf("./simple_calc.out <PARAM1> <PARAM2>\n");
+    int choice;
+    double sum;
+    double diff;
+    double prod;
+
+    if (argc != 3) {
+        printf("Missing input:\n");
+        printf("Usage: %s <first number> <second number>\n", argv[0]);
         return 1;
     }
+
+    printf("Operation?\n");
+    printf("\t1) Addition\n");
+    printf("\t1) Subtraction\n");
+    printf("\t1) Multiplication\n");
+    scanf("%d", &choice);
+
+
 
     return 0;
 }
