@@ -14,7 +14,6 @@ ORDER BY
     prodmfg
 ;
 
-
 SELECT
     prodname,
     COUNT(*) AS num_mfgs
