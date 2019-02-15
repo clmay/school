@@ -138,9 +138,9 @@ the output on the number of employees from lowest to highest.
 ```
 EMPLOYER                  EMPLOYEES
 ------------------------- ---------
-Crane Co.                      6
+Crane Co.                       6
 New York Pop                    8
-Amer.Legal Systems             10
+Amer. Legal Systems            10
 Electronic Engineers           15
 
 (4 Rows)
