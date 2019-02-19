@@ -22,13 +22,13 @@
 
 // Function Prototypes
 void Hello_World();
-void Print_Int(int num);
-void Print_Double(double num);
-int Square(int num);
+void Print_Int(int i);
+void Print_Double(double d);
+int Square(int i);
 int Get_Int();
 int Sum(int a, int b);
 double Get_Double();
-double Get_BMI(double kg, double m);
+double Get_BMI(double weight_kg, double height_m);
 
 // Main Function
 int main() {
@@ -64,25 +64,25 @@ void Hello_World() {
   return;
 }
 
-void Print_Int(int num) {
-  printf("%d\n", num);
+void Print_Int(int i) {
+  printf("%d\n", i);
   return;
 }
 
-void Print_Double(double num) {
-  printf("%lf\n", num);
+void Print_Double(double d) {
+  printf("%lf\n", d);
   return;
 }
 
-int Square(int num) {
-  return num * num;
+int Square(int i) {
+  return i * i;
 }
 
 int Get_Int() {
-  int num;
+  int i;
   printf("Please enter an integer: ");
-  scanf("%d", &num);
-  return num;
+  scanf("%d", &i);
+  return i;
 }
 
 int Sum(int a, int b) {
@@ -90,10 +90,10 @@ int Sum(int a, int b) {
 }
 
 double Get_Double() {
-  double num;
+  double d;
   printf("Please enter a value: ");
-  scanf("%lf", &num);
-  return num;
+  scanf("%lf", &d);
+  return d;
 }
 
 double Get_BMI(double weight_kg, double height_m) {
