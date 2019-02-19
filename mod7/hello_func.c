@@ -61,9 +61,7 @@ void Print_Int(int num) {
 }
 
 int Square(int num) {
-  int square;
-  square = num * num;
-  return square;
+  return num * num;
 }
 
 int Get_Int() {
@@ -74,7 +72,5 @@ int Get_Int() {
 }
 
 int Sum(int a, int b) {
-  int result;
-  result = a + b;
-  return result;
+  return a + b;
 }
