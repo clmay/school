@@ -23,11 +23,16 @@
 // Function Prototypes
 void Hello_World();
 void Hello_Number(int num);
+int Get_Square(int num);
 
 // Main Function
 int main() {
+  int num = 23;
+
   Hello_World();
   Hello_Number(1);
+  num = Get_Square(num);
+  Hello_Number(num);
   return 0;
 }
 
@@ -40,4 +45,10 @@ void Hello_World() {
 void Hello_Number(int num) {
   printf("Hello %d number\n", num);
   return;
+}
+
+int Get_Square(int num) {
+  int square;
+  square = num * num;
+  return square;
 }
