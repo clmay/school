@@ -22,9 +22,7 @@ HAVING
     MAX(g.numeric_grade) >= 85
 ORDER BY
     g.grade_type_code;
-```
 
-```sql
 SELECT
     emp.empfirstname,
     emp.emplastname,
