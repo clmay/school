@@ -24,6 +24,7 @@
 void Hello_World();
 void Hello_Number(int num);
 int Get_Square(int num);
+int Get_Number();
 
 // Main Function
 int main() {
@@ -33,6 +34,11 @@ int main() {
   Hello_Number(1);
   num = Get_Square(num);
   Hello_Number(num);
+
+  num = Get_Number();
+  num = Get_Square(num);
+  Hello_Number(num);
+
   return 0;
 }
 
@@ -51,4 +57,11 @@ int Get_Square(int num) {
   int square;
   square = num * num;
   return square;
+}
+
+int Get_Number() {
+  int num;
+  printf("Please enter an integer: ");
+  scanf("%d", &num);
+  return num;
 }
