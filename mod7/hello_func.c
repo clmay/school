@@ -22,46 +22,59 @@
 
 // Function Prototypes
 void Hello_World();
-void Hello_Number(int num);
-int Get_Square(int num);
-int Get_Number();
+void Print_Int(int num);
+int Square(int num);
+int Get_Int();
+int Sum(int a, int b);
 
 // Main Function
 int main() {
   int num = 23;
+  int num1, num2, sum;
 
   Hello_World();
-  Hello_Number(1);
-  num = Get_Square(num);
-  Hello_Number(num);
+  Print_Int(1);
+  num = Square(num);
+  Print_Int(num);
 
-  num = Get_Number();
-  num = Get_Square(num);
-  Hello_Number(num);
+  num = Get_Int();
+  num = Square(num);
+  Print_Int(num);
+
+  num1 = Get_Int();
+  num2 = Get_Int();
+  sum = Sum(num1, num2);
+  Print_Int(sum);
 
   return 0;
 }
 
 // Function Definitions
 void Hello_World() {
-  printf("Hello World\n");
+  printf("Hello, world!\n");
   return;
 }
 
-void Hello_Number(int num) {
-  printf("Hello %d number\n", num);
+void Print_Int(int num) {
+  printf("%d\n", num);
   return;
 }
 
-int Get_Square(int num) {
+int Square(int num) {
   int square;
   square = num * num;
   return square;
 }
 
-int Get_Number() {
+int Get_Int() {
   int num;
   printf("Please enter an integer: ");
   scanf("%d", &num);
   return num;
+}
+
+int Sum(int a, int b) {
+  int result;
+  result = a + b;
+  return result;
 }
