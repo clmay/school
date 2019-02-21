@@ -25,7 +25,7 @@ WHERE custno IN
 (SELECT custno
  FROM ordertbl
  GROUP BY custno
- HAVING COUNT(*) =
+ HAVING COUNT(*) IN
     (SELECT MAX(num_orders)
      FROM
         (SELECT custno, COUNT(*) AS num_orders
