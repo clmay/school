@@ -46,3 +46,31 @@ WHERE custbal >
         MIN(custbal)
     FROM customer);
 ```
+
+```sql
+SELECT
+    empfirstname,
+    emplastname
+FROM
+    employee
+WHERE empno IN
+    (SELECT
+        empno
+        FROM
+            ordertbl
+        GROUP BY
+            empno
+        HAVING COUNT(*) IN
+            (SELECT
+                MAX(num_orders)
+            FROM
+                (SELECT
+                    empno,
+                    COUNT(*) AS num_orders
+                FROM
+                    ordertbl
+                WHERE
+                    empno IS NOT null
+                GROUP BY
+                    empno)));
+```
