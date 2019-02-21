@@ -1,3 +1,5 @@
+## More inner joins
+
 ```sql
 -- 1. List the first and last name and phone numbers of employees of customers in Seattle
 --

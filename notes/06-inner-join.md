@@ -1,3 +1,5 @@
+## Inner joins
+
 ```sql
 SELECT
     s.first_name,
