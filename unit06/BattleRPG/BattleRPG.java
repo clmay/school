@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Battle {
+public class BattleRPG {
 
   public static void main(String[] args) {
     Scanner scan = new Scanner(System.in);
@@ -8,7 +8,6 @@ public class Battle {
 
     System.out.println("Hello, bold one. What is your name?");
     player_name = scan.nextLine();
-    // ai_name = jumble(player_name); // Eventually, we will want to programmatically create the ai's name
 
     Character p = new Character(player_name, "Player");
     Character ai = new Character("Alfred", "NPC");
