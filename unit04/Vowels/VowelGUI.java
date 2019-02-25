@@ -89,11 +89,11 @@ class VowelGUI extends JPanel {
       case 'i':
       case 'o':
       case 'u':
-        result = true;
-        break;
+      result = true;
+      break;
       default:
-        result = false;
-        break;
+      result = false;
+      break;
     }
     return result;
   }
@@ -103,11 +103,11 @@ class VowelGUI extends JPanel {
     switch (letter) {
       case 'Y':
       case 'y':
-        result = true;
-        break;
+      result = true;
+      break;
       default:
-        result = false;
-        break;
+      result = false;
+      break;
     }
     return result;
   }
