@@ -1,7 +1,7 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class MySlotMachine {
+public class SlotMachine {
 
   public static void main(String[] args) {
 
