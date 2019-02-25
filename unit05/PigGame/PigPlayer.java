@@ -4,7 +4,6 @@ class PigPlayer {
   // Instance variables
   private static Random gen = new Random();
   private int winningScore; // the score needed to win the game
-  private boolean playerTurn; // whether it is the current player's turn
   private int counter; // counts the number of rolls
   private int dieValue; // the current die value
   private int roundScore; // points won this round
@@ -17,12 +16,7 @@ class PigPlayer {
     roundScore = 0;
     totalScore = 0;
   }
-  public boolean isPlayerTurn() {
-    return playerTurn;
-  }
-  public void togglePlayerTurn() {
-    playerTurn = !(playerTurn);
-  }
+  
   public int getCounter() {
     return counter;
   }
@@ -53,19 +47,14 @@ class PigPlayer {
   public void rollDie() { // Roll the die
     incrementCounter();
     dieValue = gen.nextInt(6) + 1;
-    if (dieValue == 1) {  // If the player rolls a '1',
-      endRound();         // end the round
-    } else {
-      updateRoundScore(); // Otherwise, add the roll to the round score
-    }
+    updateRoundScore();
   }
   public void endRound() {
     updateTotalScore();
     resetRoundScore();
     resetCounter();
-    togglePlayerTurn();
   }
   public boolean playerWon() {
-    return totalScore >= winningScore;
+    return totalScore + roundScore >= winningScore;
   }
 }

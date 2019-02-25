@@ -5,7 +5,7 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
-class Pig extends JPanel {
+class PigGame extends JPanel {
   private JFrame window = new JFrame("The Game of Pig");        // Create the window
   private JLabel dieLabel = new JLabel("Current die value.");   // Initialize components
   private JLabel counterLabel = new JLabel("Number of rolls.");
@@ -13,14 +13,12 @@ class Pig extends JPanel {
   private JLabel aiScoreLabel = new JLabel("Computer Score.");
   private JButton rollButton = new JButton("Roll");
   private JButton stopButton = new JButton("End Round");
-
-  // Initialize players
-  private PigPlayer user = new PigPlayer();
+  private PigPlayer user = new PigPlayer();                     // Initialize players
   private PigPlayer ai = new PigPlayer();
 
-  public Pig() {
-    window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  // Initialize window
-    window.setSize(300, 300);
+  public PigGame() {                                                // Constructor
+    window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);      // Initialize window
+    window.setSize(320, 200);
     setLayout(null);
     dieLabel.setBounds(30, 20, 100, 20);        // Position components
     counterLabel.setBounds(140, 20, 200, 20);   // setBounds(x, y, width, height)
@@ -38,39 +36,43 @@ class Pig extends JPanel {
     window.setVisible(true);  // Render window
     update();                 // Init game variables
 
-    rollButton.addActionListener(new ActionListener() {
+    rollButton.addActionListener(new ActionListener() {         // Listeners
       public void actionPerformed(ActionEvent e) {
         user.rollDie();
-        if (user.playerWon()) {
-          JOptionPane.showMessageDialog(null, "You win!");
-          return;
-        }
         update();
+        if (user.getDieValue() == 1) {
+          user.endRound();
+          update();
+          aiRound();
+        }
+        if (user.playerWon()) {
+          JOptionPane.showMessageDialog(null, "You won!");
+        }
       }
     });
     stopButton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        if (user.isPlayerTurn()) {
-          user.rollDie();
-          if (user.playerWon()) {
-            JOptionPane.showMessageDialog(null, "You win!");
-          }
-          user.endRound();
-          update();
-        } else {
-          aiRound();
-        }
+        user.endRound();
+        update();
+        aiRound();
       }
     });
-  } // end Pig constructor
-  public void aiRound() {
+  }
+
+  public void aiRound() {                                     // Methods
     do {
       ai.rollDie();
+      update();
+      if (ai.getDieValue() == 1) {
+        ai.endRound();
+        update();
+        break;
+      }
       if (ai.playerWon()) {
         JOptionPane.showMessageDialog(null, "Computer won!");
         break;
       }
-    } while (ai.getRoundScore() < 10);
+    } while (ai.getRoundScore() < 15);
     ai.endRound();
     update();
   }
@@ -82,7 +84,7 @@ class Pig extends JPanel {
     aiScoreLabel.setText(
       "Computer Round Score: " + ai.getRoundScore() + "\nTotal Score: " + ai.getTotalScore());
   }
-  public static void main(String[] args) {
-    new Pig();
+  public static void main(String[] args) {                    // Main
+    new PigGame();
   }
 }
