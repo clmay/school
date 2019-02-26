@@ -8,7 +8,7 @@ public class BattleRPG {
   private static Monster computer = new Monster("Enemy Attacker", "Wild Monster");
   private static int choice = 0;
 
-  public static void main(String[] args) {
+  public BattleRPG() {
     prologue();
     int counter = 1;
     while (true) {
@@ -29,7 +29,7 @@ public class BattleRPG {
       }
       counter++;
     }
-  } // end main()
+  }
 
   private static void gatekeeperMenu() {
     System.out.println("What would you like to do?");
@@ -182,5 +182,9 @@ public class BattleRPG {
       turn++;
     }
   } // end battle()
+
+  public static void main(String[] args) {
+    new BattleRPG();
+  } // end main()
 
 }
