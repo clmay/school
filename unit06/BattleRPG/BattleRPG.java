@@ -4,12 +4,12 @@ import java.util.Scanner;
 public class BattleRPG {
   private static Random gen = new Random();
   private static Scanner scan = new Scanner(System.in);
-  private static Monster player   = new Monster("Your Monster", "Trained Monster");
+  private static Monster player = new Monster("Your Monster", "Trained Monster");
   private static Monster computer = new Monster("Enemy Attacker", "Wild Monster");
   private static int choice = 0;
 
   public static void main(String[] args) {
-    // prologue();
+    prologue();
     int counter = 1;
     while (true) {
       choice = 0;
@@ -68,7 +68,7 @@ public class BattleRPG {
       System.out.println("Unable to sleep.");
       e.printStackTrace();
     }
-  } // end pause()
+  } // end pause(int)
 
   private static int choose() {
     choice = 0;
