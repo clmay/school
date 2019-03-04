@@ -13,7 +13,7 @@ public class Monster implements Actions, Debug {
     this.setType(type);
     this.setHealth(defaultHealth);
     this.setPower(defaultPower);
-  } // end constructor
+  }
 
   public void setName(String name) {
     this.name = name;
@@ -69,23 +69,23 @@ public class Monster implements Actions, Debug {
       System.out.println("The attack does " + this.power + " in damage.");
       System.out.println(target.name + " has " + target.health + " HP remaining.");
     }
-  } // end attack()
+  }
 
   public void heal() {
     this.health += this.power;
     System.out.println(this.name + " heals itself.");
     System.out.println(this.name + " has " + this.health + " HP.");
-  } // end heal()
+  }
 
   public void defend() {
     this.setDefenses(true);
     System.out.println(this.name + " prepares to defend itself.");
-  } // end defend()
+  }
 
   public void powerUp() {
     this.power += defaultPower;
     System.out.println(this.name + " focuses its power.");
-  } // end powerUp()
+  }
 
   public void debug() { // use if you want to debug object's state
     System.out.println("Object:");
@@ -94,6 +94,6 @@ public class Monster implements Actions, Debug {
     System.out.println("   Health: " + this.getHealth());
     System.out.println("   Power: " + this.getPower());
     System.out.println("   Defense Status: " + this.getDefenseStatus());
-  } // end debug()
+  }
 
 }

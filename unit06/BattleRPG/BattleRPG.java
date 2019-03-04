@@ -35,13 +35,13 @@ public class BattleRPG {
     System.out.println("What would you like to do?");
     System.out.println("   1. Continue");
     System.out.println("   2. Turn around");
-  } // end gatekeeperMenu()
+  }
 
   private static void travelMenu() {
     System.out.println("What would you like to do?");
     System.out.println("   1. Keep moving");
     System.out.println("   2. Quit");
-  } // end travelMenu()
+  }
 
   private static void battleMenu() {
     System.out.println("It's your turn. Would you like to:");
@@ -49,16 +49,20 @@ public class BattleRPG {
     System.out.println("   2. Heal");
     System.out.println("   3. Defend");
     System.out.println("   4. Power Up");
-  } // end battleMenu()
+  }
 
   private static void pause() {
-    try {
+    try
+
+    {
       Thread.sleep(1000);
-    } catch (InterruptedException e) {
+    } catch (
+
+    InterruptedException e) {
       System.out.println("Unable to sleep.");
       e.printStackTrace();
     }
-  } // end pause()
+  }
 
   private static void pause(int secs) {
     int ms = 1000 * secs;
@@ -68,7 +72,7 @@ public class BattleRPG {
       System.out.println("Unable to sleep.");
       e.printStackTrace();
     }
-  } // end pause(int)
+  }
 
   private static int choose() {
     choice = 0;
@@ -76,7 +80,7 @@ public class BattleRPG {
     choice = Integer.parseInt(scan.nextLine());
     System.out.println();
     return choice;
-  } // end choose()
+  }
 
   private static void farewell() {
     System.out.println("Gatekeeper: Ah, well, too bad.");
@@ -86,26 +90,37 @@ public class BattleRPG {
     System.out.println("   Take care of yourself.");
     pause();
     System.exit(0);
-  } // end farewell()
+  }
 
   private static void prologue() {
     String player_name;
     System.out.println("\nGatekeeper: Greetings, reckless traveler.");
+
     pause();
     System.out.println("   Hasn't anyone told you? This land is dangerous.");
+
     pause();
     System.out.println("   There are many strange and wild beasts.");
+
     pause();
     System.out.println("   Do you dare continue?\n");
+
     pause();
+
     gatekeeperMenu();
-    choice = choose();
-    if (choice == 2) {
+    choice =
+
+        choose();
+    if (choice == 2)
+
+    {
       farewell();
     }
     System.out.println("Gatekeeper: Very well then.");
+
     pause();
     System.out.println("   Still, you'll need a way to protect yourself.\n");
+
     pause(2);
     System.out.println("The gatekeeper hands you a crate.");
     pause();
@@ -121,9 +136,10 @@ public class BattleRPG {
     pause();
     System.out.println("   I hope you'll make it back this way some time.\n");
     pause(2);
-  } // end prologue()
+  }
 
   private static void battle() {
+
     int turn = 1;
     while (true) {
       choice = 0;
@@ -135,36 +151,36 @@ public class BattleRPG {
         choice = choose();
       }
       switch (choice) {
-        case 1:
-          player.attack(computer);
-          break;
-        case 2:
-          player.heal();
-          break;
-        case 3:
-          player.defend();
-          break;
-        case 4:
-          player.powerUp();
-          break;
+      case 1:
+        player.attack(computer);
+        break;
+      case 2:
+        player.heal();
+        break;
+      case 3:
+        player.defend();
+        break;
+      case 4:
+        player.powerUp();
+        break;
       }
       choice = gen.nextInt(6) + 1;
       System.out.println();
       switch (choice) {
-        case 1:
-        case 2:
-        case 3:
-          computer.attack(player);
-          break;
-        case 4:
-          computer.heal();
-          break;
-        case 5:
-          computer.defend();
-          break;
-        case 6:
-          computer.powerUp();
-          break;
+      case 1:
+      case 2:
+      case 3:
+        computer.attack(player);
+        break;
+      case 4:
+        computer.heal();
+        break;
+      case 5:
+        computer.defend();
+        break;
+      case 6:
+        computer.powerUp();
+        break;
       }
       if (player.getHealth() <= 0) {
         System.out.println("Your monster has perished!");
@@ -181,10 +197,9 @@ public class BattleRPG {
       computer.resetDefenses();
       turn++;
     }
-  } // end battle()
+  }
 
   public static void main(String[] args) {
     new BattleRPG();
-  } // end main()
-
+  }
 }
