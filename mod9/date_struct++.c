@@ -20,7 +20,6 @@
 #include <stdlib.h>
 
 // Constants
-
 typedef struct Date {
     int month;
     int day;
@@ -28,7 +27,6 @@ typedef struct Date {
 } Date;
 
 // Function Prototypes
-
 void Hello_Date(Date date);
 
 // Main Function
@@ -43,7 +41,6 @@ int main(int argc, char* argv[])
     return 0;
 }
 // Function Definitions
-
 void Hello_Date(Date date) {
     println("Hello, 'Date' = %d/%d/%d", date.month, date.day, date.year % 100);
     return;
