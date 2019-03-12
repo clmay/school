@@ -2,7 +2,7 @@
 registered on 2/13/2007. Arrange the list in order of last name and first name.
 
     ```
-    FIRST_NAME                LAST_NAME                 PHONE     
+    FIRST_NAME                LAST_NAME                 PHONE
     ------------------------- ------------------------- ---------------
     Jose                      Benitez                   201-555-5555
     Charles                   Caro                      203-555-5555

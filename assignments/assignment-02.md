@@ -30,16 +30,16 @@ in the format <last name (all upper case)>, <first initial>. ( Example, `SMITH, 
 followed by the phone number.
 
     ```
-    Student Name                  PHONE        
+    Student Name                  PHONE
     ----------------------------- -------
 
-    BOREMMANN, W.                 617-555-5555   
+    BOREMMANN, W.                 617-555-5555
 
-    KOCKA, G.                     617-555-5555   
+    KOCKA, G.                     617-555-5555
 
-    LA BLANK, T.                  617-555-5555   
+    LA BLANK, T.                  617-555-5555
 
-    NORMAN, J.                    617-555-5555   
+    NORMAN, J.                    617-555-5555
 
     SETHI, J.                     617-555-5555
     ```
@@ -50,7 +50,7 @@ followed by the phone number.
     Instructor              STREET_ADDRESS
     -----------------------------------------
 
-    Irene Willig            415 West 101st   
+    Irene Willig            415 West 101st
     ```
 
 5. Provide a list of ZIP codes for Jackson Heights, NY.  Sort on ZIP.
@@ -70,30 +70,30 @@ followed by the phone number.
 that ends in the number 10.  Arrange the list on location.
 
     ```
-    COURSE_NO LOCATION                                        
+    COURSE_NO LOCATION
     --------- ----------
 
-          124 H310                                               
+          124 H310
 
-           20 L210                                              
+           20 L210
 
-           25 L210                                              
+           25 L210
 
-           25 L210                                              
+           25 L210
 
-          204 L210                                               
+          204 L210
 
-          122 L210                                              
+          122 L210
 
-          145 L210                                              
+          145 L210
 
-          124 L210                                              
+          124 L210
 
-          120 L210                                               
+          120 L210
 
-           20 L210                                              
+           20 L210
 
-          140 L210                                              
+          140 L210
 
      11 rows selected
     ```
@@ -104,24 +104,24 @@ expression). MA is Massachusetts, OH is Ohio, PR is Puerto Rico and WV is West
 Virginia.  Sort by state.
 
     ```
-    State Name           STATE     CITY                   
+    State Name           STATE     CITY
     -------------        -----     ----
 
-        Massachusetts    MA       Tufts Univ. Bedford      
+        Massachusetts    MA       Tufts Univ. Bedford
 
-        Massachusetts    MA       Sandwich                 
+        Massachusetts    MA       Sandwich
 
-        Massachusetts    MA       Weymouth                 
+        Massachusetts    MA       Weymouth
 
-        Massachusetts    MA       North Adams              
+        Massachusetts    MA       North Adams
 
-        Massachusetts    MA       Dorchester               
+        Massachusetts    MA       Dorchester
 
-        Ohio             OH       Columbus                  
+        Ohio             OH       Columbus
 
-        Puerto Rico      PR       Santurce                 
+        Puerto Rico      PR       Santurce
 
-        West Virginia    WV       Georgetown               
+        West Virginia    WV       Georgetown
 
     8 rows selected
     ```
@@ -134,9 +134,9 @@ code 10015. Sort the list in alphabetical order.
     Instructor Address
     ----------------------------------------
 
-    Hon. Rick Chow 56 10th Avenue 10015                                                                                 
+    Hon. Rick Chow 56 10th Avenue 10015
 
-    Mr. Fernand Hanks 100 East 87th 10015                                                                              
+    Mr. Fernand Hanks 100 East 87th 10015
 
     Ms. Anita Morris 34 Maiden Lane 10015
     ```
