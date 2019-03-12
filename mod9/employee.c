@@ -16,21 +16,12 @@
  *
  * =====================================================================================
  */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "employee.h"
 
-// Main Function
-int main(int argc, char* argv[])
-{
-    Employee waldo;
-    Create_Employee(&waldo);
-    Calc_Pay(&waldo);
-    Display_Employee(&waldo);
-    return 0;
-}
 // Function Definitions
-
 void Create_Employee(Employee* e) {
     e->id = 1;
     e->wage = 7.50;

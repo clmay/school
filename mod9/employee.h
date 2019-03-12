@@ -14,6 +14,7 @@
  *
  * =====================================================================================
  */
+#ifndef EMPLOYEE__INC__
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -38,4 +39,4 @@ void Display_Employee(const Employee* e);
 double Calc_Gross(Employee* e);
 double Calc_Net(Employee* e); // by reference
 
-
+#endif
