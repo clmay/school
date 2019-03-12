@@ -23,7 +23,7 @@ BELOW_AVERAGE
 3. List the city and state that have the highest number of students enrolled.
 
 ```
-CITY            ST
+CITY       ST
 ---------- --
 Brooklyn   NY
 (1 Row)
@@ -33,9 +33,9 @@ Brooklyn   NY
 received the lowest score on the final exam (FI) in course section 81.
 
 ```
-STUDENT_ID FIRST_NAME LAST_NAME        NUMERIC_GRADE
+STUDENT_ID FIRST_NAME LAST_NAME      NUMERIC_GRADE
 ---------- ---------- -------------- -------------
-240       Z.A.      Scrittorale          83
+240        Z.A.       Scrittorale    83
 (1 Row)
 ```
 
@@ -43,11 +43,11 @@ STUDENT_ID FIRST_NAME LAST_NAME        NUMERIC_GRADE
 than once. Arrange by last name then first name.
 
 ```
-STUDENT_ID LAST_NAME      FIRST_NAME
+STUDENT_ID LAST_NAME    FIRST_NAME
 ---------- ------------ ----------
-102     Crocitto     Fred
-232     Jung         Janet
-256     Velasco      Lorrane
+102        Crocitto     Fred
+232        Jung         Janet
+256        Velasco      Lorrane
 (3 Rows)
 ```
 
@@ -109,7 +109,7 @@ Java). Your query must call the class by the description.
 FIRST_NAME                LAST_NAME                 PHONE
 ------------------------- ------------------------- ---------------
 Edwin                     Allende                   203-555-5555
-J.                          Dalvi                     203-555-5555
+J.                        Dalvi                     203-555-5555
 Bessie                    Heedles                   201-555-5555
 Victor                    Meshaj                    203-555-5555
 ```
