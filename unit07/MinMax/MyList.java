@@ -7,33 +7,41 @@ public class MyList implements MinMax {
     private static Random generator = new Random();
 
     public MyList() {
-        for (int item : numbers) {
-            item = generator.nextInt(100) + 1;
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = generator.nextInt(100) + 1;
         }
     }
 
-    public int getMin(int[] arr) {
-        int min = arr[0];
-        for (int item : arr) {
+    public int getMin() {
+        int min = this.numbers[0];
+        for (int item : this.numbers) {
             if (item < min) {
-                min = num;
+                min = item;
             }
         }
         return min;
     }
 
-    public int getMax(int[] arr) {
-        int max = arr[0];
-        for (int item : arr) {
+    public int getMax() {
+        int max = this.numbers[0];
+        for (int item : this.numbers) {
             if (item > max) {
-                max = num;
+                max = item;
             }
         }
         return max;
     }
 
-    public String toString(int[] arr) {
-        return null;
+    public String toString() {
+        String out = "";
+        for (int item : this.numbers) {
+            out += " " + item;
+        }
+        return out;
+    }
+
+    public boolean hasDuplicates() {
+        return false;
     }
 
 }
