@@ -1,7 +1,10 @@
+package ZeroGame;
+
 import javax.swing.*;
 import java.awt.event.*;
 
 public class ZeroGameDisplay extends JPanel {
+	private static final long serialVersionUID = 1L;
 	private JFrame window = new JFrame("Zero Game");
 	private ZeroGame game = new ZeroGame();
 	private JLabel lblDisplay = new JLabel("Values: ");

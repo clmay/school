@@ -1,7 +1,9 @@
+package ZeroGame;
+
 import java.util.Random;
 
 public class ZeroGame {
-	private int numbers[];
+	private int[] numbers;
 	private static Random generator = new Random();
 
 	public ZeroGame() {
