@@ -20,12 +20,18 @@
 #include <stdlib.h>
 #include "employee.h"
 
+#define EMP_COUNT 5
+#define DEFAULT_WAGE 7.50
+
 // Main Function
-int main(int argc, char* argv[])
-{
-    Employee waldo;
-    Create_Employee(&waldo);
-    Calc_Pay(&waldo);
-    Display_Employee(&waldo);
+int main(int argc, char* argv[]) {
+    int id_counter = 1;
+    Employee employees[EMP_COUNT];
+    for(int i = 0; i < EMP_COUNT; i++) {
+        Create_Employee(&employees[i], id_counter);
+        Calc_Pay(&employees[i]);
+        Display_Employee(&employees[i]);
+        id_counter++;
+    }
     return 0;
 }

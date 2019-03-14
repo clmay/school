@@ -33,7 +33,7 @@ typedef struct Employee {
 } Employee;
 
 // Function Prototypes
-void Create_Employee(Employee* e);
+void Create_Employee(Employee* e, int id_num);
 void Calc_Pay(Employee* e);
 void Display_Employee(const Employee* e);
 double Calc_Gross(Employee* e);

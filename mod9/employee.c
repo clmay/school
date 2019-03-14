@@ -22,9 +22,9 @@
 #include "employee.h"
 
 // Function Definitions
-void Create_Employee(Employee* e) {
-    e->id = 1;
-    e->wage = 7.50;
+void Create_Employee(Employee* e, int id_number) {
+    e->id = id_number;
+    e->wage = 7.50 * (e->id / 2.0);
     e->hours = 20.00;
     e->tax_rate = TAXRATE1;
 }
