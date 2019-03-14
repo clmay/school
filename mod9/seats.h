@@ -30,6 +30,7 @@ typedef struct Seat_struct
     int amountPaid;
 } Seat;
 
+char PrintMenu();
 void SeatMakeEmpty(Seat* seat); // pass by reference
 bool SeatIsEmpty(Seat seat); // pass by value
 void SeatPrint(Seat seat); // pass by value

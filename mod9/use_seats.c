@@ -19,47 +19,47 @@
 #include <stdio.h>
 #include "seats.h"
 
+// Constats & globals
+const int NUM_SEATS = 5;
+
 int main(void)
 {
-    const int NUM_SEATS = 5;
-    char userKey;
-    int seatNum;
+    char userKey = '-';
+    int seatNum = 0;
     Seat allSeats[NUM_SEATS];
     Seat currSeat;
-
-    userKey = '-';
-    seatNum = 0;
-
+    // Initialize empty array
     SeatsMakeEmpty(allSeats, NUM_SEATS);
 
-    while (userKey != 'q')
-    {
-        printf("Enter command (p/r/q): \n");
-        scanf(" %c", &userKey);
+    while (userKey != 'q') {
+        userKey = PrintMenu();
 
-        if (userKey == 'p')
-        { // Print seats
+        if (userKey == 'p') { // Print seats
             SeatsPrint(allSeats, NUM_SEATS);
             printf("\n");
         }
-        else if (userKey == 'r')
-        { // Reserve seat
+        else if (userKey == 'r') { // Reserve seat
             printf("Enter seat num: \n");
             scanf("%d", &seatNum);
 
+            // Ensure seat is available
             if (!SeatIsEmpty(allSeats[seatNum]))
             {
+                // If seat is taken
                 printf("Seat not empty.\n\n");
             }
             else
             {
+                // If seat is vacant
                 printf("Enter first name: \n");
                 scanf("%s", currSeat.firstName);
                 printf("Enter last name: \n");
                 scanf("%s", currSeat.lastName);
-                printf("Enter amount paid: \n");
+                printf("Enter amount paid (whole $): \n");
                 scanf("%d", &currSeat.amountPaid);
 
+                // Set the value of a single array member to the values of the
+                // current seat
                 allSeats[seatNum] = currSeat;
 
                 printf("Completed.\n\n");
@@ -74,7 +74,7 @@ int main(void)
         {
             printf("Invalid command.\n\n");
         }
-    }
+    } // end while
 
     return 0;
 }

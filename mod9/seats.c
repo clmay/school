@@ -1,6 +1,16 @@
 #include <stdio.h>
 #include "seats.h"
 
+char PrintMenu() {
+    char input;
+    printf("Enter command:\n");
+    printf("   'p' to print\n");
+    printf("   'r' to reserve seat\n");
+    printf("   'q' to quit\n");
+    scanf(" %c", &input);
+    return input;
+}
+
 /*** Functions for Seat ***/
 void SeatMakeEmpty(Seat* seat)
 {
