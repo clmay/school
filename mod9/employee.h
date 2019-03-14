@@ -3,7 +3,7 @@
  *
  *       Filename:  employee.h
  *
- *    Description:  
+ *    Description:  Employee library
  *
  *        Version:  1.0
  *        Created:  02/28/2019 09:03:59 AM
@@ -15,6 +15,8 @@
  * =====================================================================================
  */
 #ifndef EMPLOYEE__INC__
+#define EMPLOYEE__INC__
+
 #include <stdio.h>
 #include <stdlib.h>
 
