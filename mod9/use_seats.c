@@ -65,7 +65,15 @@ int main(void)
                 printf("Completed.\n\n");
             }
         }
-        // FIXME: Add option to delete reservations
+        else if (userKey == 'c') { // Cancel a reservation
+            printf("Enter seat num: \n");
+            scanf("%d", &seatNum);
+            if (!SeatIsEmpty(allSeats[seatNum])) {
+                SeatMakeEmpty(&allSeats[seatNum]);
+            } else {
+                printf("Seat is empty.\n\n");
+            }
+        }
         else if (userKey == 'q')
         { // Quit
             printf("Quitting.\n");
