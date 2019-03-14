@@ -113,7 +113,7 @@ void ShortenSpace(char str[]) {
     for (int i = 0; str[i] != '\0'; i++) {
         if (str[i] == ' ' && str[i + 1] == ' ') {
             for (int j = i; str[j] != '\0'; j++) {
-                str[i] = str[i + 1];
+                str[j] = str[j + 1];
             }
         }
     }
