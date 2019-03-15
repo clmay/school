@@ -52,7 +52,7 @@ STUDENT_ID LAST_NAME    FIRST_NAME
 ```
 
 6. List the first and last names of the students who have enrolled in the fewest
-   Sophomore (200 level) classes. Order by last name of the student
+   Sophomore (200 level) classes. Order by last name of the student.
 
 ```
 FIRST_NAME                LAST_NAME
@@ -90,7 +90,7 @@ Salewa                    Zuckerberg
 
 9. List the first and last names of students are in trouble of failing section
    87 because they received a score on the final exam that was below the average of
-   the rest of the class for that final exam. Order the list by last name
+   the rest of the class for that final exam. Order the list by last name.
 
 ```
 FIRST_NAME                LAST_NAME
