@@ -12,9 +12,9 @@
 
 3.  List the city and state that have the highest number of students enrolled.
 
-    Show the city and state that have:
-    (Show the MAX of the students from:
-    (Show how many students are enrolled per city and state))
+        Show the city and state that has:
+            (Show the MAX of the students from:
+                (Show how many students are enrolled per city and state))
 
 4.  Provide the student_id, name and final exam grade of the student(s) that
     received the lowest score on the final exam (FI) in course section 81.
