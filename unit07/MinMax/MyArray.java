@@ -2,11 +2,11 @@ package MinMax;
 
 import java.util.Random;
 
-public class MyList implements MinMax {
+public class MyArray implements MinMax {
     private int[] numbers = new int[20];
     private static Random generator = new Random();
 
-    public MyList() {
+    public MyArray() {
         for (int i = 0; i < numbers.length; i++) {
             numbers[i] = generator.nextInt(100) + 1;
         }

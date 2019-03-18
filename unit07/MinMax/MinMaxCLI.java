@@ -8,7 +8,7 @@ public class MinMaxCLI {
     public MinMaxCLI() {
         String choice = "";
         while (choice != "Q") {
-            MyList list = new MyList();
+            MyArray list = new MyArray();
             System.out.println("Values: " + list.toString());
             System.out.println("Min: " + list.getMin());
             System.out.println("Max: " + list.getMax());
