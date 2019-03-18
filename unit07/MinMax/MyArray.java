@@ -41,7 +41,15 @@ public class MyArray implements MinMax {
     }
 
     public boolean hasDuplicates() {
-        return false;
+        boolean out = false;
+        for (int first : this.numbers) {
+            for (int second : this.numbers) {
+                if (first == second) {
+                    out = true;
+                }
+            }
+        }
+        return out;
     }
 
 }

@@ -6,14 +6,16 @@ public class MinMaxCLI {
     private static Scanner scan = new Scanner(System.in);
 
     public MinMaxCLI() {
-        String choice = "";
-        while (choice != "Q") {
-            MyArray list = new MyArray();
-            System.out.println("Values: " + list.toString());
-            System.out.println("Min: " + list.getMin());
-            System.out.println("Max: " + list.getMax());
-            System.out.println("Press Enter to view a new list, or Q to Quit.");
-            choice = scan.nextLine();
+        char choice = ' ';
+        while (choice != 'Q' && choice != 'q') {
+            MyArray arr = new MyArray();
+            System.out.println("Values: " + arr.toString());
+            System.out.println("Min: " + arr.getMin());
+            System.out.println("Max: " + arr.getMax());
+            String dupes = String.valueOf(arr.hasDuplicates()).substring(0, 1).toUpperCase() + String.valueOf(arr.hasDuplicates()).substring(1);
+            System.out.println("Has duplicates? " + dupes);
+            System.out.println("Press Enter to view a new list, or Q to quit.");
+            choice = scan.nextLine().charAt(0);
         }
     }
 
