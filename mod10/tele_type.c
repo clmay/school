@@ -32,6 +32,7 @@ struct TeleType {
 typedef struct TeleType Tele;
 
 // Function Prototypes
+void DisplayTele(Tele* content);
 
 // Main Function
 int main(int argc, char* argv[])
@@ -44,11 +45,14 @@ int main(int argc, char* argv[])
     t2.next = &t3;
     t3.next = NULL;
 
- // printf("%s\n%s\n", (*first).name, (*first).phone);
-    printf("%s\n%s\n", t1.name, t1.next->name);
-    printf("%s\n", t2.next->name);
+    DisplayTele(&t1);
     return 0;
 }
 // Function Definitions
-
+void DisplayTele(Tele* content) {
+    while(content != NULL) {
+        printf("%-30s %-20s\n", content->name, content->phone);
+        content = content->next;
+    }
+}
 
