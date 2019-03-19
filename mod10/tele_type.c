@@ -23,10 +23,14 @@
 #define MAXNAME 30
 #define MAXPHONE 15
 
-typedef struct TeleType_struct {
+struct TeleType {
     char name[MAXNAME];
     char phone[MAXPHONE];
-} Tele;
+    struct TeleType* next; // always make the last field on the structure
+};
+
+typedef struct TeleType Tele;
+
 // Function Prototypes
 
 // Main Function
@@ -35,10 +39,14 @@ int main(int argc, char* argv[])
     Tele t1 = {"Smith, John", "801-555-1234"};
     Tele t2 = {"Martinez, Tino", "801-555-5678"};
     Tele t3 = {"Weber, Waldo", "801-555-9012"};
-    Tele* first; // pointer to structure address
-    first = &t1;
+
+    t1.next = &t2;
+    t2.next = &t3;
+    t3.next = NULL;
+
  // printf("%s\n%s\n", (*first).name, (*first).phone);
-    printf("%s\n%s\n", first->name, first->phone);
+    printf("%s\n%s\n", t1.name, t1.next->name);
+    printf("%s\n", t2.next->name);
     return 0;
 }
 // Function Definitions
