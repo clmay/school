@@ -46,7 +46,7 @@ int main(int argc, char const *argv[])
     PrintItemCost(item1);
     PrintItemCost(item2);
     printf("\nTotal: $%d\n", item1.itemPrice * item1.itemQuantity 
-                          + item2.itemPrice * item2.itemQuantity
+                           + item2.itemPrice * item2.itemQuantity
                         );
 
     return 0;
