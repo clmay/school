@@ -9,7 +9,7 @@ public class ZeroGame {
 	public ZeroGame() {
 		// Instantiate the array of 10 values and fill them with the numbers 0 through 9
 		// Then mix the numbers up so they are out of order
-		for (int i = 1; i <= numbers.length; i++) {
+		for (int i = 0; i < numbers.length; i++) {
 			numbers[i] = i;
 		}
 		for (int i = 0; i < numbers.length; i++) {
