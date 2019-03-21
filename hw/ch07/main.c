@@ -23,9 +23,12 @@ int main(int argc, char const *argv[])
 
     cart = AddItem(item1, cart);
     PrintTotal(cart);
-
+    printf("\n");
+    printf("Total units in cart: %d\n", GetNumItemsInCart(cart));
+    
     cart = RemoveItem("Nike Romaleos", cart);
     PrintTotal(cart);
+    printf("\n");
 
     return 0;
 }
