@@ -33,10 +33,37 @@ int main(int argc, char const *argv[]) {
     // Print initial information
     printf("\nCustomer Name: %s\n", cart.customerName);
     printf("Today's Date: %s\n", cart.currentDate);
-    
+    PrintMenu(cart);
+
     return 0;
 }
 
 void PrintMenu(ShoppingCart cart) {
-    return;
+    char choice = ' ';
+    do {
+        printf("\nMENU\n");
+        printf("a - Add item to cart\n");
+        printf("r - Remove item from cart\n");
+        printf("c - Change item quantity\n");
+        printf("i - Output items' descriptions\n");
+        printf("o - Output shopping cart\n");
+        printf("q - Quit\n\n");
+        printf("Choose an option: ");
+        scanf(" %c", &choice);
+
+        switch (choice) {
+            case 'q':
+                break;
+            case 'a':
+                break;
+            case 'r':
+                break;
+            case 'c':
+                break;
+            case 'i':
+                break;
+            case 'o':
+                break;
+        }
+    } while (choice != 'q');
 }
