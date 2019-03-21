@@ -25,31 +25,61 @@
 typedef struct Student {
     int id;
     char name[50];
+    struct Student* next;
 } Student;
 
 // Function Prototypes
-void AddStudent(Student* student, char name[], int id);
+void CreateStudent(Student* student, char name[], int id);
+void LinkStudents(Student* curr_student, Student* next_student);
 void DisplayStudent(const Student* student);
 
 // Main Function
 int main(int argc, char* argv[]) {
-    int id = 0;
+    int id = 1;
     char name[MAX] = "";
-    Student student;
+    char choice = 'y';
+    char tmp;
+    Student* head = NULL;
+    Student* curr = NULL;
+    Student* next = NULL;
 
-    printf("Enter the student's first name: ");
-    fgets(name, MAX, stdin);
-    name[strlen(name) - 1] = '\0';
-    AddStudent(&student, name, id + 1);
-    DisplayStudent(&student);
+    while(choice == 'y'){
+        next = (Student*)malloc(sizeof(Student));
+        if (curr == NULL) {
+            head = next;
+        } else {
+            LinkStudents(curr, next);
+        }
+        printf("\nEnter the student's first name: ");
+        fgets(name, MAX, stdin);
+        name[strlen(name) - 1] = '\0';
+        CreateStudent(next, name, id);
+        printf("Would you like to enter another student record? y/n ");
+        scanf(" %c%c", &choice, &tmp);
+        curr = next;
+        id++;
+    }
+    
+    curr = head;
+    while (curr != NULL) {
+        DisplayStudent(curr);
+        curr = curr->next;
+    }
+
     return 0;
 }
 // Function Definitions
-void AddStudent(Student* student, char name[], int id) {
+void CreateStudent(Student* student, char name[], int id) {
     // Initialize a Student structure
     strcpy(student->name, name);
     student->id = id;
+    student->next = NULL;
     return;
+}
+
+void LinkStudents(Student* current, Student* next) {
+    // Link one student structure to the next
+    current->next = next;
 }
 
 void DisplayStudent(const Student* student) {
