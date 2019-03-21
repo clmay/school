@@ -59,7 +59,7 @@ int main(int argc, char* argv[]) {
         curr = next;
         id++;
     }
-    
+    printf("\n");
     curr = head;
     while (curr != NULL) {
         DisplayStudent(curr);
