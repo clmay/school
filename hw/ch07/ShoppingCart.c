@@ -58,5 +58,10 @@ void PrintTotal(ShoppingCart cart) {
 
 void PrintDescriptions(ShoppingCart cart) {
     // Outputs each item's description
+    printf("%s's Shopping Cart - %s\n\n", cart.customerName, cart.currentDate);
+    printf("Item Descriptions");
+    for (int i = 0; i < cart.cartSize; i++) {
+        PrintItemDescription(cart.cartItems[i]);
+    }
     return;
 }
