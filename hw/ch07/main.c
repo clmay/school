@@ -4,8 +4,7 @@
 #include "ShoppingCart.h"
 #include "ItemToPurchase.h"
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const *argv[]) {
     ShoppingCart cart;
     // Initialize ShoppingCart
     strcpy(cart.customerName, "John Doe");
@@ -25,7 +24,7 @@ int main(int argc, char const *argv[])
     PrintTotal(cart);
     printf("\n");
     printf("Total units in cart: %d\n", GetNumItemsInCart(cart));
-    
+
     cart = RemoveItem("Nike Romaleos", cart);
     PrintTotal(cart);
     printf("\n");
