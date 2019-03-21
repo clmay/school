@@ -4,12 +4,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MAX_NAME_LEN 50
-#define MAX_DESC_LEN 100
+#define ITEM_NAME_LEN 50
+#define ITEM_DESC_LEN 100
 
 typedef struct ItemToPurchase {
-    char itemName[MAX_NAME_LEN];
-    char itemDescription[MAX_DESC_LEN];
+    char itemName[ITEM_NAME_LEN];
+    char itemDescription[ITEM_DESC_LEN];
     int itemPrice;
     int itemQuantity;
 } ItemToPurchase;
