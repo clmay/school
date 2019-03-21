@@ -15,11 +15,16 @@ int main(int argc, char const *argv[])
     ItemToPurchase item1;
     // Initialize an ItemToPurchase
     strcpy(item1.itemName, "Nike Romaleos");
+    strcpy(item1.itemDescription, "Some kind of shoes");
     item1.itemQuantity = 2;
     item1.itemPrice = 189;
 
     PrintTotal(cart);
+
     cart = AddItem(item1, cart);
+    PrintTotal(cart);
+
+    cart = RemoveItem("Nike Romaleos", cart);
     PrintTotal(cart);
 
     return 0;
