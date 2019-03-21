@@ -21,7 +21,7 @@ ShoppingCart RemoveItem(char item_name[], ShoppingCart cart); // Removes an item
 ShoppingCart ModifyItem(ItemToPurchase item, ShoppingCart cart); // Modifies contents (name, qty, etc.) of an item in cart
 int GetNumItemsInCart(ShoppingCart cart); // Returns the total quantity of items in a cart
 int GetCostOfCart(ShoppingCart cart); // Returns the total cost of items in a cart
-void PrintTotal(ShoppingCart cart); // Outputs total of objects in cart (?)
+void PrintTotal(ShoppingCart cart); // Outputs total number of items in cart
 void PrintDescriptions(ShoppingCart cart); // Outputs each item's description
 
 #endif

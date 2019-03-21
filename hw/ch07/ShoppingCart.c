@@ -47,7 +47,7 @@ int GetCostOfCart(ShoppingCart cart) {
 }
 
 void PrintTotal(ShoppingCart cart) {
-    // Outputs total of objects in cart (?)
+    // Outputs total number of items in cart
     printf("%s's Shopping Cart - %s\n", cart.customerName, cart.currentDate);
     printf("Number of Items: %d\n\n", cart.cartSize);
     for (int i = 0; i < cart.cartSize; i++) {
