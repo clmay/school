@@ -3,13 +3,6 @@
 #include <string.h>
 #include "ShoppingCart.h"
 
-// typedef struct ShoppingCart {
-//     char customerName[50];
-//     char currentDate[50];
-//     int cartSize;
-//     ItemToPurchase cartItems[10];
-// } ShoppingCart;
-
 ShoppingCart AddItem(ItemToPurchase item, ShoppingCart cart) {
     // Adds an item to cart
     return cart;
@@ -37,7 +30,11 @@ int GetCostOfCart(ShoppingCart cart) {
 
 void PrintTotal(ShoppingCart cart) {
     // Outputs total of objects in cart (?)
-    return;
+    printf("%s's Shopping Cart - %s\n", cart.customerName, cart.currentDate);
+    printf("Number of Items: %d\n\n", cart.cartSize);
+    for(int i = 0; i < cart.cartSize; i++) {
+        PrintItemCost(cart.cartItems[i]);
+    }
 }
 
 void PrintDescriptions(ShoppingCart cart) {
