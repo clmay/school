@@ -29,7 +29,11 @@ ShoppingCart ModifyItem(ItemToPurchase item, ShoppingCart cart) {
 
 int GetNumItemsInCart(ShoppingCart cart) {
     // Returns the total quantity of items in a cart
-
+    int count = 0;
+    for (int i = 0; i < cart.cartSize; i++) {
+        count += cart.cartItems[i].itemQuantity;
+    }
+    return count;
     return 0;
 }
 
