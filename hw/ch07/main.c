@@ -6,6 +6,8 @@
 
 #define CUST_NAME_LEN 50
 #define CURR_DATE_LEN 20
+#define ITEM_NAME_LEN 50
+#define ITEM_DESC_LEN 100
 
 void PrintMenu(ShoppingCart cart);
 void MenuAddItem(ShoppingCart cart);
@@ -44,22 +46,27 @@ int main(int argc, char const *argv[]) {
 }
 
 void PrintMenu(ShoppingCart cart) {
-    char choice = ' ';
+    char choice;
+    char throwaway;
+
+    printf("\nMENU\n");
+    printf("a - Add item to cart\n");
+    printf("r - Remove item from cart\n");
+    printf("c - Change item quantity\n");
+    printf("i - Output items' descriptions\n");
+    printf("o - Output shopping cart\n");
+    printf("q - Quit\n\n");
+    
     do {
-        printf("\nMENU\n");
-        printf("a - Add item to cart\n");
-        printf("r - Remove item from cart\n");
-        printf("c - Change item quantity\n");
-        printf("i - Output items' descriptions\n");
-        printf("o - Output shopping cart\n");
-        printf("q - Quit\n\n");
         printf("Choose an option: ");
-        scanf(" %c", &choice);
+        scanf(" %c%c", &choice, &throwaway);
 
         switch (choice) {
             case 'q':
                 break;
             case 'a':
+                MenuAddItem(cart);
+                PrintMenu(cart);
                 break;
             case 'r':
                 break;
@@ -74,7 +81,30 @@ void PrintMenu(ShoppingCart cart) {
 }
 
 void MenuAddItem(ShoppingCart cart) {
-    return;
+    char item_name[ITEM_NAME_LEN];
+    char item_desc[ITEM_DESC_LEN];
+    int item_price = 0;
+    int item_qty = 0;
+    ItemToPurchase item;
+
+    printf("ADD ITEM TO CART\n");
+
+    printf("Enter the item name:\n");
+    fgets(item_name, ITEM_NAME_LEN, stdin);
+    item_name[strlen(item_name) - 1] = '\0';
+    strcpy(item.itemName, item_name);
+
+    printf("Enter the item description:\n");
+    fgets(item_desc, ITEM_DESC_LEN, stdin);
+    item_desc[strlen(item_desc) - 1] = '\0';
+    strcpy(item.itemDescription, item_desc);
+
+    printf("Enter the item price:\n");
+    scanf(" %d", &item_price);
+    printf("Enter the item quantity:\n");
+    scanf(" %d", &item_qty);
+
+    AddItem(item, cart);
 }
 
 void MenuRemoveItem(ShoppingCart cart) {
