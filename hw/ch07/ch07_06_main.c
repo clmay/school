@@ -6,8 +6,7 @@
 #define NAME_SIZE 50
 #define NUM_ITEMS 2
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const *argv[]) {
     char name1[NAME_SIZE];
     char name2[NAME_SIZE];
     int price = 0;

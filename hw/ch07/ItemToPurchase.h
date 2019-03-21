@@ -1,5 +1,5 @@
-#ifndef EMPLOYEE__INC__
-#define EMPLOYEE__INC__
+#ifndef ITEMTOPURCHASE__INC__
+#define ITEMTOPURCHASE__INC__
 
 #include <stdio.h>
 #include <stdlib.h>
