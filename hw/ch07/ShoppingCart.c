@@ -5,6 +5,8 @@
 
 ShoppingCart AddItem(ItemToPurchase item, ShoppingCart cart) {
     // Adds an item to cart
+    cart.cartItems[cart.cartSize] = item;
+    cart.cartSize++;
     return cart;
 }
 
