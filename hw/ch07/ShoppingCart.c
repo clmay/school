@@ -12,6 +12,13 @@ ShoppingCart AddItem(ItemToPurchase item, ShoppingCart cart) {
 
 ShoppingCart RemoveItem(char item_name[], ShoppingCart cart) {
     // Removes an item from cart
+    for (int i = 0; i < cart.cartSize; i++) {
+        if (strcmp(item_name, cart.cartItems[i].itemName) == 0) {
+            MakeItemBlank(&cart.cartItems[i]);
+            cart.cartSize--;
+        }
+    }
+    
     return cart;
 }
 
@@ -22,21 +29,27 @@ ShoppingCart ModifyItem(ItemToPurchase item, ShoppingCart cart) {
 
 int GetNumItemsInCart(ShoppingCart cart) {
     // Returns the total quantity of items in a cart
+
     return 0;
 }
 
 int GetCostOfCart(ShoppingCart cart) {
     // Returns the total cost of items in a cart
-    return 0;
+    int total = 0;
+    for (int i = 0; i < cart.cartSize; i++) {
+        total += cart.cartItems[i].itemPrice * cart.cartItems[i].itemQuantity;
+    }
+    return total;
 }
 
 void PrintTotal(ShoppingCart cart) {
     // Outputs total of objects in cart (?)
     printf("%s's Shopping Cart - %s\n", cart.customerName, cart.currentDate);
     printf("Number of Items: %d\n\n", cart.cartSize);
-    for(int i = 0; i < cart.cartSize; i++) {
+    for (int i = 0; i < cart.cartSize; i++) {
         PrintItemCost(cart.cartItems[i]);
     }
+    printf("\nTotal: $%d\n", GetCostOfCart(cart));
 }
 
 void PrintDescriptions(ShoppingCart cart) {
