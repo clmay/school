@@ -8,6 +8,11 @@
 #define CURR_DATE_LEN 20
 
 void PrintMenu(ShoppingCart cart);
+void MenuAddItem(ShoppingCart cart);
+void MenuRemoveItem(ShoppingCart cart);
+void MenuChangeItemQty(ShoppingCart cart);
+void MenuPrintDescriptions(ShoppingCart cart);
+void MenuOutputCart(ShoppingCart cart);
 
 int main(int argc, char const *argv[]) {
     // Declare variables
