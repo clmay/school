@@ -10,9 +10,9 @@
 #define ITEM_DESC_LEN 100
 
 void PrintMenu(ShoppingCart cart);
-void MenuAddItem(ShoppingCart cart);
-void MenuRemoveItem(ShoppingCart cart);
-void MenuChangeItemQty(ShoppingCart cart);
+ShoppingCart MenuAddItem(ShoppingCart cart);
+ShoppingCart MenuRemoveItem(ShoppingCart cart);
+ShoppingCart MenuChangeItemQty(ShoppingCart cart);
 void MenuPrintDescriptions(ShoppingCart cart);
 void MenuOutputCart(ShoppingCart cart);
 
@@ -20,6 +20,8 @@ int main(int argc, char const *argv[]) {
     // Declare variables
     char name[CUST_NAME_LEN];
     char date[CURR_DATE_LEN];
+    char choice = ' ';
+    char tmp;
     ShoppingCart cart;
 
     // Take user input: customer name
@@ -39,48 +41,53 @@ int main(int argc, char const *argv[]) {
 
     // Print initial information
     printf("\nCustomer Name: %s\n", cart.customerName);
-    printf("Today's Date: %s\n", cart.currentDate);
+    printf("Today's Date: %s\n\n", cart.currentDate);
+
     PrintMenu(cart);
+    do {
+        printf("Choose an option:\n");
+        scanf(" %c%c", &choice, &tmp);
+
+        switch (choice) {
+            case 'q':
+                break;
+            case 'a':
+                cart = MenuAddItem(cart);
+                PrintMenu(cart);
+                break;
+            case 'r':
+                cart = MenuRemoveItem(cart);
+                PrintMenu(cart);
+                break;
+            case 'c':
+                break;
+            case 'i':
+                MenuPrintDescriptions(cart);
+                PrintMenu(cart);
+                break;
+            case 'o':
+                MenuOutputCart(cart);
+                PrintMenu(cart);
+                break;
+            default:
+                break;
+        }
+    } while (choice != 'q');
 
     return 0;
 }
 
 void PrintMenu(ShoppingCart cart) {
-    char choice;
-    char throwaway;
-
-    printf("\nMENU\n");
+    printf("MENU\n");
     printf("a - Add item to cart\n");
     printf("r - Remove item from cart\n");
     printf("c - Change item quantity\n");
     printf("i - Output items' descriptions\n");
     printf("o - Output shopping cart\n");
     printf("q - Quit\n\n");
-    
-    do {
-        printf("Choose an option: ");
-        scanf(" %c%c", &choice, &throwaway);
-
-        switch (choice) {
-            case 'q':
-                break;
-            case 'a':
-                MenuAddItem(cart);
-                PrintMenu(cart);
-                break;
-            case 'r':
-                break;
-            case 'c':
-                break;
-            case 'i':
-                break;
-            case 'o':
-                break;
-        }
-    } while (choice != 'q');
 }
 
-void MenuAddItem(ShoppingCart cart) {
+ShoppingCart MenuAddItem(ShoppingCart cart) {
     char item_name[ITEM_NAME_LEN];
     char item_desc[ITEM_DESC_LEN];
     int item_price = 0;
@@ -100,25 +107,43 @@ void MenuAddItem(ShoppingCart cart) {
     strcpy(item.itemDescription, item_desc);
 
     printf("Enter the item price:\n");
-    scanf(" %d", &item_price);
-    printf("Enter the item quantity:\n");
-    scanf(" %d", &item_qty);
+    scanf("%d", &item_price);
+    item.itemPrice = item_price;
 
-    AddItem(item, cart);
+    printf("Enter the item quantity:\n\n");
+    scanf("%d", &item_qty);
+    item.itemQuantity = item_qty;
+
+    cart = AddItem(item, cart);
+    return cart;
 }
 
-void MenuRemoveItem(ShoppingCart cart) {
-    return;
+ShoppingCart MenuRemoveItem(ShoppingCart cart) {
+    char item_name[ITEM_NAME_LEN];
+
+    printf("REMOVE ITEM FROM CART\n");
+    printf("Enter name of item to remove:\n");
+    scanf(" %s", item_name);
+    for (int i = 0; i < cart.cartSize; i++) {
+        if (strcmp(item_name, cart.cartItems[i].itemName) == 0) {
+            cart = RemoveItem(item_name, cart);
+        } else {
+            printf("Item not found in cart. Nothing removed.\n\n");
+        }
+    }
+    return cart;
 }
 
-void MenuChangeItemQty(ShoppingCart cart) {
-    return;
+ShoppingCart MenuChangeItemQty(ShoppingCart cart) {
+    return cart;
 }
 
 void MenuPrintDescriptions(ShoppingCart cart) {
-    return;
+    printf("OUTPUT ITEMS' DESCRIPTIONS\n");
+    PrintDescriptions(cart);
 }
 
 void MenuOutputCart(ShoppingCart cart) {
-    return;
+    printf("OUTPUT SHOPPING CART\n");
+    PrintTotal(cart);
 }

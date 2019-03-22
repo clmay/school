@@ -14,11 +14,9 @@ ShoppingCart RemoveItem(char item_name[], ShoppingCart cart) {
     // Removes an item from cart
     for (int i = 0; i < cart.cartSize; i++) {
         if (strcmp(item_name, cart.cartItems[i].itemName) == 0) {
-            MakeItemBlank(&cart.cartItems[i]);
-            cart.cartSize--;
+            cart.cartItems[i].itemQuantity = 0;
         }
     }
-    
     return cart;
 }
 
@@ -49,19 +47,23 @@ int GetCostOfCart(ShoppingCart cart) {
 void PrintTotal(ShoppingCart cart) {
     // Outputs total number of items in cart
     printf("%s's Shopping Cart - %s\n", cart.customerName, cart.currentDate);
-    printf("Number of Items: %d\n\n", cart.cartSize);
-    for (int i = 0; i < cart.cartSize; i++) {
-        PrintItemCost(cart.cartItems[i]);
+    printf("Number of Items: %d\n\n", GetNumItemsInCart(cart));
+    if (GetNumItemsInCart(cart) == 0) {
+        printf("SHOPPING CART IS EMPTY\n");
+    } else {
+        for (int i = 0; i < cart.cartSize; i++) {
+            PrintItemCost(cart.cartItems[i]);
+        }
     }
-    printf("\nTotal: $%d\n", GetCostOfCart(cart));
+    printf("\nTotal: $%d\n\n", GetCostOfCart(cart));
 }
 
 void PrintDescriptions(ShoppingCart cart) {
     // Outputs each item's description
     printf("%s's Shopping Cart - %s\n\n", cart.customerName, cart.currentDate);
-    printf("Item Descriptions");
+    printf("Item Descriptions\n");
     for (int i = 0; i < cart.cartSize; i++) {
         PrintItemDescription(cart.cartItems[i]);
     }
-    return;
+    printf("\n");
 }
