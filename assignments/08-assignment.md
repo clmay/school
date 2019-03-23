@@ -1,5 +1,5 @@
 1. Write a statement that displays the first and last name of the students that
-   was the last to register for classes. Arrange by last name alphabetically
+   was the last to register for classes. Arrange by last name alphabetically.
 
 ```sql
 FIRST_NAME      LAST_NAME
@@ -29,7 +29,7 @@ Vera            Wetcel
 2. Show the description, section number, capacity and cost of the sections with
    the lowest course cost and the section capacity  lower than or equal to the
    overall average section capacity. Arrange the list by description then
-   section_no
+   section_no.
 
 ```sql
 DESCRIPTION                 SECTION_NO COST     CAPACITY
@@ -46,7 +46,7 @@ Unix Tips and Techniques            4   1095    15
 
 3. Select the course number and total capacity for each course. Show only those
    courses with a total capacity less than the average capacity of all sections.
-   Arrange the list by course number then total capacity
+   Arrange the list by course number then total capacity.
 
 ```sql
 COURSE_NO   TOTAL_CAPACITY
@@ -56,7 +56,7 @@ COURSE_NO   TOTAL_CAPACITY
 ```
 
 4. Choose most ambitious students by showing the student ID for those students
-   enrolled in the most sections. Arrange the list by student ID
+   enrolled in the most sections. Arrange the list by student ID.
 
 ```sql
 STUDENT_ID MOST_CLASSES
@@ -67,7 +67,7 @@ STUDENT_ID MOST_CLASSES
 
 5. Select the Student ID and section ID of enrolled students living in Zip Code
    11373. Arrange the list by Student ID then by Section ID. Order by student_id
-   then section ID
+   then section ID.
 
 ```sql
 STUDENT_ID SECTION_ID
@@ -129,7 +129,7 @@ Mei-Wah     Zopf
 
 8. Determine the name, course description, and section ID of the students who
    had the lowest Project (PJ) grade from all courses. Arrange the list by last
-   name then first name then description
+   name then first name then description.
 
 ```sql
 FIRST_NAME  LAST_NAME       DESCRIPTION                     SECTION_ID
@@ -141,7 +141,7 @@ Tamara      Zapulla         Intermediate Java Programming   155
 
 9. Select the sections that are full by comparing capacity to the number
    enrolled. Show the number enrolled, the section capacity and the section ID.
-   Order by number enrolled, then section ID
+   Order by number enrolled, then section ID.
 
 ```sql
 ENROLLED SECTION_ID CAPACITY
@@ -151,7 +151,7 @@ ENROLLED SECTION_ID CAPACITY
 ```
 
 10. Show the course number, description and cost of the cheapest courses.
-    Arrange the list by course number then description
+    Arrange the list by course number then description.
 
 ```sql
 COURSE_NO DESCRIPTION                   COST
