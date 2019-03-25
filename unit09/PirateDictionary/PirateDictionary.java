@@ -24,20 +24,22 @@ public class PirateDictionary {
     }
 
     public String toPirate(String word) {
+        String pirate;
         for (int i = 0; i < english.size(); i++) {
             if (english.get(i).equals(word)) {
-                return pirate.get(i);
+                pirate = pirate.get(i);
             } else {
-                return word;
+                pirate = word;
             }
         }
+        return pirate;
     }
 
     public String toPirateSentence(String sentence) {
         Scanner readSentence = new Scanner(sentence);
         String pirateSentence = "";
         while (readSentence.hasNext()) {
-            String word = scanSentence.next();
+            String word = readSentence.next();
             pirateSentence += toPirate(word) + " ";
         }
         return pirateSentence;
