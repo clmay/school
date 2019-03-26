@@ -19,6 +19,6 @@ void PrintItemCost(const ItemToPurchase* item) {
         );
 }
 
-void PrintItemDescription(const ItemToPurchase item) {
+void PrintItemDescription(const ItemToPurchase* item) {
     printf("%s: %s\n", item->itemName, item->itemDescription);
 }
