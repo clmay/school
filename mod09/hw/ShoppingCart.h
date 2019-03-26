@@ -16,12 +16,12 @@ typedef struct ShoppingCart {
     ItemToPurchase cartItems[MAX_CART_SIZE];
 } ShoppingCart;
 
-int GetNumItemsInCart(const ShoppingCart* cart); // Returns the total quantity of items in a cart
-int GetCostOfCart(const ShoppingCart* cart); // Returns the total cost of items in a cart
-void PrintTotal(const ShoppingCart* cart); // Outputs total number of items in cart
-void PrintDescriptions(const ShoppingCart* cart); // Outputs each item's description
-ShoppingCart AddItem(ItemToPurchase* item, ShoppingCart* cart); // Adds an item to cart
-ShoppingCart RemoveItem(char item_name[], ShoppingCart* cart); // Removes an item from cart
-ShoppingCart ModifyItem(ItemToPurchase* item, ShoppingCart* cart); // Modifies contents (name, qty, etc.) of an item in cart
+ShoppingCart AddItem(ItemToPurchase item, ShoppingCart cart); // Adds an item to cart
+ShoppingCart RemoveItem(char item_name[], ShoppingCart cart); // Removes an item from cart
+ShoppingCart ModifyItem(ItemToPurchase item, ShoppingCart cart); // Modifies contents (name, qty, etc.) of an item in cart
+int GetNumItemsInCart(ShoppingCart cart); // Returns the total quantity of items in a cart
+int GetCostOfCart(ShoppingCart cart); // Returns the total cost of items in a cart
+void PrintTotal(ShoppingCart cart); // Outputs total number of items in cart
+void PrintDescriptions(ShoppingCart cart); // Outputs each item's description
 
 #endif

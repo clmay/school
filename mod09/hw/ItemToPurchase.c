@@ -10,15 +10,15 @@ void MakeItemBlank(ItemToPurchase* item) {
     item->itemQuantity = 0;
 }
 
-void PrintItemCost(const ItemToPurchase* item) {
+void PrintItemCost(ItemToPurchase item) {
     printf("%s %d @ $%d = $%d\n"
-            , item->itemName
-            , item->itemQuantity
-            , item->itemPrice
-            , item->itemPrice * item->itemQuantity
+            , item.itemName
+            , item.itemQuantity
+            , item.itemPrice
+            , item.itemPrice * item.itemQuantity
         );
 }
 
-void PrintItemDescription(const ItemToPurchase* item) {
-    printf("%s: %s\n", item->itemName, item->itemDescription);
+void PrintItemDescription(ItemToPurchase item) {
+    printf("%s: %s\n", item.itemName, item.itemDescription);
 }
