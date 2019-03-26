@@ -17,7 +17,7 @@ public class ZeroGameDisplay extends JPanel {
 		lblDisplay.setBounds(20, 70, 200, 20);
 		btnLeft.setBounds(20, 120, 100, 20);
 		btnFlip.setBounds(140, 120, 100, 20);
-		btnRight.setBounds(260, 120, 100, 20);
+        btnRight.setBounds(260, 120, 100, 20);
 		add(btnRight);
 		add(btnLeft);
 		add(btnFlip);
