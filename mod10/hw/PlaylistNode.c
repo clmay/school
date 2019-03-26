@@ -46,6 +46,7 @@ void SetNextPlaylistNodeAfter(PlaylistNode* thisNode, PlaylistNode* nextNode) {
 
 PlaylistNode* GetNextPlaylistNode(PlaylistNode* thisNode) {
     // Return thisNode->nextNodePtr (the next node in the list)
+    return thisNode;
 }
 
 void PrintListNode(PlaylistNode* thisNode) {
