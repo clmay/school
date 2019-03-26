@@ -42,5 +42,10 @@ int main(int argc, char* argv[]) {
 }
 // Function Definitions
 void PrintMenu(char playlistTitle[]) {
-    printf("Welcome to my %s playlist.\n", playlistTitle);
+    printf("Welcome to my %s playlist.\n", playlistTitle); // TODO: comment this out before uploading to ZyBooks
+    // Create a number of temp variables to support data input and reference
+    // passing (use malloc() to allocate space for structures)
+
+    // Loop
+    // Print menu options
 }
