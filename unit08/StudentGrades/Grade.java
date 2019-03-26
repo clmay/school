@@ -1,17 +1,25 @@
 public class Grade {
     private String name;
-    private double grade;
+    private double score;
 
-    public Grade(String name, int grade) {
+    public Grade(String name, double score) {
         this.name = name;
-        this.grade = grade;
+        this.score = score;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public double getGrade() {
-        return this.grade;
+    public double getScore() {
+        return this.score;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setScore(double score) {
+        this.score = score;
     }
 }
