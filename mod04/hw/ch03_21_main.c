@@ -1,5 +1,3 @@
-// zyBooks, Chapter 3.21 (https://learn.zybooks.com/zybook/WEBERCS2250ValleSpring2019/chapter/3/section/21)
-
 #include <stdio.h>
 #include <string.h>
 
@@ -107,6 +105,6 @@ int main(void) {
 
   // Invoice total
   printf("\nTotal: $%d\n", invoice_total);
-
+  
   return 0;
 }
