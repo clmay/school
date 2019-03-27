@@ -23,26 +23,25 @@ public class PirateDictionary {
         }
     }
 
-    public String toPirate(String word) {
-        String pirate;
+    public String wordToPirate(String word) {
+        String pirateWord = word;
         for (int i = 0; i < english.size(); i++) {
-            if (english.get(i).equals(word)) {
-                pirate = pirate.get(i);
-            } else {
-                pirate = word;
+            if (english.get(i).equalsIgnoreCase(word)) {
+                pirateWord = pirate.get(i);
+                return pirateWord;
             }
         }
-        return pirate;
+        return pirateWord;
     }
 
-    public String toPirateSentence(String sentence) {
+    public String sentenceToPirate(String sentence) {
         Scanner readSentence = new Scanner(sentence);
         String pirateSentence = "";
         while (readSentence.hasNext()) {
             String word = readSentence.next();
-            pirateSentence += toPirate(word) + " ";
+            pirateSentence += wordToPirate(word) + " ";
         }
+        readSentence.close();
         return pirateSentence;
-        scanSentence.close();
     }
 }
