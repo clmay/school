@@ -30,15 +30,15 @@ typedef struct threeNumbers {
 
 // Main Function
 int main(int argc, char* argv[]) {
-    FILE *fptr;
+    FILE* fptr;
     int num;
     ThreeN nums;
 
-    if((fptr = fopen("program.bin", "wb")) == NULL) { // "wb" for 'write binary'
+    if ((fptr = fopen("program.bin", "wb")) == NULL) { // "wb" for 'write binary'
         printf("Error! Could not open file.\n");
         exit(1);
     }
-    for(int n = 1; n < 5; n++) {
+    for (int n = 1; n < 5; n++) {
         nums.n1 = n;
         nums.n2 = 5 * n;
         nums.n3 = 5 * n + 1;
