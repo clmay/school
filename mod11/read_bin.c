@@ -30,15 +30,15 @@ typedef struct threeNumbers {
 
 // Main Function
 int main(int argc, char* argv[]) {
-    FILE *fptr;
+    FILE* fptr;
     int num;
     ThreeN nums;
 
-    if((fptr = fopen("program.bin", "rb")) == NULL) { // "rb" for 'read binary'
+    if ((fptr = fopen("program.bin", "rb")) == NULL) { // "rb" for 'read binary'
         printf("Error! Could not open file.\n");
         exit(1);
     }
-    for(int n = 1; n < 5; n++) {
+    for (int n = 1; n < 5; n++) {
         // To read binary data, use `fread()`
         // fread(address, size, number, pointer to file);
         fread(&nums, sizeof(ThreeN), 1, fptr);

@@ -30,11 +30,11 @@ typedef struct threeNumbers {
 
 // Main Function
 int main(int argc, char* argv[]) {
-    FILE *fptr;
+    FILE* fptr;
     int num;
     ThreeN nums;
 
-    if((fptr = fopen("program.bin", "rb")) == NULL) { // "rb" for 'read binary'
+    if ((fptr = fopen("program.bin", "rb")) == NULL) { // "rb" for 'read binary'
         printf("Error! Could not open file.\n");
         exit(1);
     }
@@ -47,7 +47,7 @@ int main(int argc, char* argv[]) {
     
     // To read data backwards (at the record level):
     fseek(fptr, -sizeof(ThreeN), SEEK_END);
-    for(int n = 1; n < 5; n++) {
+    for (int n = 1; n < 5; n++) {
         fread(&nums, sizeof(ThreeN), 1, fptr);
         printf("n1: %d \t  n2: %d \t n3: %d\n", nums.n1, nums.n2, nums.n3);
         fseek(fptr, -2 * sizeof(ThreeN), SEEK_CUR);
@@ -55,4 +55,5 @@ int main(int argc, char* argv[]) {
     fclose(fptr);
     return 0;
 }
+
 // Function Definitions
