@@ -1,8 +1,7 @@
 /*
  * =====================================================================================
  *
- *       Filename:  students_io.c
- *
+ *       Filename:  read_students.c
  *    Description:  Create and read student records from file
  *
  *        Version:  1.0
@@ -10,7 +9,7 @@
  *       Revision:  none
  *       Compiler:  gcc students_io.c -o students_io.out [-lm]
  *          Usage:  ./students_io.out
- *  
+ *
  *         Author:  Chase May (), chasemay@mail.weber.edu
  *   Organization:  WSU
  *
