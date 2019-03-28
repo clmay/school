@@ -43,8 +43,8 @@ int main(int argc, char* argv[]) {
     // whences:
     // SEEK_SET: start the offset from beginning of file
     // SEEK_END: start the offset from the end of the file
-    // SEEK_CUR: starts the offset from the current location 
-
+    // SEEK_CUR: starts the offset from the current location
+    
     // To read data backwards (at the record level):
     fseek(fptr, -sizeof(ThreeN), SEEK_END);
     for(int n = 1; n < 5; n++) {
