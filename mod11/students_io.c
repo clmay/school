@@ -1,15 +1,24 @@
 /*
  * =====================================================================================
  *
+<<<<<<< HEAD
  *       Filename:  students_io.c
+=======
+ *       Filename:  read_students.c
+>>>>>>> 86cb35e4e01c6735124b81bdef7f3aeb1ac37848
  *
  *    Description:  Create and read student records from file
  *
  *        Version:  1.0
  *        Created:  02/28/2019 09:03:59 AM
  *       Revision:  none
+<<<<<<< HEAD
  *       Compiler:  gcc students_io.c -o students_io.out [-lm]
  *          Usage:  ./students_io.out
+=======
+ *       Compiler:  gcc read_students.c -o read_students.out [-lm]
+ *          Usage:  ./read_students.out
+>>>>>>> 86cb35e4e01c6735124b81bdef7f3aeb1ac37848
  *
  *         Author:  Chase May (), chasemay@mail.weber.edu
  *   Organization:  WSU
