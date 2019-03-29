@@ -16,7 +16,7 @@ SELECT
     c.cost,
     s.capacity
 FROM
-    course    c
+    course c
     INNER JOIN section   s ON s.course_no = c.course_no
 WHERE
     c.cost = (
