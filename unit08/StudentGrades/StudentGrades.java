@@ -11,7 +11,7 @@ public class StudentGrades {
         Scanner scan = new Scanner(System.in);
         ArrayList<Grade> grades = new ArrayList<>();
 
-        while (choice != 4) {
+        while (choice != 5) {
             printMenu();
             choice = Integer.parseInt(scan.nextLine());
             switch (choice) {
@@ -38,6 +38,7 @@ public class StudentGrades {
                     break;
             }
         }
+        scan.close();
     }
 
     public static void printMenu() {
