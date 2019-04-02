@@ -59,15 +59,18 @@ int main(int argc, char* argv[])
         {
             cout << "Password must be at least 8 characters" << endl;
             cout << "Please enter a longer password." << endl;
-        } else if (index == -1) // -1 means no matches found
+        }
+        else if (index == -1) // -1 means no matches found
         {
             cout << "Password must contain at least one number" << endl;
             cout << "Please enter a password with at least one number." << endl;
-        } else if (!special_char)
+        }
+        else if (!special_char)
         {
             cout << "Password must include a special character" << endl;
             cout << "Please enter a password with at least one special character." << endl;
-        } else
+        }
+        else
         {
             valid_password = true;
         }
