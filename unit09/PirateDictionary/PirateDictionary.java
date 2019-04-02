@@ -10,8 +10,8 @@ public class PirateDictionary {
 
     //  Constructor: loads the dictionary
     public PirateDictionary() {
-        File fileIn = new File(fileName);
         try {
+            File fileIn = new File(fileName);
             Scanner readFile = new Scanner(fileIn);
             while (readFile.hasNext()) {
                 english.add(readFile.nextLine());
