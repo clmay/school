@@ -22,8 +22,9 @@ using namespace std;
 // Constants & Globals
 struct Movie
 {
-    string title = "";
-    int year = 0;
+    string title = "";	// data member
+    int year = 0;	// data member
+    bool equals(const Movie&); // member function
 };
 
 // Function Prototypes
@@ -56,6 +57,15 @@ int main(int argc, char* argv[])
     {
         cout << "Movies are different." << endl;
     }
+
+    if (mov1.equals(mov2))
+    {
+	cout << "Movies are equal." << endl;
+    }
+    else
+    {
+    	cout << "Movies are different." << endl;
+    }
     
     return 0;
 }
@@ -64,4 +74,10 @@ bool Equals(const Movie& my_movie, const Movie& to_compare)
 {
     return (my_movie.title == to_compare.title &&
             my_movie.year == to_compare.year);
+}
+
+bool Movie::equals(const Movie& to_compare)
+{
+    return (title == to_compare.title &&
+	     year == to_compare.year);
 }
