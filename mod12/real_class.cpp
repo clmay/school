@@ -32,12 +32,41 @@ int main(int argc, char* argv[])
     // Get movies from user
     vector<Movie> movies;
     char another = 'y';
+    Movie movie;
+
     // Loop for entries
     while (tolower(another) == 'y')
     {
+	string title;
+	int year;
+
+	cout << "Title: ";
+	getline(cin, title);
+	movie.set_title(title);
+
+	cout << "Year: ";
+	cin >> year;
+	movie.set_year(year);
+
+	// Add it to the vector
+	movies.push_back(movie);
+
+
 	cout << endl << "Enter another movie? [y|n]";
 	cin >> another;
 	cin.ignore(); // ignore anything else in the buffer
+    }
+
+    const int w = 10;
+    
+    cout << left
+	<< setw(w*3) << "TITLE"
+	<< setw(w) << "YEAR" << endl;
+    for (Movie movie : movies)
+    {
+	cout << setw(w*3) << movie.get_title()
+	    << setw(w) << movie.get_year();
+    	cout << endl;
     }
 
     return 0;
