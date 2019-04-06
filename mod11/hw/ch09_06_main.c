@@ -29,7 +29,8 @@ int main(int argc, char* argv[])
         printf("Enter input string:\n");    // Prompts user for input
         fgets(input, MAX_LEN, stdin);       // Copies buffer into `input` string
         input[strlen(input) - 1] = '\0';    // Overwrites newline char with NULL char
-        if (has_comma(input) == false) {
+        if (has_comma(input) == false)
+        {
             // If there is no comma in the input, print error message
             printf("Error: No comma in string.\n\n");
         }
@@ -73,7 +74,8 @@ bool has_comma(const char* string)
     bool has_comma = false;
     for (int i = 0; i < strlen(string); i++)
     {
-        if (string[i] == ',') {
+        if (string[i] == ',')
+        {
             has_comma = true;
             break;
         }
@@ -110,7 +112,8 @@ int find_comma(const char* string)
     int i = 0;
     while (string[i] != '\0')
     {
-        if (string[i] == ',') {
+        if (string[i] == ',')
+        {
             return i;
         }
         i++;
