@@ -13,11 +13,11 @@ class MagicSquare {
      *  10  5  4 15
      */
 
-    private int mSquare[4][4] = { { 8, 11, 14,  1}
-                                , {13,  2,  7, 12}
-                                , { 3, 16,  9,  6}
-                                , {10,  5,  4, 15}
-                                };
+    private int[][] mSquare = { { 8, 11, 14,  1}
+                              , {13,  2,  7, 12}
+                              , { 3, 16,  9,  6}
+                              , {10,  5,  4, 15}
+                              };
 
     /*
      * 2. Using the array you just wrote, discuss with your neighbor what would be
@@ -27,14 +27,19 @@ class MagicSquare {
      * mSquare[1][4]
      */
 
-
+    // a. mSquare[1][2] == 7
+    // b. mSquare[3][1] == 5
+    // c. mSquare[1][4] == Error
 
     /*
      * 3. Examine the following rowSum() method. Discuss with your neighbor the
      * following: a. What positions of the 2d array are getting added together? b.
-     * What do you think will be the final value of sum? c. Remove the comment for
+     * What do you think will be the final value of sum? Remove the comment for
      * question 3 and run the program to check your answer
      */
+
+    // a. The method is summing the values in each column of a given row.
+    // b. mSquare.rowSum() == 34
 
     public int rowSum() {
         int rowSum = 0;
@@ -51,7 +56,11 @@ class MagicSquare {
      */
 
     public int colSum() {
-        return 0;
+        int colSum = 0;
+        for (int r = 0; r < mSquare.length; r++) {
+            colSum += mSquare[r][0];
+        }
+        return colSum;
     }
 
     /*
@@ -64,6 +73,15 @@ class MagicSquare {
      * think this method does? h. Would this method return true or false, remove the
      * comment for number 5 below to check your answer.
      */
+
+    // a. currRow starts at 0
+    // b. Outer loop is iterating over rows
+    // c. Inner loop is iterating over columns
+    // d. After first iteration of inner loop, currRow == 34
+    // e. rowSum() == 34
+    // f. In order to reset currRow for the next iteration of the loop, on the next row.
+    // g. Tests to see if the sum of items in each row is the same as the sum of items in the first row
+    // h. allRowsEqual() == true
 
     public boolean allRowsEqual() {
         int currRow = 0;
@@ -85,7 +103,17 @@ class MagicSquare {
      */
 
     public boolean allColsEqual() {
-        return false;
+        int currCol = 0;
+        for (int c = 0; c < mSquare[0].length; c++) {
+            for (int r = 0; r < mSquare.length; r++) {
+                currCol += mSquare[r][c];
+            }
+            if (currCol != colSum()) {
+                return false;
+            }
+            currCol = 0;
+        }
+        return true;
     }
 
     /*
@@ -96,6 +124,12 @@ class MagicSquare {
      * getting added to diagLeft? e. What would be returned by this method? Remove
      * the comment for #7 below to check your answer.
      */
+
+    // a. mSquare.length == 4
+    // b. i goes through [0, 1, 2, 3]
+    // c. (mSquare.length - i - 1) goes through [3, 2, 1, 0]
+    // d. mSquare[0][3] + mSquare[1][2] + mSquare[2][1] + mSquare[3][0]
+    // e. diagLeft() == 34
 
     public int diagLeft() {
         int diagLeft = 0;
@@ -109,24 +143,31 @@ class MagicSquare {
      * 8. Discuss with your neighbor the following: a. What positions would be used
      * to add the values of the array diagonally the right? b. Complete the method
      * below to return the sum of the values in the array diagonally to the right.
-     * c. Remove the comment for #8 below to make sure it works.
+     * Remove the comment for #8 below to make sure it works.
      */
 
+    // a. mSquare[0][0] + mSquare[1][1] + mSquare[2][2] + mSquare[3][3]
+
     public int diagRight() {
-        return 0;
+        int diagRight = 0;
+        for (int i = 0; i < mSquare.length; i++) {
+            diagRight += mSquare[i][i];
+        }
+        return diagRight;
     }
 
     /*
      * 9. At this point your program should work. If the label says it is a Magic
      * Square, then it totally works. If not, go back and check your work.
      */
+
+    
     /*
-     * 10. Scroll all the way down to main remove the comment to try out different
-     * values
+     * 10. Scroll all the way down to main and remove the comment to try out
+     * different values
      */
 
     // Constructor: Creates the object
-
     public MagicSquare() {
 
     }
@@ -183,7 +224,7 @@ class MagicSquare {
                         };
         MagicSquare s2 = new MagicSquare(test2);
         System.out.println("Test 2");
-        System.out.println(s1);
+        System.out.println(s2);
         System.out.println("Your Results: " + s2.isMagicSquare());
         System.out.println(s2.isMagicSquare() ?
             "Correct, this is a magic square\n" : "Oops, this was a magic square\n"
@@ -196,7 +237,7 @@ class MagicSquare {
                         };
         MagicSquare s3 = new MagicSquare(test3);
         System.out.println("Test 3");
-        System.out.println(s1);
+        System.out.println(s3);
         System.out.println("Your Results: " + s3.isMagicSquare());
         System.out.println(s3.isMagicSquare() ?
             "Oops, this is a magic square\n" : "Correct, this was not a magic square\n"
@@ -213,31 +254,31 @@ class MagicSquare {
 
         /* 2. Remove the comment below to see the answers to #2 */
         
-        // m.Question2();
+        m.Question2();
 
         /* 3. Remove the comment below to see the answers to #3 */
 
-        // System.out.println("Question 3: sum: " + m.rowSum());
+        System.out.println("Question 3: sum: " + m.rowSum());
 
         /* 4. Remove the comment below to see the answers to #4 */
 
-        // System.out.println("Question 4: sum: " + m.colSum() + ", " + (m.rowSum() == m.colSum() ? "You totally got this!": "Keep trying"));
+        System.out.println("Question 4: sum: " + m.colSum() + ", " + (m.rowSum() == m.colSum() ? "You totally got this!": "Keep trying"));
 
         /* 5. Remove the comment below to see the answers to #5 */
 
-        // System.out.println("Question 5: Equal: " + m.allRowsEqual());
+        System.out.println("Question 5: Equal: " + m.allRowsEqual());
 
         /* 6. Remove the comment below to see the answers to #6 */
 
-        // System.out.println("Question 6: Equal: " + m.allColsEqual() + (m.allColsEqual() ? ",  You totally got this!": "Keep trying")    );
+        System.out.println("Question 6: Equal: " + m.allColsEqual() + (m.allColsEqual() ? ",  You totally got this!": "Keep trying")    );
 
         /* 7. Remove the comment below to see the answers to #7 */
 
-        // System.out.println("Question 7: Diagonal Left Sum: " + m.diagLeft());
+        System.out.println("Question 7: Diagonal Left Sum: " + m.diagLeft());
 
         /* 8. Remove the comment below to see the answers to #8 */
 
-        // System.out.println("Question 8: Diagonal Left Sum: " + m.diagRight());
+        System.out.println("Question 8: Diagonal Left Sum: " + m.diagRight());
 
         /* 10. Remove the comment below to see if other values still work */
         runOtherTests();
