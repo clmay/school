@@ -16,13 +16,13 @@
  *
  * =====================================================================================
  */
-// For C++ Code
 #include <iostream>
 #include <iomanip>  // more cout options
 #include <string>  // for strings
 #include <vector>  // for vectors "arrays with lots of features"
 #include "Movie.h"
 using namespace std;
+
 // Constants and Globals
 
 // Main Function
@@ -31,7 +31,7 @@ int main(int argc, char* argv[])
     cout << "The movie list Program" << endl << endl
         << "Enter a movie ..." << endl << endl;
     // Get movies from user
-//    Movie movies[10];  // an array of 10 movies. Fixed to 10 spots
+    // Movie movies[10];  // an array of 10 movies. Fixed to 10 spots
     vector<Movie> movies;  // define a vector of movies. Grow on demand
     char another = 'y';
     // Loop for entries
@@ -55,6 +55,7 @@ int main(int argc, char* argv[])
         cin.ignore();  // ignore anything else in the buffer
         cout << endl;
     }// end of while loop
+    
     // Display movies
     const int w = 10;
     cout << left
