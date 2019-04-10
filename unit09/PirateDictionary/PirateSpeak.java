@@ -1,6 +1,5 @@
 import javax.swing.*;
 import java.awt.event.*;
-import java.awt.*;
 
 class PirateSpeak extends JPanel {
     private static final long serialVersionUID = 1L;
