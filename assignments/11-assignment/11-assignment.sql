@@ -1,12 +1,18 @@
-/* DROP TABLES (remove dependencies first) */
+/***************************************
+DROP TABLES (remove dependencies first)
+***************************************/
 
--- DROP TABLE track;
--- DROP TABLE album;
--- DROP TABLE artist;
--- DROP TABLE genre;
--- DROP TABLE mediatype;
+/*
+DROP TABLE track;
+DROP TABLE album;
+DROP TABLE artist;
+DROP TABLE genre;
+DROP TABLE mediatype;
+*/
 
-/* CREATE TABLES */
+/*************
+CREATE TABLES
+*************/
 
 CREATE TABLE mediatype (
     mediatypeID NUMBER(3) NOT NULL,     -- PK
@@ -41,7 +47,9 @@ CREATE TABLE track (
     unitprice NUMBER(10, 2) NOT NULL
 );
 
-/* CREATE PRIMARY KEYS */
+/*******************
+CREATE PRIMARY KEYS
+*******************/
 
 ALTER TABLE mediatype
 ADD CONSTRAINT PK_mediatype_mediatypeID PRIMARY KEY (mediatypeID);
@@ -58,7 +66,9 @@ ADD CONSTRAINT PK_album_albumID PRIMARY KEY (albumID);
 ALTER TABLE track
 ADD CONSTRAINT PK_track_trackID PRIMARY KEY (trackID);
 
-/* CREATE FOREIGN KEYS */
+/*******************
+CREATE FOREIGN KEYS
+*******************/
 
 ALTER TABLE album
 ADD CONSTRAINT FK_album_artistID FOREIGN KEY (artistID) REFERENCES artist(artistID);
@@ -72,17 +82,92 @@ ADD CONSTRAINT FK_track_mediatypeID FOREIGN KEY (mediatypeID) REFERENCES mediaty
 ALTER TABLE track
 ADD CONSTRAINT FK_track_genre FOREIGN KEY (genreID) REFERENCES genre(genreID);
 
-/* INSERT DATA */
+/***********
+INSERT DATA
+***********/
 
--- Media Types
+/* Media Types */
 
--- Genres
+INSERT ALL
+    INTO mediatype(mediatypeID, name) VALUES (1, 'MPEG audio file')
+    INTO mediatype(mediatypeID, name) VALUES (2, 'Protected AAC audio file')
+    INTO mediatype(mediatypeID, name) VALUES (3, 'Protected MPEG4 video file')
+    INTO mediatype(mediatypeID, name) VALUES (4, 'Purchased AAC audio file')
+    INTO mediatype(mediatypeID, name) VALUES (5, 'AAC audio file')
+SELECT 1 FROM DUAL;
 
--- Artists
+/* Genres */
 
--- Albums
+INSERT ALL
+    INTO genre(genreID, name) VALUES (1, 'Rock')
+    INTO genre(genreID, name) VALUES (2, 'Jazz')
+    INTO genre(genreID, name) VALUES (3, 'Metal')
+    INTO genre(genreID, name) VALUES (4, 'Alternative Punk')
+    INTO genre(genreID, name) VALUES (5, 'Rock And Roll')
+    INTO genre(genreID, name) VALUES (6, 'Blues')
+    INTO genre(genreID, name) VALUES (7, 'Latin')
+    INTO genre(genreID, name) VALUES (8, 'Reggae')
+    INTO genre(genreID, name) VALUES (9, 'Pop')
+    INTO genre(genreID, name) VALUES (10, 'Soundtrack')
+    INTO genre(genreID, name) VALUES (11, 'Bossa Nova')
+    INTO genre(genreID, name) VALUES (12, 'Easy Listening')
+    INTO genre(genreID, name) VALUES (13, 'Heavy Metal')
+    INTO genre(genreID, name) VALUES (14, 'RB Soul')
+    INTO genre(genreID, name) VALUES (15, 'Electronica Dance')
+    INTO genre(genreID, name) VALUES (16, 'World')
+    INTO genre(genreID, name) VALUES (17, 'Hip Hop Rap')
+    INTO genre(genreID, name) VALUES (18, 'Science Fiction')
+    INTO genre(genreID, name) VALUES (19, 'TV Shows')
+    INTO genre(genreID, name) VALUES (20, 'Sci Fi and Fantasy')
+    INTO genre(genreID, name) VALUES (21, 'Drama')
+    INTO genre(genreID, name) VALUES (22, 'Comedy')
+    INTO genre(genreID, name) VALUES (23, 'Alternative')
+    INTO genre(genreID, name) VALUES (24, 'Classical')
+    INTO genre(genreID, name) VALUES (25, 'Opera')
+SELECT 1 FROM DUAL;
 
--- Tracks
+/* Artists */
+
+INSERT ALL
+    INTO artist(artistID, name) VALUES (1, 'AC DC')
+    INTO artist(artistID, name) VALUES (2, 'Accept')
+    INTO artist(artistID, name) VALUES (3, 'Aerosmith')
+    INTO artist(artistID, name) VALUES (4, 'Alanis Morissette')
+    INTO artist(artistID, name) VALUES (5, 'Alice In Chains')
+    INTO artist(artistID, name) VALUES (6, 'Antonio Carlos Jobim')
+    INTO artist(artistID, name) VALUES (7, 'Apocalyptica')
+    INTO artist(artistID, name) VALUES (8, 'Audioslave')
+    INTO artist(artistID, name) VALUES (9, 'BackBeat')
+    INTO artist(artistID, name) VALUES (10, 'Billy Cobham')
+    INTO artist(artistID, name) VALUES (11, 'Black Label Society')
+    INTO artist(artistID, name) VALUES (12, 'Black Sabbath')
+SELECT 1 FROM DUAL;
+
+/* Albums */
+
+INSERT ALL
+    INTO album(albumID, title, artistID) VALUES (1, 'For Those About To Rock We Salute You', 1)
+    INTO album(albumID, title, artistID) VALUES (2, 'Balls to the Wall', 2)
+    INTO album(albumID, title, artistID) VALUES (3, 'Restless and Wild', 2)
+    INTO album(albumID, title, artistID) VALUES (4, 'Let There Be Rock', 1)
+    INTO album(albumID, title, artistID) VALUES (5, 'Big Ones', 3)
+    INTO album(albumID, title, artistID) VALUES (6, 'Jagged Little Pill', 4)
+    INTO album(albumID, title, artistID) VALUES (7, 'Facelift', 5)
+    INTO album(albumID, title, artistID) VALUES (8, 'Warner 25 Anos', 6)
+    INTO album(albumID, title, artistID) VALUES (9, 'Plays Metallica By Four Cellos', 7)
+    INTO album(albumID, title, artistID) VALUES (10, 'Audioslave', 8)
+    INTO album(albumID, title, artistID) VALUES (11, 'Out Of Exile', 8)
+    INTO album(albumID, title, artistID) VALUES (12, 'BackBeat Soundtrack', 9)
+    INTO album(albumID, title, artistID) VALUES (13, 'The Best Of Billy Cobham', 10)
+    INTO album(albumID, title, artistID) VALUES (14, 'Alcohol Fueled Brewtality Live! [Disc 1]', 11)
+    INTO album(albumID, title, artistID) VALUES (15, 'Alcohol Fueled Brewtality Live! [Disc 2]', 11)
+    INTO album(albumID, title, artistID) VALUES (16, 'Black Sabbath', 12)
+    INTO album(albumID, title, artistID) VALUES (17, 'Black Sabbath Vol. 4 (Remaster)', 12)
+    INTO album(albumID, title, artistID) VALUES (34, 'Chill: Brazil (Disc 2)', 6)
+    INTO album(albumID, title, artistID) VALUES (271, 'Revelations', 8)
+SELECT 1 FROM DUAL;
+
+/* Tracks */
 
 INSERT ALL 
     INTO track(trackID, name, albumID, mediatypeID, genreID, composer, milliseconds, bytes, unitprice)
@@ -92,7 +177,7 @@ INSERT ALL
     VALUES (6, 'Put The Finger On You', 1, 1, 1, 'Angus Young, Malcolm Young, Brian Johnson', 205662, 6713451, 0.99)
 
     INTO track(trackID, name, albumID, mediatypeID, genreID, composer, milliseconds, bytes, unitprice)
-    VALUES (2, 'Balls to the Wall', 2, 2, 1, 342562, 5510424, 0.99)
+    VALUES (2, 'Balls to the Wall', 2, 2, 1, '', 342562, 5510424, 0.99)
 
     INTO track(trackID, name, albumID, mediatypeID, genreID, composer, milliseconds, bytes, unitprice)
     VALUES (3, 'Fast As a Shark', 3, 2, 1, 'F. Baltes, S. Kaufman, U. Dirkscneider and W. Hoffman', 230619, 3990994, 0.99)
@@ -128,10 +213,10 @@ INSERT ALL
     VALUES (52, 'Man In The Box', 7, 1, 1, 'Jerry Cantrell, Layne Staley', 286641, 9310272, 0.99)
 
     INTO track(trackID, name, albumID, mediatypeID, genreID, composer, milliseconds, bytes, unitprice)
-    VALUES (63, 'Desafinado', 8, 1, 2, 185338, 5990473, 0.99)
+    VALUES (63, 'Desafinado', 8, 1, 2, '', 185338, 5990473, 0.99)
 
     INTO track(trackID, name, albumID, mediatypeID, genreID, composer, milliseconds, bytes, unitprice)
-    VALUES (64, 'Garota De Ipanema', 8, 1, 2, 285048, 9348428, 0.99)
+    VALUES (64, 'Garota De Ipanema', 8, 1, 2, '', 285048, 9348428, 0.99)
 
     INTO track(trackID, name, albumID, mediatypeID, genreID, composer, milliseconds, bytes, unitprice)
     VALUES (77, 'Enter Sandman', 9, 1, 3, 'Apocalyptica', 221701, 7286305, 0.99)
@@ -164,10 +249,10 @@ INSERT ALL
     VALUES (124, 'Snoopy''s search-Red baron', 3, 1, 2, 'Billy Cobham', 456071, 15075616, 0.99)
 
     INTO track(trackID, name, albumID, mediatypeID, genreID, composer, milliseconds, bytes, unitprice)
-    VALUES (131, 'Intro/ Low Down', 4, 1, 3, 323683, 10642901, 0.99)
+    VALUES (131, 'Intro/ Low Down', 4, 1, 3, '', 323683, 10642901, 0.99)
 
     INTO track(trackID, name, albumID, mediatypeID, genreID, composer, milliseconds, bytes, unitprice)
-    VALUES (132, 13 Years Of Grief', 4, 1, 3, 246987, 8137421, 0.99)
+    VALUES (132, '13 Years Of Grief', 4, 1, 3, 246987, 8137421, 0.99)
 
     INTO track(trackID, name, albumID, mediatypeID, genreID, composer, milliseconds, bytes, unitprice)
     VALUES (144, 'Heart Of Gold', 5, 1, 3, 194873, 6417460, 0.99)
@@ -198,5 +283,4 @@ INSERT ALL
 
     INTO track(trackID, name, albumID, mediatypeID, genreID, composer, milliseconds, bytes, unitprice)
     VALUES (3390, 'One and the Same', 1, 2, 3, 217732, 3559040, 0.99)
-
 SELECT 1 FROM DUAL;
