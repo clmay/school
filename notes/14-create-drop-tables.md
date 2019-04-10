@@ -1,3 +1,6 @@
+## Example
+
+```sql
 /* Create tables */
 
 CREATE TABLE actor (
@@ -41,13 +44,16 @@ ADD CONSTRAINT FK_movieactor_actorID FOREIGN KEY (actorID) REFERENCES actor(acto
 
 /* Insert data */
 
-INSERT INTO movie
-( )
-VALUES
-( );
+INSERT INTO movie (
+
+)
+VALUES (
+    
+);
 
 /* Drop tables (in reverse order) */
 
 DROP TABLE movieactor;
 DROP TABLE movie;
 DROP TABLE actor;
+```
