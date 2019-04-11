@@ -1,126 +1,176 @@
-/*
- * =====================================================================================
- *
- *       Filename:  movie_list.cpp
- *
- *    Description:  Create a movie list program. Loads information from txt file
- *                  then, it presents the user with a menu to interact with the data.
- *
- *        Version:  1.0
- *        Created:  04/09/2019 09:41:40 AM
- *       Revision:  none
- *       Compiler (C++):  g++ movie_list.cpp Movie.cpp -o movie_list.out
- *          Usage:  ./movie_list.out 
- *
- *         Author:  Hugo Valle (), hugovalle1@weber.edu
- *   Organization:  WSU
- *
- * =====================================================================================
- */
 #include <iostream>
-#include <iomanip>      // pretty output
-#include <vector>       // for vectors
-#include <string>       // for strings
-#include <fstream>      // for file stream
-#include <sstream>      // to read strings with spaces
+#include <fstream>
+#include <sstream>
+#include <iomanip>
+#include <string>
+#include <vector>
 #include "Movie.h"
+
 using namespace std;
 
-// Constants and Globals
-const string movie_file = "movies.txt";
+const string movies_file = "movies.txt";
 
-// Function Prototypes
-void display_menu();
 vector<Movie> read_movies_from_file();
+void write_movies_to_file(const vector<Movie>& movies);
 void view_movies(const vector<Movie>& movies);
+Movie get_movie();
+void add_movie(vector<Movie>& movies);
+int get_movie_number(const vector<Movie>& movies);
+void delete_movie(vector<Movie>& movies);
+void display_menu();
 
-// Main Function
-int main(int argc, char* argv[])
-{
-    cout << "The Movie List program\n" << endl;
+int main() {
+    cout << "The Movie List program\n\n";
     vector<Movie> movies = read_movies_from_file();
     char command = 'v';
-    while (command != 'x')
-    {
+    while (command != 'x') {
         display_menu();
         cout << "Command: ";
         cin >> command;
-        switch (command)
-        {
+        switch (command) {
             case 'v':
                 view_movies(movies);
                 break;
             case 'a':
-                // add_movie(movies);
+                add_movie(movies);
                 break;
             case 'd':
-                // delete_movie(movies);
+                delete_movie(movies);
                 break;
             case 'x':
-                cout << "Goodbye, amigo!" << endl;
+                cout << "Bye!\n\n";
                 break;
             default:
-                cout << "Not a valid command. Please try again." << endl;
+                cout << "Not a valid command. Please try again.\n\n";
                 break;
         }
     }
-    
-    return 0;
 }
 
-void view_movies(const vector<Movie>& movies)
-{
-    int width = 8;
-    cout << left
-        << setw(width / 2) << " "
-        << setw(width * 4) << "TITLE"
-        << setw(width) << "YEAR"
-        << setw(width) << "STARS" << endl;
-    // Loop over vector and get info using your getters
-    int number = 1;
-    for(Movie movie : movies)
-    {
-        cout << setw(width / 2) << number
-            << setw(width*4) << movie.get_title()
-            << setw(width) << movie.get_year()
-            << setw(width) << movie.get_stars() << endl;
-        number++;
-    }
-    cout << endl;
-}
-
-// Function Definitions
-vector<Movie> read_movies_from_file()
-{
+vector<Movie> read_movies_from_file() {
     vector<Movie> movies;
-    // Read file
-    ifstream input_file(movie_file);
-    if(input_file)
-    {
-        string line; 
-        while(getline(input_file, line))
-        {
+
+    ifstream input_file(movies_file);
+    if (input_file) {
+        string line;
+        while (getline(input_file, line)) {
             stringstream ss(line);
-            string title, tmp;
+
+            string title, temp;
             int year, stars;
             getline(ss, title, ',');
-            getline(ss, tmp, ',');
-            year = stoi(tmp);
-            getline(ss, tmp, ',');
-            stars = stoi(tmp);
+            getline(ss, temp, ',');
+            year = stoi(temp);
+            getline(ss, temp, ',');
+            stars = stoi(temp);
             movies.push_back(Movie(title, year, stars));
         }
         input_file.close();
     }
-
     return movies;
 }
 
-void display_menu()
-{
-    cout << "COMMANDS" << endl
-        << "v - View movie list" << endl
-        << "a - Add a movie" << endl
-        << "d - Delete a movie" << endl
-        << "x - Exit" << endl << endl;
+void write_movies_to_file(const vector<Movie>& movies) {
+    ofstream output_file(movies_file);
+    if (output_file) {     // if file opened successfully...
+        for (Movie movie : movies) {
+            output_file << movie.get_title() << ','
+                << movie.get_year() << ','
+                << movie.get_stars() << '\n';
+        }
+        output_file.close();
+    }
+}
+
+void view_movies(const vector<Movie>& movies) {
+    int col_width = 8;
+    cout << left
+        << setw(col_width / 2) << " "
+        << setw(col_width * 4) << "TITLE"
+        << setw(col_width) << "YEAR"
+        << setw(col_width) << "STARS" << endl;
+
+    int number = 1;
+    for (Movie movie : movies) {
+        cout << setw(col_width / 2) << number
+            << setw(col_width * 4) << movie.get_title()
+            << setw(col_width) << movie.get_year()
+            << setw(col_width) << movie.get_stars() << endl;
+        ++number;
+    }
+    cout << endl;
+}
+
+Movie get_movie() {
+    string title;
+    cout << "Title: ";
+    cin.ignore(1000, '\n');
+    getline(cin, title);
+
+    int year;
+    cout << "Year: ";
+    cin >> year;
+
+    int stars;
+    cout << "Stars (1-5): ";
+    cin >> stars;
+
+    Movie movie(title, year, stars);
+    return movie;
+}
+
+void add_movie(vector<Movie>& movies) {
+    Movie movie = get_movie();
+
+    // check if movie already exists
+    bool already_exists = false;
+    for (Movie& m : movies) {
+        if (m.iequals(movie)) {
+            already_exists = true;
+            m.set_stars(movie.get_stars());
+            break;
+        }
+    }
+
+    if (already_exists) {
+        write_movies_to_file(movies);
+        cout << movie.get_title() << " was updated.\n\n";
+    }
+    else {
+        movies.push_back(movie);
+        write_movies_to_file(movies);
+        cout << movie.get_title() << " was added.\n\n";
+    }
+}
+
+int get_movie_number(const vector<Movie>& movies) {
+    int number;
+    while (true) {
+        cout << "Number: ";
+        cin >> number;
+        if (number > 0 && number <= movies.size()) {
+            return number;
+        }
+        else {
+            cout << "Invalid movie number. Try again.\n";
+        }
+    }
+}
+
+void delete_movie(vector<Movie>& movies) {
+    int number = get_movie_number(movies);
+
+    int index = number - 1;
+    Movie movie = movies[index];
+    movies.erase(movies.begin() + index);
+    write_movies_to_file(movies);
+    cout << movie.get_title() << " was deleted.\n\n";
+}
+
+void display_menu() {
+    cout << "COMMANDS\n"
+        << "v - View movie list\n"
+        << "a - Add a movie\n"
+        << "d - Delete a movie\n"
+        << "x - Exit\n\n";
 }

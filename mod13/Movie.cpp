@@ -1,87 +1,59 @@
-/*
- * =====================================================================================
- *
- *       Filename:  Movie.cpp
- *
- *    Description:  Movie Class
- *
- *        Version:  1.0
- *        Created:  04/04/2019 09:38:40 AM
- *       Revision:  none
- *       Compiler (C++):  g++ Movie.cpp -o Movie.out -lm
- *          Usage:  ./Movie.out 
- *
- *         Author:  Hugo Valle (), hugovalle1@weber.edu
- *   Organization:  WSU
- *
- * =====================================================================================
- */
-// For C++ Code
-#include <iostream>
-#include <iomanip>  // more cout options
 #include "Movie.h"
-using namespace std;
+#include <string>
 
-Movie::Movie(string title, int year, int stars)
-{
+using std::string;
+using std::invalid_argument;
+
+// private function
+string Movie::to_upper(string str) {
+    string str_upper;
+    for (char c : str) {
+        str_upper.push_back(toupper(c));
+    }
+    return str_upper;
+}
+
+// public functions
+Movie::Movie(string title, int year, int stars) {
     set_title(title);
     set_year(year);
     set_stars(stars);
 }
 
-// Destructor
-Movie::~Movie()
-{
-//    cout << "Destroying Object" << endl;
+void Movie::set_title(string title_param) {
+	if (title_param.size() > 120) {
+		throw invalid_argument("Title must not have more than 120 chars.");
+	}
+    title = title_param;
 }
 
-// Print info
-void Movie::info()const
-{
-    int w = 10;
-    cout << left
-        << setw(w*3) << "TITLE"
-        << setw(w) << "YEAR" << endl;
-    cout << setw(w*3) << get_title()
-        << setw(w) << get_year() << endl;
-}
-// Function Definitions
-void Movie::set_title(string set_title)
-{
-//    this->title = set_title;  // optional
-    title = set_title;
-}
-
-void Movie::set_year(int year)
-{
-    if (year < 1888)
-    {
-        throw invalid_argument("Year must be 1888 or later.");
-    }
-    // this-> refers to yourself
-    // required because of the same name
-    this->year = year;
-}
-
-void Movie::set_stars(int stars)
-{
-    // this-> refers to yourself
-    // required because of the same name
-    this->stars = stars;
-}
-
-// Define Getters
-string Movie::get_title() const
-{
+string Movie::get_title() const {
     return title;
 }
-        
-int Movie::get_year() const
-{
+
+void Movie::set_year(int year_param) {
+    if (year_param < 1888) {
+        throw invalid_argument("Year must be 1888 or later.");
+    }
+    year = year_param;
+}
+
+int Movie::get_year() const {
     return year;
 }
 
-int Movie::get_stars() const
-{
+void Movie::set_stars(int stars_param) {
+    if (stars_param < 1 || stars_param > 5) {
+        throw invalid_argument("Stars must be from 1 to 5.");
+    }
+    stars = stars_param;
+}
+
+int Movie::get_stars() const {
     return stars;
+}
+
+bool Movie::iequals(const Movie& to_compare) {
+    return (to_upper(title) == to_upper(to_compare.title) &&
+        year == to_compare.year);
 }
