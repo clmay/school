@@ -32,15 +32,61 @@ const string movie_file = "movies.txt";
 // Function Prototypes
 void display_menu();
 vector<Movie> read_movies_from_file();
+void view_movies(const vector<Movie>& movies);
 
 // Main Function
 int main(int argc, char* argv[])
 {
     cout << "The Movie List program\n" << endl;
-    display_menu();
     vector<Movie> movies = read_movies_from_file();
-
+    char command = 'v';
+    while (command != 'x')
+    {
+        display_menu();
+        cout << "Command: ";
+        cin >> command;
+        switch (command)
+        {
+            case 'v':
+                view_movies(movies);
+                break;
+            case 'a':
+                // add_movie(movies);
+                break;
+            case 'd':
+                // delete_movie(movies);
+                break;
+            case 'x':
+                cout << "Goodbye, amigo!" << endl;
+                break;
+            default:
+                cout << "Not a valid command. Please try again." << endl;
+                break;
+        }
+    }
+    
     return 0;
+}
+
+void view_movies(const vector<Movie>& movies)
+{
+    int width = 8;
+    cout << left
+        << setw(width / 2) << " "
+        << setw(width * 4) << "TITLE"
+        << setw(width) << "YEAR"
+        << setw(width) << "STARS" << endl;
+    // Loop over vector and get info using your getters
+    int number = 1;
+    for(Movie movie : movies)
+    {
+        cout << setw(width / 2) << number
+            << setw(width*4) << movie.get_title()
+            << setw(width) << movie.get_year()
+            << setw(width) << movie.get_stars() << endl;
+        number++;
+    }
+    cout << endl;
 }
 
 // Function Definitions
@@ -49,23 +95,23 @@ vector<Movie> read_movies_from_file()
     vector<Movie> movies;
     // Read file
     ifstream input_file(movie_file);
-    if(input_file) // if file opened successfully
+    if(input_file)
     {
         string line; 
         while(getline(input_file, line))
         {
-            stringstream ss(line);  // read the line and cast it as string
-            // Now ready to parse the line
-            string title;
+            stringstream ss(line);
+            string title, tmp;
             int year, stars;
-            getline(ss, title, ','); // read title until you get a \t
-            ss >> year >> stars;        // get year and stars
-//            cout << title << " year=" << year << " stars=" << stars << " extra "<< endl; // TODO Debug 
-            // Create and add movie object to vector
+            getline(ss, title, ',');
+            getline(ss, tmp, ',');
+            year = stoi(tmp);
+            getline(ss, tmp, ',');
+            stars = stoi(tmp);
             movies.push_back(Movie(title, year, stars));
-        } // end of loop over file
-        input_file.close(); // close file
-    }// end of if statement
+        }
+        input_file.close();
+    }
 
     return movies;
 }
