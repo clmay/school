@@ -1,110 +1,87 @@
 /*
  * =====================================================================================
  *
- *       Filename:  movie_list.cpp
+ *       Filename:  Movie.cpp
  *
- *    Description:  Create a movie list program. Loads information from txt file
- *                  then, it presents the user with a menu to interact with the data.
+ *    Description:  Movie Class
  *
  *        Version:  1.0
- *        Created:  04/09/2019 09:41:40 AM
+ *        Created:  04/04/2019 09:38:40 AM
  *       Revision:  none
- *       Compiler (C++):  g++ movie_list.cpp Movie.cpp -o movie_list.out
- *          Usage:  ./movie_list.out 
+ *       Compiler (C++):  g++ Movie.cpp -o Movie.out -lm
+ *          Usage:  ./Movie.out 
  *
  *         Author:  Hugo Valle (), hugovalle1@weber.edu
  *   Organization:  WSU
  *
  * =====================================================================================
  */
+// For C++ Code
 #include <iostream>
-#include <iomanip>      // pretty output
-#include <vector>       // for vectors
-#include <string>       // for strings
-#include <fstream>      // for file stream
-#include <sstream>      // to read strings with spaces
+#include <iomanip>  // more cout options
 #include "Movie.h"
 using namespace std;
 
-// Constants and Globals
-const string movie_file = "movies.txt";
-
-// Function Prototypes
-void display_menu();
-vector<Movie> read_movies_from_file();
-void view_movies(const vector<Movie>& movies);
-
-// Main Function
-int main(int argc, char* argv[])
+Movie::Movie(string title, int year, int stars)
 {
-    cout << "The Movie List program\n" << endl;
-    display_menu();
-    vector<Movie> movies = read_movies_from_file();
-    char command = 'v';
-    while(command != 'x')
-    {
-        view_movies(movies);
-
-        command = 'x';
-    } // end of while command
-
-    return 0;
+    set_title(title);
+    set_year(year);
+    set_stars(stars);
 }
 
-// Function Definitions
-
-void view_movies(const vector<Movie>& movies)
+// Destructor
+Movie::~Movie()
 {
-    int width = 8;
+//    cout << "Destroying Object" << endl;
+}
+
+// Print info
+void Movie::info()const
+{
+    int w = 10;
     cout << left
-        << setw(width / 2) << " "
-        << setw(width * 4) << "TITLE"
-        << setw(width) << "YEAR"
-        << setw(width) << "STARS" << endl;
-    // Loop over vector and get info using your getters
-    int number = 1;
-    for(Movie movie : movies)
+        << setw(w*3) << "TITLE"
+        << setw(w) << "YEAR" << endl;
+    cout << setw(w*3) << get_title()
+        << setw(w) << get_year() << endl;
+}
+// Function Definitions
+void Movie::set_title(string set_title)
+{
+//    this->title = set_title;  // optional
+    title = set_title;
+}
+
+void Movie::set_year(int year)
+{
+    if (year < 1888)
     {
-        cout << setw(width / 2) << number
-            << setw(width*4) << movie.get_title()
-            << setw(width) << movie.get_year()
-            << setw(width) << movie.get_stars() << endl;
-        number++;
+        throw invalid_argument("Year must be 1888 or later.");
     }
-    cout << endl;
+    // this-> refers to yourself
+    // required because of the same name
+    this->year = year;
 }
 
-vector<Movie> read_movies_from_file()
+void Movie::set_stars(int stars)
 {
-    vector<Movie> movies;
-    // Read file
-    ifstream input_file(movie_file);
-    if(input_file) // if file opened successfully
-    {
-        string line; 
-        while(getline(input_file, line))
-        {
-            stringstream ss(line);  // read the line and cast it as string
-            // Now ready to parse the line
-            string title;
-            int year, stars;
-            getline(ss, title, ','); // read title until you get a \t
-            ss >> year >> stars;        // get year and stars
-            // cout << title << " year=" << year << " stars=" << stars << " extra "<< endl; // TODO Debug 
-            // Create and add movie object to vector
-            movies.push_back(Movie(title, year, stars));
-        } // end of loop over file
-        input_file.close(); // close file
-    }// end of if statement
-
-    return movies;
+    // this-> refers to yourself
+    // required because of the same name
+    this->stars = stars;
 }
 
-void display_menu()
+// Define Getters
+string Movie::get_title() const
 {
-    cout << "COMMANDS" << endl
-        << "v - View movie list" << endl
-        << "a - Add a movie" << endl
-        << "d - Delete a movie" << endl
-        << "x - Exit" << endl << endl;
+    return title;
+}
+        
+int Movie::get_year() const
+{
+    return year;
+}
+
+int Movie::get_stars() const
+{
+    return stars;
 }
