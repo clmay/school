@@ -2,19 +2,20 @@
 #define MURACH_MOVIE_H
 
 #include <string>
+using namespace std;
 
 class Movie {
 private:
-    std::string title;
+    string title;
     int year;
     int stars;
 
-    std::string to_upper(std::string);
+    string to_upper(string);
 public:
-    Movie(std::string title = "", int year = 1888, int stars = 1);
+    Movie(string title = "", int year = 1888, int stars = 1);
 
-    void set_title(std::string);
-    std::string get_title() const;
+    void set_title(string);
+    string get_title() const;
 
     void set_year(int);
     int get_year() const;

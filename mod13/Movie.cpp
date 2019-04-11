@@ -1,8 +1,7 @@
 #include "Movie.h"
 #include <string>
 
-using std::string;
-using std::invalid_argument;
+using namespace std;
 
 // private function
 string Movie::to_upper(string str) {
