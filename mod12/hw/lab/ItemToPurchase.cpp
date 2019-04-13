@@ -16,7 +16,7 @@
  *
  * =====================================================================================
  */
-// For C++ Code
+
 #include <iostream>
 using namespace std;
 #include "ItemToPurchase.h"
@@ -27,6 +27,7 @@ using namespace std;
  *  Description:  Defualt Constructor for Item to purchase. 
  * =====================================================================================
  */
+
 ItemToPurchase::ItemToPurchase() 
 {
    itemName = "none";
@@ -40,9 +41,10 @@ ItemToPurchase::ItemToPurchase()
 /* 
  * ===  FUNCTION  ======================================================================
  *         Name:  ItemToPurchase
- *  Description:  Constructor with parametersfor Item to purchase. 
+ *  Description:  Constructor with parameters for Item to purchase. 
  * =====================================================================================
  */
+
 ItemToPurchase::ItemToPurchase(string name, string description, int price, int quantity) 
 {
     itemName = name;
@@ -60,7 +62,10 @@ ItemToPurchase::ItemToPurchase(string name, string description, int price, int q
  * =====================================================================================
  */
 
-
+void ItemToPurchase::SetName(string name)
+{
+   this->itemName = name;
+}
 
 /* 
  * ===  FUNCTION  ======================================================================
@@ -69,7 +74,10 @@ ItemToPurchase::ItemToPurchase(string name, string description, int price, int q
  * =====================================================================================
  */
 
-
+void ItemToPurchase::SetDescription(string description)
+{
+   this->itemDescription = description;
+}
 
 /* 
  * ===  FUNCTION  ======================================================================
@@ -78,7 +86,10 @@ ItemToPurchase::ItemToPurchase(string name, string description, int price, int q
  * =====================================================================================
  */
 
-
+void ItemToPurchase::SetPrice(int price)
+{
+   this->itemPrice = price;
+}
 
 /* 
  * ===  FUNCTION  ======================================================================
@@ -87,7 +98,10 @@ ItemToPurchase::ItemToPurchase(string name, string description, int price, int q
  * =====================================================================================
  */
 
-
+void ItemToPurchase::SetQuantity(int quantity)
+{
+   this->itemQuantity = quantity;
+}
 
 /* 
  * ===  FUNCTION  ======================================================================
@@ -96,7 +110,10 @@ ItemToPurchase::ItemToPurchase(string name, string description, int price, int q
  * =====================================================================================
  */
 
-
+string ItemToPurchase::GetName() const
+{
+   return this->itemName;
+}
 
 /* 
  * ===  FUNCTION  ======================================================================
@@ -105,7 +122,10 @@ ItemToPurchase::ItemToPurchase(string name, string description, int price, int q
  * =====================================================================================
  */
 
-
+string ItemToPurchase::GetDescription() const
+{
+   return this->itemDescription;
+}
 
 /* 
  * ===  FUNCTION  ======================================================================
@@ -114,8 +134,10 @@ ItemToPurchase::ItemToPurchase(string name, string description, int price, int q
  * =====================================================================================
  */
 
-
-
+int ItemToPurchase::GetPrice() const
+{
+   return this->itemPrice;
+}
 
 /* 
  * ===  FUNCTION  ======================================================================
@@ -124,7 +146,10 @@ ItemToPurchase::ItemToPurchase(string name, string description, int price, int q
  * =====================================================================================
  */
 
-
+int ItemToPurchase::GetQuantity() const
+{
+   return this->itemQuantity;
+}
 
 /* 
  * ===  FUNCTION  ======================================================================
@@ -132,7 +157,9 @@ ItemToPurchase::ItemToPurchase(string name, string description, int price, int q
  *  Description:  Print Item Purchased
  * =====================================================================================
  */
-void ItemToPurchase::PrintItemCost() {
+
+void ItemToPurchase::PrintItemCost()
+{
    cout << itemName << " " << itemQuantity << " @ $" << itemPrice
    << " = $" << itemPrice * itemQuantity << endl;
 }
@@ -143,6 +170,8 @@ void ItemToPurchase::PrintItemCost() {
  *  Description:  Print Item Description
  * =====================================================================================
  */
-void ItemToPurchase::PrintItemDescription() {
+
+void ItemToPurchase::PrintItemDescription()
+{
    cout << itemName << ": " << itemDescription << endl;
 }

@@ -16,7 +16,8 @@
  *
  * =====================================================================================
  */
-// Function Defenitions
+
+// Function Definitions
 #include <iostream>
 using namespace std;
 
@@ -28,10 +29,12 @@ using namespace std;
  *  Description:  Default Constructor
  * =====================================================================================
  */
+
 ShoppingCart::ShoppingCart() 
 {
    customerName = "none";
    currentDate = "January 1, 2016";
+   vector<ItemToPurchase> cartItems;
 }
 
 /* 
@@ -41,7 +44,11 @@ ShoppingCart::ShoppingCart()
  * =====================================================================================
  */
 
-
+ShoppingCart::ShoppingCart(string name, string date)
+{
+    customerName = name;
+    currentDate = date;
+}
 
 /* 
  * ===  FUNCTION  ======================================================================
@@ -50,7 +57,10 @@ ShoppingCart::ShoppingCart()
  * =====================================================================================
  */
 
-
+string ShoppingCart::GetCustomerName() const
+{
+    return this->customerName;
+}
 
 /* 
  * ===  FUNCTION  ======================================================================
@@ -59,7 +69,10 @@ ShoppingCart::ShoppingCart()
  * =====================================================================================
  */
       
-
+string ShoppingCart::GetDate() const
+{
+    return this->currentDate;
+}
 
 /* 
  * ===  FUNCTION  ======================================================================
@@ -68,7 +81,10 @@ ShoppingCart::ShoppingCart()
  * =====================================================================================
  */
 
-
+void ShoppingCart::AddItem(ItemToPurchase item)
+{
+    this->cartItems.push_back(item);
+}
 
 /* 
  * ===  FUNCTION  ======================================================================
@@ -76,14 +92,15 @@ ShoppingCart::ShoppingCart()
  *  Description:  Remove item from vector
  * =====================================================================================
  */
+
 void ShoppingCart::RemoveItem(string name) 
 {
     unsigned i = 0;
-    unsigned posItem;
+    // unsigned posItem;
     unsigned cartSize;
     bool found;
 
-    posItem = 0;
+    // posItem = 0;
     cartSize = cartItems.size();
     found = false;
 
@@ -92,6 +109,11 @@ void ShoppingCart::RemoveItem(string name)
     {
         // Hint: to access a vector item by index use: "at(i)" method
         // For example to get the name, use: cartItems.at(i).GetName()
+        if (cartItems.at(i).GetName() == name)
+        {
+            found = true;
+            cartItems.erase(cartItems.begin() + i);
+        }
     }
 
     if(!found) 
@@ -102,13 +124,13 @@ void ShoppingCart::RemoveItem(string name)
     cartItems.resize(cartSize - 1);
 }
 
-
 /* 
  * ===  FUNCTION  ======================================================================
  *         Name:  ModifyItem
  *  Description:  Modify existing item. 
  * =====================================================================================
  */
+
 void ShoppingCart::ModifyItem(ItemToPurchase item) {
     unsigned i;
     ItemToPurchase currItem;
@@ -133,15 +155,18 @@ void ShoppingCart::ModifyItem(ItemToPurchase item) {
         cout << "Item not found in cart. Nothing modified." << endl;
     }
 }
-      
 
 /* 
  * ===  FUNCTION  ======================================================================
- *         Name:  GetItemsInCart
+ *         Name:  GetNumItemsInCart
  *  Description:  Return the number of items in the cart
  * =====================================================================================
  */
 
+int ShoppingCart::GetNumItemsInCart()
+{
+    return 0;
+}
 
 /* 
  * ===  FUNCTION  ======================================================================
@@ -150,21 +175,21 @@ void ShoppingCart::ModifyItem(ItemToPurchase item) {
  *  add up the cost
  * =====================================================================================
  */
+
 double ShoppingCart::GetCostOfCart() 
 {
-   int i = 0;
+   unsigned i = 0;
    int totalCost;
    
    totalCost = 0;
    
    for(i = 0; i < cartItems.size(); ++i) 
    {
-       // your logic here
+       totalCost += cartItems.at(i).GetQuantity() * cartItems.at(i).GetPrice();
    }
    
    return totalCost;
 }
-
 
 /* 
  * ===  FUNCTION  ======================================================================
@@ -172,6 +197,7 @@ double ShoppingCart::GetCostOfCart()
  *  Description:  Print Cart Total
  * =====================================================================================
  */
+
 void ShoppingCart::PrintTotal() {
     unsigned i;
     int totalCost;
@@ -199,13 +225,13 @@ void ShoppingCart::PrintTotal() {
     cout << endl << "Total: $" << totalCost << endl;
 }
 
-
 /* 
  * ===  FUNCTION  ======================================================================
  *         Name:  PrintDescriptions
  *  Description:  Print item cart descriptions
  * =====================================================================================
  */
+
 void ShoppingCart::PrintDescriptions() 
 {
     unsigned i;

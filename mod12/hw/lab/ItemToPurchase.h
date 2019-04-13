@@ -15,6 +15,7 @@
  *
  * =====================================================================================
  */
+
 #ifndef  ITEMTOPURCHASE__INC__
 #define  ITEMTOPURCHASE__INC__
 #include <string>
@@ -31,7 +32,7 @@ class ItemToPurchase
     public:
         ItemToPurchase();
         ItemToPurchase(string name, string description, 
-                int price, int quantity = 1);
+                int price = 0, int quantity = 0);
 
         // Define your Setters
         void SetName(string name);
@@ -40,6 +41,7 @@ class ItemToPurchase
         void SetQuantity(int quantity);
 
         // Define your Getters
+        string GetName() const;
         string GetDescription() const;
         int GetPrice() const;
         int GetQuantity() const;
@@ -50,4 +52,3 @@ class ItemToPurchase
 };
 
 #endif /* ----- #ifndef ITEMTOPURCHASE__INC__ ----- */
-

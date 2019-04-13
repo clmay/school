@@ -17,7 +17,7 @@
  *
  * =====================================================================================
  */
-// For C++ Code
+
 #include <iostream>
 #include <iomanip>
 #include "ShoppingCart.h"
@@ -25,6 +25,7 @@ using namespace std;
 
 // Function Prototypes
 char PrintMenu(ShoppingCart& theCart);
+
 // Main Function
 int main() 
 {
@@ -53,7 +54,7 @@ int main()
     return 0;
 }
 
-// Function Defenitions
+// Function Definitions
 char PrintMenu(ShoppingCart& theCart)
 {
     char menuOp;
@@ -85,43 +86,42 @@ char PrintMenu(ShoppingCart& theCart)
         case 'a':
             {
                 cin.ignore();
-
                 cout << "ADD ITEM TO CART" << endl;
+                cout << "Enter the item name:" << endl;
+                getline(cin, name);
+                cout << "Enter the item description:" << endl;
+                getline(cin, descr);
+                cout << "Enter the item price:" << endl;
+                cin >> price;
+                cout << "Enter the item quantity:" << endl;
+                cin >> quantity;
+                ItemToPurchase newItem = ItemToPurchase(name, descr, price, quantity);
+                theCart.AddItem(newItem);
+                break;
             }
-            break;
-
         case 'd':
             cin.ignore();
-
             cout << "REMOVE ITEM FROM CART" << endl;
-
+            cout << "Enter the name of the item to remove:" << endl;
+            getline(cin, name);
+            theCart.RemoveItem(name);
             break;
-
         case 'c':
-            {
-                cin.ignore();
-
-                cout << "CHANGE ITEM QUANTITY" << endl;
-            }
+            cin.ignore();
+            cout << "CHANGE ITEM QUANTITY" << endl;
             break;
-
         case 'i':
             cout << "OUTPUT ITEMS' DESCRIPTIONS" << endl;
             theCart.PrintDescriptions();
-
             menuOp = ' ';
             cout << endl;
             break;
-
         case 'o':
             cout << "OUTPUT SHOPPING CART" << endl; 
             theCart.PrintTotal();
-
             menuOp = ' ';
             cout << endl;
             break;
     }
-
     return menuOp;
-
 }

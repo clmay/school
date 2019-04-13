@@ -33,6 +33,7 @@ class ShoppingCart
         // Constructors
         ShoppingCart();
         ShoppingCart(string name, string date);
+        
         // Declare Getters
         string GetCustomerName() const;
         string GetDate() const;
@@ -40,7 +41,6 @@ class ShoppingCart
         // Other Methods
         void AddItem(ItemToPurchase item);
         void RemoveItem(string name);
-
         void ModifyItem(ItemToPurchase item);
 
         int GetNumItemsInCart();
@@ -50,5 +50,5 @@ class ShoppingCart
         void PrintDescriptions();
 
 };
-#endif /* ----- #ifndef SHOPPINGCART__INC__ ----- */
 
+#endif /* ----- #ifndef SHOPPINGCART__INC__ ----- */
