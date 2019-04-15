@@ -95,6 +95,7 @@ char PrintMenu(ShoppingCart& theCart)
                 cin >> price;
                 cout << "Enter the item quantity:" << endl;
                 cin >> quantity;
+                cout << endl;
                 ItemToPurchase newItem = ItemToPurchase(name, descr, price, quantity);
                 theCart.AddItem(newItem);
                 break;
@@ -102,14 +103,24 @@ char PrintMenu(ShoppingCart& theCart)
         case 'd':
             cin.ignore();
             cout << "REMOVE ITEM FROM CART" << endl;
-            cout << "Enter the name of the item to remove:" << endl;
+            cout << "Enter name of item to remove:" << endl;
             getline(cin, name);
             theCart.RemoveItem(name);
+            cout << endl;
             break;
         case 'c':
-            cin.ignore();
-            cout << "CHANGE ITEM QUANTITY" << endl;
-            break;
+            {
+                cin.ignore();
+                cout << "CHANGE ITEM QUANTITY" << endl;
+                cout << "Enter the item name:" << endl;
+                getline(cin, name);
+                cout << "Enter the new quantity:" << endl;
+                cin >> quantity;
+                ItemToPurchase changedItem = ItemToPurchase(name, "none", 0, quantity);
+                theCart.ModifyItem(changedItem);
+                cout << endl;
+                break;
+            }
         case 'i':
             cout << "OUTPUT ITEMS' DESCRIPTIONS" << endl;
             theCart.PrintDescriptions();

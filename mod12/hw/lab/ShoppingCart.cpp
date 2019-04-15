@@ -96,32 +96,36 @@ void ShoppingCart::AddItem(ItemToPurchase item)
 void ShoppingCart::RemoveItem(string name) 
 {
     unsigned i = 0;
-    // unsigned posItem;
+    unsigned posItem;
     unsigned cartSize;
     bool found;
 
-    // posItem = 0;
+    posItem = 0;
     cartSize = cartItems.size();
     found = false;
 
     // Loop over vector to search for name
-    for(i = 0; i < cartSize; ++i) 
+    for (i = 0; i < cartSize; ++i) 
     {
         // Hint: to access a vector item by index use: "at(i)" method
         // For example to get the name, use: cartItems.at(i).GetName()
         if (cartItems.at(i).GetName() == name)
         {
             found = true;
-            cartItems.erase(cartItems.begin() + i);
+            posItem = i;
         }
     }
 
-    if(!found) 
+    if (!found) 
     {
         cout << "Item not found in cart. Nothing removed." << endl;
     }
-    // Shrink vector
-    cartItems.resize(cartSize - 1);
+    else
+    {
+        // Shrink vector
+        cartItems.erase(cartItems.begin() + posItem);
+        cartItems.resize(cartSize - 1);
+    }
 }
 
 /* 
@@ -133,24 +137,23 @@ void ShoppingCart::RemoveItem(string name)
 
 void ShoppingCart::ModifyItem(ItemToPurchase item) {
     unsigned i;
-    ItemToPurchase currItem;
     bool found;
 
     found = false;
 
-    for(i = 0; i < cartItems.size(); ++i) 
+    for (i = 0; i < cartItems.size(); ++i) 
     {
-        if(cartItems.at(i).GetName() == item.GetName()) 
+        if (cartItems.at(i).GetName() == item.GetName()
+            && cartItems.at(i).GetName() != "none"
+            && cartItems.at(i).GetPrice() != 0
+            && cartItems.at(i).GetQuantity() != 0) 
         {
-            // Check if it is name is not "none"
-
-            // Check if it is price is not 0
-
-            // Check if it is qty is not 0
+            found = true;
+            cartItems.at(i).SetQuantity(item.GetQuantity());
         }
     }
 
-    if(!found) 
+    if (!found) 
     {
         cout << "Item not found in cart. Nothing modified." << endl;
     }
@@ -165,7 +168,13 @@ void ShoppingCart::ModifyItem(ItemToPurchase item) {
 
 int ShoppingCart::GetNumItemsInCart()
 {
-    return 0;
+    int count = 0;
+
+    for (unsigned i = 0; i < cartItems.size(); ++i)
+    {
+        count += cartItems.at(i).GetQuantity();
+    }
+    return count;
 }
 
 /* 
@@ -183,7 +192,7 @@ double ShoppingCart::GetCostOfCart()
    
    totalCost = 0;
    
-   for(i = 0; i < cartItems.size(); ++i) 
+   for (i = 0; i < cartItems.size(); ++i) 
    {
        totalCost += cartItems.at(i).GetQuantity() * cartItems.at(i).GetPrice();
    }
@@ -207,9 +216,9 @@ void ShoppingCart::PrintTotal() {
     cout << customerName << "'s Shopping Cart - " << currentDate << endl;
     cout << "Number of Items: " << GetNumItemsInCart() << endl << endl;
 
-    if(cartItems.size() > 0) 
+    if (cartItems.size() > 0) 
     {
-        for(i = 0; i < cartItems.size(); ++i) 
+        for (i = 0; i < cartItems.size(); ++i) 
         {
             cartItems.at(i).PrintItemCost();
         }
@@ -239,9 +248,9 @@ void ShoppingCart::PrintDescriptions()
     cout << customerName << "'s Shopping Cart - " << currentDate << endl << endl;
     cout << "Item Descriptions" << endl;
 
-    if(cartItems.size() > 0) 
+    if (cartItems.size() > 0) 
     {
-        for(i = 0; i < cartItems.size(); ++i) 
+        for (i = 0; i < cartItems.size(); ++i) 
         {
             cartItems.at(i).PrintItemDescription();
         }
