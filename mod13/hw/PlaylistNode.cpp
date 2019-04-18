@@ -16,7 +16,11 @@ using namespace std;
 
 PlaylistNode::PlaylistNode()
 {
-    return;
+    this->uniqueID = "none";
+    this->songName = "none";
+    this->artistName = "none";
+    this->songLength = 0;
+    this->nextNodePtr = nullptr;
 }
 
 /*
@@ -33,8 +37,11 @@ PlaylistNode::PlaylistNode()
 PlaylistNode::PlaylistNode(string initID, string initSongName,
                            string initArtistName, int initSongLength, PlaylistNode* nextLoc)
 {
-
-    return;
+    this->uniqueID = initID;
+    this->songName = initSongName;
+    this->artistName = initArtistName;
+    this->songLength = initSongLength;
+    this->nextNodePtr = nextLoc;
 }
 
 /*
@@ -47,7 +54,10 @@ PlaylistNode::PlaylistNode(string initID, string initSongName,
 
 void PlaylistNode::InsertAfter(PlaylistNode* nodePtr)
 {
-    return;
+    PlaylistNode* tmpNext = nullptr;
+    tmpNext = this->nextNodePtr;
+    this->nextNodePtr = nodePtr;
+    nodePtr->nextNodePtr = tmpNext;
 }
 
 /*
@@ -59,7 +69,7 @@ void PlaylistNode::InsertAfter(PlaylistNode* nodePtr)
 
 void PlaylistNode::SetNext(PlaylistNode* nodePtr)
 {
-    return;
+    this->nextNodePtr = nodePtr;
 }
 
 /*
@@ -135,5 +145,5 @@ void PlaylistNode::PrintPlaylistNode()
     cout << "Song Name: " << this->songName << endl;
     cout << "Artist Name: " << this->artistName << endl;
     cout << "Song Length (in seconds): " << this->songLength << endl;
-    return;
+    
 }
