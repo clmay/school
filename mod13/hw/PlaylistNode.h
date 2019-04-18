@@ -11,23 +11,23 @@ class PlaylistNode
         string songName;
         string artistName;
         int songLength;
-        PlaylistNode *nextNodePtr;
+        PlaylistNode* nextNodePtr;
 
     public:
-        // Default Constructors
+        // Constructors
         PlaylistNode();
-        // Constructors with parameters
         PlaylistNode(string initID, string initSongName, string initArtistName,
-                    int initSongLength, PlaylistNode *nextLoc = 0);
+                     int initSongLength, PlaylistNode* nextLoc = 0);
         // Getters
         string GetID() const;
         string GetSongName() const;
         string GetArtistName() const;
         int GetSongLength() const;
+        PlaylistNode* GetNext() const;
+        // Setters
+        void SetNext(PlaylistNode* nodePtr);
         // Other Methods
-        void InsertAfter(PlaylistNode *nodePtr);
-        void SetNext(PlaylistNode *nodePtr);
-        PlaylistNode *GetNext();
+        void InsertAfter(PlaylistNode* nodePtr);
         void PrintPlaylistNode();
 };
 
