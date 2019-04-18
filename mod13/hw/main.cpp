@@ -46,29 +46,29 @@ int main()
         // Call corresponding menu action
         switch (menuOp)
         {
-        case 'a':
-            AddSong(headNode, tailNode);
-            break;
+            case 'a':
+                AddSong(headNode, tailNode);
+                break;
 
-        case 'd':
-            DeleteSong(headNode, tailNode, prevNode);
-            break;
+            case 'd':
+                DeleteSong(headNode, tailNode, prevNode);
+                break;
 
-        case 'c':
-            ChangeSongPosition(headNode, tailNode, prevNode);
-            break;
+            case 'c':
+                ChangeSongPosition(headNode, tailNode, prevNode);
+                break;
 
-        case 's':
-            OutputSongsBySpecificArtist(headNode, tailNode, prevNode);
-            break;
+            case 's':
+                OutputSongsBySpecificArtist(headNode, tailNode, prevNode);
+                break;
 
-        case 't':
-            OutputTotalTime(headNode);
-            break;
+            case 't':
+                OutputTotalTime(headNode);
+                break;
 
-        case 'o':
-            OutputFullList(playlistTitle, headNode);
-            break;
+            case 'o':
+                OutputFullList(playlistTitle, headNode);
+                break;
         } // end of switch
     }     // end of while
 
