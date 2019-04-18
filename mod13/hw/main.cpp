@@ -107,12 +107,20 @@ void AddSong(PlaylistNode*& headNode, PlaylistNode*& tailNode)
     cin >> songLength;
 
     // Create a new node for playlist with "new" and save it in newSong pointer
-    // ...
+    newSong = new PlaylistNode(uniqueID, songName, artistName, songLength);
 
-    // If song is first in playlist, update head/tail
-    // ....
-    // Otherwise insert to end of playlist and update tail
-    // ....
+    if (headNode == nullptr) // If song is first in playlist
+    {
+        // Then update head
+        headNode = newSong;
+        tailNode = newSong;
+    }
+    else
+    {
+        // Otherwise insert to end of playlist and update tail
+        tailNode->Insert(newSong);
+    }
+
     cout << endl;
 }
 
@@ -283,7 +291,7 @@ void OutputFullList(const string playlistTitle, PlaylistNode*& headNode)
     cout << playlistTitle << " - OUTPUT FULL PLAYLIST" << endl;
 
     // Iterate through each song in list
-    int numNodes = 1;
+    int nodeNum = 1;
     currPrintNode = headNode;
 
     // If list is empty, output error message
@@ -297,13 +305,11 @@ void OutputFullList(const string playlistTitle, PlaylistNode*& headNode)
     {
         while (currPrintNode != nullptr)
         {
-            //            cout << numNodes << "." << endl;
-
-            // cycle through the playlist
-            // ...
-
-            //            cout << endl;
-            //            ++numNodes;
+            cout << nodeNum << "." << endl;
+            currPrintNode->PrintPlaylistNode();
+            cout << endl;
+            currPrintNode = currPrintNode->GetNext();
+            ++nodeNum;
         }
     }
 }
