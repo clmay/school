@@ -46,13 +46,13 @@ PlaylistNode::PlaylistNode(string initID, string initSongName,
 
 /*
  * ===  FUNCTION  ======================================================================
- *         Name:  InsertAfter
+ *         Name:  Insert
  *  Description:  Insert a node after the last node. Connect the newly created node
  *  to the end of the list.
  * =====================================================================================
  */
 
-void PlaylistNode::InsertAfter(PlaylistNode* nodePtr)
+void PlaylistNode::Insert(PlaylistNode* nodePtr)
 {
     PlaylistNode* tmpNext = this->nextNodePtr;
     this->nextNodePtr = nodePtr;

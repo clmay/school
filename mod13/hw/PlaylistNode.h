@@ -27,7 +27,7 @@ class PlaylistNode
         // Setters
         void SetNext(PlaylistNode* nodePtr);
         // Other Methods
-        void InsertAfter(PlaylistNode* nodePtr);
+        void Insert(PlaylistNode* nodePtr);
         void PrintPlaylistNode();
 };
 
