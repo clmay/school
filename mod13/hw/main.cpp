@@ -86,7 +86,6 @@ void PrintMenu(const string playlistTitle)
     cout << "o - Output full playlist" << endl;
     cout << "q - Quit" << endl
          << endl;
-    return;
 }
 
 void AddSong(PlaylistNode*& headNode, PlaylistNode*& tailNode)
@@ -119,7 +118,6 @@ void AddSong(PlaylistNode*& headNode, PlaylistNode*& tailNode)
     // Otherwise insert to end of playlist and update tail
     // ....
     cout << endl;
-    return;
 }
 
 void DeleteSong(PlaylistNode*& headNode, PlaylistNode*& tailNode, PlaylistNode*& prevNode)
@@ -161,7 +159,6 @@ void DeleteSong(PlaylistNode*& headNode, PlaylistNode*& tailNode, PlaylistNode*&
         cout << "\"" << songNode->GetSongName() << "\" removed." << endl
              << endl;
     }
-    return;
 }
 
 void ChangeSongPosition(PlaylistNode*& headNode, PlaylistNode*& tailNode, PlaylistNode*& prevNode)
@@ -232,7 +229,6 @@ void ChangeSongPosition(PlaylistNode*& headNode, PlaylistNode*& tailNode, Playli
                  << endl;
         }
     }
-    return;
 }
 
 void OutputSongsBySpecificArtist(PlaylistNode*& headNode, PlaylistNode*& tailNode,
@@ -265,7 +261,6 @@ void OutputSongsBySpecificArtist(PlaylistNode*& headNode, PlaylistNode*& tailNod
         // ...
         //        ++numNodes;
     }
-    return;
 }
 
 void OutputTotalTime(PlaylistNode*& headNode)
@@ -283,7 +278,6 @@ void OutputTotalTime(PlaylistNode*& headNode)
 
     cout << "Total time: " << totalTime << " seconds" << endl
          << endl;
-    return;
 }
 
 void OutputFullList(const string playlistTitle, PlaylistNode*& headNode)
@@ -316,5 +310,4 @@ void OutputFullList(const string playlistTitle, PlaylistNode*& headNode)
             //            ++numNodes;
         }
     }
-    return;
 }
