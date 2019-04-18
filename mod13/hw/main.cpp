@@ -8,21 +8,21 @@ using namespace std;
 
 // Function Prototypes
 void PrintMenu(const string playlistTitle);
-void AddSong(PlaylistNode *&headNode, PlaylistNode *&tailNode);
-void DeleteSong(PlaylistNode *&headNode, PlaylistNode *&tailNode, PlaylistNode *&prevNode);
-void ChangeSongPosition(PlaylistNode *&headNode, PlaylistNode *&tailNode, PlaylistNode *&prevNode);
-void OutputSongsBySpecificArtist(PlaylistNode *&headNode, PlaylistNode *&tailNode, PlaylistNode *&prevNode);
-void OutputTotalTime(PlaylistNode *&headNode);
-void OutputFullList(const string playlistTitle, PlaylistNode *&headNode);
+void AddSong(PlaylistNode*& headNode, PlaylistNode*& tailNode);
+void DeleteSong(PlaylistNode*& headNode, PlaylistNode*& tailNode, PlaylistNode*& prevNode);
+void ChangeSongPosition(PlaylistNode*& headNode, PlaylistNode*& tailNode, PlaylistNode*& prevNode);
+void OutputSongsBySpecificArtist(PlaylistNode*& headNode, PlaylistNode*& tailNode, PlaylistNode*& prevNode);
+void OutputTotalTime(PlaylistNode*& headNode);
+void OutputFullList(const string playlistTitle, PlaylistNode*& headNode);
 
 // Main Function
 int main()
 {
     string playlistTitle;
 
-    PlaylistNode *prevNode = 0;
-    PlaylistNode *headNode = 0;
-    PlaylistNode *tailNode = 0;
+    PlaylistNode* prevNode = 0;
+    PlaylistNode* headNode = 0;
+    PlaylistNode* tailNode = 0;
 
     // Prompt user for playlist title
     cout << "Enter playlist's title:" << endl;
@@ -89,9 +89,9 @@ void PrintMenu(const string playlistTitle)
     return;
 }
 
-void AddSong(PlaylistNode *&headNode, PlaylistNode *&tailNode)
+void AddSong(PlaylistNode*& headNode, PlaylistNode*& tailNode)
 {
-    PlaylistNode *newSong = 0;
+    PlaylistNode* newSong = 0;
     string uniqueID;
     string songName;
     string artistName;
@@ -122,9 +122,9 @@ void AddSong(PlaylistNode *&headNode, PlaylistNode *&tailNode)
     return;
 }
 
-void DeleteSong(PlaylistNode *&headNode, PlaylistNode *&tailNode, PlaylistNode *&prevNode)
+void DeleteSong(PlaylistNode*& headNode, PlaylistNode*& tailNode, PlaylistNode*& prevNode)
 {
-    PlaylistNode *songNode = 0;
+    PlaylistNode* songNode = 0;
     string uniqueID;
     // Output playlist messaging
     cout << "REMOVE SONG" << endl;
@@ -164,10 +164,10 @@ void DeleteSong(PlaylistNode *&headNode, PlaylistNode *&tailNode, PlaylistNode *
     return;
 }
 
-void ChangeSongPosition(PlaylistNode *&headNode, PlaylistNode *&tailNode, PlaylistNode *&prevNode)
+void ChangeSongPosition(PlaylistNode*& headNode, PlaylistNode*& tailNode, PlaylistNode*& prevNode)
 {
-    PlaylistNode *songNode = 0;
-    PlaylistNode *insertPosNode = 0;
+    PlaylistNode* songNode = 0;
+    PlaylistNode* insertPosNode = 0;
     int songPosition = 0;
     int newPosition = 0;
     int numNodes = 0;
@@ -235,10 +235,10 @@ void ChangeSongPosition(PlaylistNode *&headNode, PlaylistNode *&tailNode, Playli
     return;
 }
 
-void OutputSongsBySpecificArtist(PlaylistNode *&headNode, PlaylistNode *&tailNode,
-                                 PlaylistNode *&prevNode)
+void OutputSongsBySpecificArtist(PlaylistNode*& headNode, PlaylistNode*& tailNode,
+                                 PlaylistNode*& prevNode)
 {
-    PlaylistNode *currNode = 0;
+    PlaylistNode* currNode = 0;
     string artistName;
     // Consume newline and prompt user for output criteria
     cin.ignore();
@@ -268,9 +268,9 @@ void OutputSongsBySpecificArtist(PlaylistNode *&headNode, PlaylistNode *&tailNod
     return;
 }
 
-void OutputTotalTime(PlaylistNode *&headNode)
+void OutputTotalTime(PlaylistNode*& headNode)
 {
-    PlaylistNode *currNode = 0;
+    PlaylistNode* currNode = 0;
     // Output playlist messaging
     cout << "OUTPUT TOTAL TIME OF PLAYLIST (IN SECONDS)" << endl;
 
@@ -286,9 +286,9 @@ void OutputTotalTime(PlaylistNode *&headNode)
     return;
 }
 
-void OutputFullList(const string playlistTitle, PlaylistNode *&headNode)
+void OutputFullList(const string playlistTitle, PlaylistNode*& headNode)
 {
-    PlaylistNode *currPrintNode = 0;
+    PlaylistNode* currPrintNode = 0;
     // Output playlist messaging
     cout << playlistTitle << " - OUTPUT FULL PLAYLIST" << endl;
 
