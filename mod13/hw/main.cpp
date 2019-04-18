@@ -20,9 +20,9 @@ int main()
 {
     string playlistTitle;
 
-    PlaylistNode* prevNode = 0;
-    PlaylistNode* headNode = 0;
-    PlaylistNode* tailNode = 0;
+    PlaylistNode* prevNode = nullptr;
+    PlaylistNode* headNode = nullptr;
+    PlaylistNode* tailNode = nullptr;
 
     // Prompt user for playlist title
     cout << "Enter playlist's title:" << endl;
@@ -71,7 +71,6 @@ int main()
                 break;
         } // end of switch
     }     // end of while
-
     return 0;
 }
 
@@ -90,7 +89,7 @@ void PrintMenu(const string playlistTitle)
 
 void AddSong(PlaylistNode*& headNode, PlaylistNode*& tailNode)
 {
-    PlaylistNode* newSong = 0;
+    PlaylistNode* newSong = nullptr;
     string uniqueID;
     string songName;
     string artistName;
@@ -122,7 +121,7 @@ void AddSong(PlaylistNode*& headNode, PlaylistNode*& tailNode)
 
 void DeleteSong(PlaylistNode*& headNode, PlaylistNode*& tailNode, PlaylistNode*& prevNode)
 {
-    PlaylistNode* songNode = 0;
+    PlaylistNode* songNode = nullptr;
     string uniqueID;
     // Output playlist messaging
     cout << "REMOVE SONG" << endl;
@@ -133,12 +132,12 @@ void DeleteSong(PlaylistNode*& headNode, PlaylistNode*& tailNode, PlaylistNode*&
     songNode = headNode;
 
     // songNode is the song to be removed
-    while ((songNode != 0) && !(songNode->GetID() == uniqueID))
+    while ((songNode != nullptr) && !(songNode->GetID() == uniqueID))
     {
         songNode = songNode->GetNext();
     }
 
-    if (songNode == 0)
+    if (songNode == nullptr)
     {
         // ERROR: songPosition provided by user is invalid
         // Do nothing
@@ -163,8 +162,8 @@ void DeleteSong(PlaylistNode*& headNode, PlaylistNode*& tailNode, PlaylistNode*&
 
 void ChangeSongPosition(PlaylistNode*& headNode, PlaylistNode*& tailNode, PlaylistNode*& prevNode)
 {
-    PlaylistNode* songNode = 0;
-    PlaylistNode* insertPosNode = 0;
+    PlaylistNode* songNode = nullptr;
+    PlaylistNode* insertPosNode = nullptr;
     int songPosition = 0;
     int newPosition = 0;
     int numNodes = 0;
@@ -181,13 +180,13 @@ void ChangeSongPosition(PlaylistNode*& headNode, PlaylistNode*& tailNode, Playli
 
     // songNode is the song to be moved
     // ...
-    while ((songNode != 0) && (numNodes < (songPosition - 1)))
+    while ((songNode != nullptr) && (numNodes < (songPosition - 1)))
     {
         ++numNodes;
         songNode = songNode->GetNext();
     }
 
-    if (songNode == 0)
+    if (songNode == nullptr)
     {
         // IF songPosition provided by user is invalid
         // ERROR: Do nothing
@@ -234,7 +233,7 @@ void ChangeSongPosition(PlaylistNode*& headNode, PlaylistNode*& tailNode, Playli
 void OutputSongsBySpecificArtist(PlaylistNode*& headNode, PlaylistNode*& tailNode,
                                  PlaylistNode*& prevNode)
 {
-    PlaylistNode* currNode = 0;
+    PlaylistNode* currNode = nullptr;
     string artistName;
     // Consume newline and prompt user for output criteria
     cin.ignore();
@@ -248,7 +247,7 @@ void OutputSongsBySpecificArtist(PlaylistNode*& headNode, PlaylistNode*& tailNod
     currNode = headNode;
 
     // Cycle through the list
-    while (currNode != 0)
+    while (currNode != nullptr)
     {
         // Output songs with matching artist name
         if (currNode->GetArtistName() == artistName)
@@ -265,7 +264,7 @@ void OutputSongsBySpecificArtist(PlaylistNode*& headNode, PlaylistNode*& tailNod
 
 void OutputTotalTime(PlaylistNode*& headNode)
 {
-    PlaylistNode* currNode = 0;
+    PlaylistNode* currNode = nullptr;
     // Output playlist messaging
     cout << "OUTPUT TOTAL TIME OF PLAYLIST (IN SECONDS)" << endl;
 
@@ -282,7 +281,7 @@ void OutputTotalTime(PlaylistNode*& headNode)
 
 void OutputFullList(const string playlistTitle, PlaylistNode*& headNode)
 {
-    PlaylistNode* currPrintNode = 0;
+    PlaylistNode* currPrintNode = nullptr;
     // Output playlist messaging
     cout << playlistTitle << " - OUTPUT FULL PLAYLIST" << endl;
 
@@ -291,7 +290,7 @@ void OutputFullList(const string playlistTitle, PlaylistNode*& headNode)
     currPrintNode = headNode;
 
     // If list is empty, output error message
-    if (headNode == 0)
+    if (headNode == nullptr)
     {
         cout << "Playlist is empty" << endl
              << endl;
@@ -299,7 +298,7 @@ void OutputFullList(const string playlistTitle, PlaylistNode*& headNode)
     // Otherwise call print function for each node in list
     else
     {
-        while (currPrintNode != 0)
+        while (currPrintNode != nullptr)
         {
             //            cout << numNodes << "." << endl;
 
