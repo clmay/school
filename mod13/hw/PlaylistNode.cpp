@@ -31,7 +31,7 @@ PlaylistNode::PlaylistNode()
  */
 
 PlaylistNode::PlaylistNode(string initID, string initSongName,
-                           string initArtistName, int initSongLength, PlaylistNode *nextLoc)
+                           string initArtistName, int initSongLength, PlaylistNode* nextLoc)
 {
 
     return;
@@ -45,7 +45,7 @@ PlaylistNode::PlaylistNode(string initID, string initSongName,
  * =====================================================================================
  */
 
-void PlaylistNode::InsertAfter(PlaylistNode *nodePtr)
+void PlaylistNode::InsertAfter(PlaylistNode* nodePtr)
 {
     return;
 }
@@ -57,7 +57,7 @@ void PlaylistNode::InsertAfter(PlaylistNode *nodePtr)
  * =====================================================================================
  */
 
-void PlaylistNode::SetNext(PlaylistNode *nodePtr)
+void PlaylistNode::SetNext(PlaylistNode* nodePtr)
 {
     return;
 }
@@ -69,9 +69,10 @@ void PlaylistNode::SetNext(PlaylistNode *nodePtr)
  * =====================================================================================
  */
 
-//string PlaylistNode::GetID() const
-//{
-//}
+string PlaylistNode::GetID() const
+{
+    return this->uniqueID;
+}
 
 /*
  * ===  FUNCTION  ======================================================================
@@ -80,9 +81,10 @@ void PlaylistNode::SetNext(PlaylistNode *nodePtr)
  * =====================================================================================
  */
 
-//string PlaylistNode::GetSongName() const
-//{
-//}
+string PlaylistNode::GetSongName() const
+{
+    return this->songName;
+}
 
 /*
  * ===  FUNCTION  ======================================================================
@@ -91,6 +93,11 @@ void PlaylistNode::SetNext(PlaylistNode *nodePtr)
  * =====================================================================================
  */
 
+string PlaylistNode::GetArtistName() const
+{
+    return this->artistName;
+}
+
 /*
  * ===  FUNCTION  ======================================================================
  *         Name:  GetSongLength
@@ -98,12 +105,22 @@ void PlaylistNode::SetNext(PlaylistNode *nodePtr)
  * =====================================================================================
  */
 
+int PlaylistNode::GetSongLength() const
+{
+    return this->songLength;
+}
+
 /*
  * ===  FUNCTION  ======================================================================
  *         Name:  GetNext
  *  Description:  Getter for nextNodePtr
  * =====================================================================================
  */
+
+PlaylistNode* PlaylistNode::GetNext() const
+{
+    return this->nextNodePtr;
+}
 
 /*
  * ===  FUNCTION  ======================================================================
