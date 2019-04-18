@@ -54,8 +54,7 @@ PlaylistNode::PlaylistNode(string initID, string initSongName,
 
 void PlaylistNode::InsertAfter(PlaylistNode* nodePtr)
 {
-    PlaylistNode* tmpNext = nullptr;
-    tmpNext = this->nextNodePtr;
+    PlaylistNode* tmpNext = this->nextNodePtr;
     this->nextNodePtr = nodePtr;
     nodePtr->nextNodePtr = tmpNext;
 }
