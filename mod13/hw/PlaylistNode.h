@@ -17,7 +17,7 @@ class PlaylistNode
         // Constructors
         PlaylistNode();
         PlaylistNode(string initID, string initSongName, string initArtistName,
-                     int initSongLength, PlaylistNode* nextLoc = 0);
+                     int initSongLength, PlaylistNode* nextLoc = nullptr);
         // Getters
         string GetID() const;
         string GetSongName() const;
