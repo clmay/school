@@ -36,13 +36,8 @@ int main()
         menuOp = ' ';
         // Output play list menu options
         PrintMenu(playlistTitle);
-        while (menuOp != 'a' && menuOp != 'd' && menuOp != 'c' &&
-               menuOp != 's' && menuOp != 't' && menuOp != 'o' &&
-               menuOp != 'q')
-        {
-            cout << "Choose an option:" << endl;
-            cin >> menuOp;
-        }
+        cout << "Choose an option:" << endl;
+        cin >> menuOp;
         // Call corresponding menu action
         switch (menuOp)
         {
@@ -68,6 +63,8 @@ int main()
 
             case 'o':
                 OutputFullList(playlistTitle, headNode);
+                break;
+            default:
                 break;
         } // end of switch
     }     // end of while
