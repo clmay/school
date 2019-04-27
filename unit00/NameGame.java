@@ -26,6 +26,6 @@ public class NameGame{
     System.out.println("Fe Fi Fo f" + subname);
     System.out.println(name);
 
-
+    scan.close();
   } // end `main()`
 } // end `NameGame`

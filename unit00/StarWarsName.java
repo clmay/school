@@ -54,5 +54,6 @@ public class StarWarsName {
     // Output the result
     System.out.println("Your Star Wars name is: " + name);
 
+    scan.close();
   } // end `main()`
 } // end `StarWarsName`

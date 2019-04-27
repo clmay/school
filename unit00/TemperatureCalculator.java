@@ -32,5 +32,6 @@ public class TemperatureCalculator {
     // Display the result
     System.out.println(fahrenheit + " degrees Fahrenheit is " + celsius + " degrees Celsius.");
 
+    scan.close();
   } // end `main()`
 } // end `TemperatureCalculator`

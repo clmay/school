@@ -19,6 +19,7 @@ public class DogYears {
 
     // Display the result
     System.out.println("Your dog is " + dogYears + " in dog years.");
-
+    
+    scan.close();
   } // end `main()`
 } // end `DogYears`
