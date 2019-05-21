@@ -1,3 +1,7 @@
+# Chase May
+# Lab 1 - Creating Python Scripts
+# CS 2705: Fundamentals of Networking
+
 print("Hello, world!")
 
 first_name = input("Enter your first name: ")
