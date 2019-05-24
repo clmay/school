@@ -1,0 +1,77 @@
+commit f6e0e5eba2d85f32c2ffd1397f3d852130146449
+Author: Chase May <chaseloganmay@gmail.com>
+Date:   Thu Feb 21 09:39:41 2019 -0700
+
+    Fix formatting
+
+commit 442bf6a1944f7c77f1d0ff159028f948749d5caf
+Author: Chase May <chaseloganmay@gmail.com>
+Date:   Thu Feb 21 09:38:01 2019 -0700
+
+    Complete extra.c
+
+commit c8c4d742b992c1ae43921d7ff8fa47c64425c4a8
+Author: Chase May <chaseloganmay@gmail.com>
+Date:   Thu Feb 21 09:33:08 2019 -0700
+
+    Add extra credit task
+
+commit 2fcf42710b0f3387eb1131feedfe9037202b419e
+Author: Chase May <chaseloganmay@gmail.com>
+Date:   Thu Feb 21 09:31:54 2019 -0700
+
+    Remove README.md
+
+commit 0a87ec6f46bf04f09d1f0847990426c84f1e89b3
+Author: Chase May <chaseloganmay@gmail.com>
+Date:   Thu Feb 21 09:29:41 2019 -0700
+
+    Complete task5.c
+
+commit 766cda21e09fad3f1fde8fb629da98c795a870d0
+Author: Chase May <chaseloganmay@gmail.com>
+Date:   Thu Feb 21 09:22:29 2019 -0700
+
+    Add loop through years, print to test
+
+commit e0f0b6b108829673a44409d770d5aebe9b806247
+Author: Chase May <chaseloganmay@gmail.com>
+Date:   Thu Feb 21 09:19:23 2019 -0700
+
+    Add task5.c
+
+commit be937108ae620ae7daef46f7a598a73a74df72cd
+Author: Chase May <chaseloganmay@gmail.com>
+Date:   Thu Feb 21 09:19:13 2019 -0700
+
+    Complete task2.c
+
+commit 6ca11945565721c5019498f9576aae04f67864b8
+Author: Chase May <chaseloganmay@gmail.com>
+Date:   Thu Feb 21 09:11:03 2019 -0700
+
+    Fixed compiler error, removed 'double' from first line
+
+commit 52a81370ae97c5f9e58981c88434c0381784feae
+Author: Chase May <chaseloganmay@gmail.com>
+Date:   Thu Feb 21 09:09:08 2019 -0700
+
+    Troubleshooting compiler library errors
+
+commit 505058122978a81b5d1515437f39a5c63315886d
+Author: Chase May <chaseloganmay@gmail.com>
+Date:   Thu Feb 21 08:55:11 2019 -0700
+
+    Add task2.c
+
+commit bdd61c6582ca66a35dd96f53f5aff252c008b062
+Author: Chase May <chaseloganmay@gmail.com>
+Date:   Thu Feb 21 08:52:33 2019 -0700
+
+    Add .gitignore
+
+commit 2158e8134d6fc611162539c7a4bf4b663902fc69
+Author: Chase May <chaseloganmay@gmail.com>
+Date:   Thu Feb 21 08:35:00 2019 -0700
+
+    Initial commit
