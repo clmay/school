@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <title>Publishing on Icarus</title>
+  <meta name="description" content="Tutorial on publishing to Icarus">
+  <meta name="keywords"
+    content="tutorial, web development, uploading, publishing, Icarus">
+  <meta name="author" content="Chase May">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="./assets/crataegus.png">
+</head>
+
+<body>
+  <ul>
+    <li><a href="./index.html" title="Link to homepage">Home</a></li>
+    <li><a href="./projects.html" title="Link to projects page">Projects</a>
+    </li>
+  </ul>
+  <h1>Chase May</h1>
+  <h2>Publishing on Icarus</h2>
+  <h3>Overview</h3>
+  <ol>
+    <li><a href="#install-tools">Install tools</a></li>
+    <li><a href="#connect-via-sftp">Connect via SFTP using Cyberduck</a></li>
+    <li><a href="#upload-content">Upload content to public_html directory</a>
+    </li>
+    <li><a href="#view-result">View the result online</a></li>
+  </ol>
+  <h3>Introduction</h3>
+  <p>This tutorial will guide you through the process of using your Icarus
+    server account to host a static website. It requires the installation of a
+    couple free, open-source software tools. You should have basic familiarity
+    with HTML, the command line, and the file explorer on your computer, but
+    this guide is otherwise suitable for beginners.</p>
+  <h3 id="install-tolls">Install your tools</h3>
+  <h4>Install Homebrew</h4>
+  <p><a href="https://brew.sh/" target="_blank"
+      title="Link to the Homebrew package manager homepage">Homebrew</a> is a
+    package manager that brings Linux-style package installation to macOS. It
+    will search a repository of software packages, fetch and install packages,
+    and resolve dependencies automatically, all in a single command. It is the
+    <em>de facto</em>, though unofficial, package manager for macOS.</p>
+  <p>Installation is simple. Open Terminal.app (or your terminal emulator of
+    choice) and run:</p>
+  <pre>/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</pre>
+  <p>It's always a good idea to review the content of scripts before you run
+    them, to understand what changes they perform and inspect them for dangerous
+    code. The <a
+      href="https://raw.githubusercontent.com/Homebrew/install/master/install"
+      target="_blank" title="Homebrew install script source">Homebrew install
+      script</a> is open source and you can view it directly at the address in
+    the command above (<a
+      href="https://raw.githubusercontent.com/Homebrew/install/master/install"
+      target="_blank" title="Homebrew install script source">linked here</a>)
+    for your convenience.</p>
+  <h4>Install Cyberduck</h4>
+  <p><a href="https://cyberduck.io/" target="_blank"
+      title="Link to the Cyberduck homepage">Cyberduck</a> is another
+    open-source tool for macOS that is practically standard. Cyberduck is a file
+    transfer client that supports a number of protocols, most importantly FTP
+    and SFTP. We will use SFTP later in the tutorial to send our files to the
+    server. Using Homebrew, installing Cyberduck is a quick one-liner: </p>
+  <pre>brew cask install cyberduck</pre>
+  <p>This command fetches the package and all dependencies, installs the
+    software, and automatically moves the app image to your /Applications
+    directory. After that, you can open Cyberduck just like you would any other
+    app. My personal favorite is Cmd + Space, and then just type "Cyberduck".
+    Once you've typed a few characters, macOS should autopopulate the app's
+    name, after which Enter will open it.</p>
+  <h3 id="connect-via-sftp">Connect via SFTP</h3>
+  <p>Once you have opened Cyberduck, you will need to add a connection. Click
+    the "+" button in the upper-left and change the connection type from the
+    default (FTP) to SFTP.</p>
+  <img src="./assets/cyberduck_add_connection_opt.png"
+    alt="Screenshot of Cyberduck home screen" width="640" height="591">
+  <p>Then, fill in the connection dialog with the following information:</p>
+  <ul>
+    <li>Server: cs.icarus.weber.edu</li>
+    <li>Port: 22 (this should be selected automatically if you chose SFTP</li>
+    <li>Username: first initial + last initial + final 5 digits of your W
+      number. <em>E.g.</em> 'js12345'.</li>
+    <li>Password: first name + 'cs!', <em>e.g.</em> 'Johncs!' (without quotes)
+    </li>
+  </ul>
+  <p>Your connection settings should be something like this:</p>
+  <img src="./assets/cyberduck_enter_credentials_opt.png"
+    alt="Screenshot of Cyberduck add connection dialog" width="640"
+    height="591">
+  <p>After that, click "Connect" and with any luck, you will be connected to the
+    server and your <em>public_html</em> directory will be shown. This is the
+    directory where you will upload files to make them available online. Any
+    files outside of public_html will not be accessible to visitors of your
+    site.</p>
+  <h3 id="upload-content">Upload content to public_html directory</h3>
+  <p>Now that you're connected to the server, it's time to upload some content.
+    Let's start by uploading an index.html within the public_html directory.</p>
+  <p>If you're anything like me, you'll enjoy the precision and brevity of the
+    keyboard shortcuts offered by Cyberduck. Hit Option + Up to open the upload
+    file browser. That'll open up Finder. Browse to and select the index.html
+    file you wish to upload and click "Upload" in the bottom-right.</p>
+  <img src="./assets/cyberduck_upload_file_opt.png"
+    alt="Screenshot of Cyberduck upload dialog" width="759" height="591">
+  <p>Take careful note of the location of the uploaded file. In my experience, a
+    minor UX flaw in Cyberduck is that the upload process does not allow you to
+    specify the exact upload location ahead-of-time, so the files are generally
+    uploaded to the root level (home directory). You may need to move the
+    uploaded file to the public_html directory before proceeding.</p>
+  <p>You can also upload a whole folder to Cyberduck, in which case it will
+    traverse the directory recursively, creating a matching tree in the
+    destination and uploading files as it goes. The process for uploading a
+    folder is the same, except that you select the folder you wish to upload
+    instead of a single file:</p>
+  <img src="./assets/cyberduck_upload_folder_opt.png"
+    alt="Screenshot of Cyberduck folder upload" width="759" height="591">
+  <h3 id="view-result">View the result online</h3>
+  <p>Now that all of your files are uploaded, you can view the results of your
+    labor.</p>
+  <p>Icarus serves the files in your public_html directory at:</p>
+  <pre>
+      http://icarus.cs.weber.edu/~[your-username]/
+    </pre>
+  <p>
+    <em>e.g.</em>
+  </p>
+  <pre>
+      http://icarus.weber.edu/~js12345
+    </pre>After the user subdirectory ('~js12345'), the remainder of the path
+  is the same as the path to the files/folders from your public_html. That is, a
+  document at 'public_html/assets/image.jpg' would be available at:
+  http://icarus.cs.weber.edu/~js12345/assets/image.jpg </pre>
+  <p>So, for the example shown in the following screenshot:</p>
+  <img src="./assets//cyberduck_folder_structure_opt.png"
+    alt="A screenshot of a folder hierarchy in Cyberduck" width="640"
+    height="591">
+  <ul>
+    <li> A file named 'template.html' at the root of public_html will be
+      available at:
+      <pre>http://icarus.cs.weber.edu/~js12345/template.html</pre>
+    </li>
+    <li>A file named 'another_page.html' within a subdirectory named 'folder'
+      would be at:
+      <pre>http://icarus.cs.weber.edu/~js12345/folder/another_page.html</pre>
+    </li>
+    <li>
+      <p> Keep in mind that a file named 'index.html' in public_html or any of
+        its descendants can also be accessed in the browser without specifying
+        the filename. </p>
+      <p>
+        <em>E.g.</em>'public_html/folder/index.html' can be accessed directly at
+      </p>
+      <pre>http://icarus.cs.weber.edu/~js12345/folder/</pre>
+    </li>
+  </ul>
+  <p>(Note: The instructor of this course has required that this tutorial also
+    mention that the 'http://' portion of the URLs used to access the files is
+    called the protocol, and that the 'icarus.cs.weber.edu' portion is called
+    the hostname. However: given that these segments of the URL are constant for
+    any users publishing to Icarus (since it does not provide HTTPS and since
+    the hostname is beyond the user's control); and given that the
+    scheme/protocol and hostname are both required in well-formed URLs, and
+    indeed are part of the <em>definition</em> of their well-formedness; the
+    utility of this information for the purposes of the present tutorial remains
+    an open question, and one that is left as an exercise for the reader's
+    imagination.)</p>
+  <h3>Conclusion</h3>
+  <p>Now that you have the tools and knowledge necessary to upload files to the
+    free hosting platform provided with your Icarus student server account, you
+    should be well on your way to the complete personal website of your choice.
+    Don't forget to log out of Cyberduck when you're done, and happy coding!</p>
+  <p>Written & designed by Chase May</p>
+</body>
+
+</html>
