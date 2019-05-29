@@ -63,12 +63,13 @@ def eval(operator, negate_p1, negate_p2, p1_value, p2_value):
 
 def build_table(operator, negate_p1, negate_p2):
     prop = expr(operator, negate_p1, negate_p2)
-    table = [['p', 'q', prop],
-             ['T', 'T', eval(operator, negate_p1, negate_p2, True, True)],
-             ['T', 'F', eval(operator, negate_p1, negate_p2, True, False)],
-             ['F', 'T', eval(operator, negate_p1, negate_p2, False, True)],
-             ['F', 'F', eval(operator, negate_p1, negate_p2, False, False)]
-             ]
+    table = [
+        ['p', 'q', prop],
+        ['T', 'T', eval(operator, negate_p1, negate_p2, True, True)],
+        ['T', 'F', eval(operator, negate_p1, negate_p2, True, False)],
+        ['F', 'T', eval(operator, negate_p1, negate_p2, False, True)],
+        ['F', 'F', eval(operator, negate_p1, negate_p2, False, False)]
+    ]
     return table
 
 
