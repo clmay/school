@@ -38,24 +38,26 @@ def print_problem(n, ip_address, base):
 # Decimal -> binary problems (Problems 1-5)
 
 
-ip_addresses = ['192.168.16.13',    # Problem 1
-                '164.10.241.2',     # Problem 2
-                '10.244.116.15',    # Problem 3
-                '15.255.200.153',   # Problem 4
-                '172.99.62.9'       # Problem 5
-                ]
+ip_addresses = [
+    '192.168.16.13',    # Problem 1
+    '164.10.241.2',     # Problem 2
+    '10.244.116.15',    # Problem 3
+    '15.255.200.153',   # Problem 4
+    '172.99.62.9'       # Problem 5
+]
 
 for i in range(0, 5):
     print_problem(i + 1, ip_addresses[i], 2)
 
 # Binary -> decimal problems (Problems 6-10)
 
-ip_addresses = ['10110100.11101011.00001000.10010001',  # Problem 6
-                '10001100.11111111.11000000.00000001',  # Problem 7
-                '00010001.11001100.00000001.00010010',  # Problem 8
-                '11100111.00110011.10101010.11111110',  # Problem 9
-                '00010111.11101110.01010101.10000000'  # Problem 10
-                ]
+ip_addresses = [
+    '10110100.11101011.00001000.10010001',  # Problem 6
+    '10001100.11111111.11000000.00000001',  # Problem 7
+    '00010001.11001100.00000001.00010010',  # Problem 8
+    '11100111.00110011.10101010.11111110',  # Problem 9
+    '00010111.11101110.01010101.10000000'  # Problem 10
+]
 
 for i in range(0, 5):
     print_problem(i + 6, ip_addresses[i], 10)
