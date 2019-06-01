@@ -1,5 +1,5 @@
-cs2250/mod08/*.c linguist-language=C
-cs2250/mod08/*.h linguist-language=C
+mod08/*.c linguist-language=C
+mod08/*.h linguist-language=C
 
-cs2250/mod09/*.c linguist-language=C
-cs2250/mod09/*.h linguist-language=C
+mod09/*.c linguist-language=C
+mod09/*.h linguist-language=C
