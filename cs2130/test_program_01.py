@@ -8,6 +8,9 @@ class TestProgram01(unittest.TestCase):
 
         # test union
         self.assertEqual(set_union({1, 2}, {2, 3}), {1, 2, 3})
+        self.assertEqual(set_union({1, 2, 3}, {3}), {1, 2, 3})
+        self.assertNotEqual(
+            set_union({1, 2}, {2, 3}), set_union({1, 2}, {3, 4}))
 
         # test commutativity of union
         self.assertEqual(set_union({1, 2}, {2, 3}), set_union({2, 3}, {1, 2}))
