@@ -1,5 +1,5 @@
 import unittest
-from program_01 import *
+from program_01 import set_union, set_intersection, set_complement
 
 
 class TestProgram01(unittest.TestCase):
