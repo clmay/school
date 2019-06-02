@@ -2,7 +2,7 @@ a = {1, 3, 5, 6, 8}
 b = {2, 3, 4, 7, 9}
 
 
-def union_of(p, q):
+def set_union(p, q):
     res = set()
     for elem in p:
         res.add(elem)
@@ -11,7 +11,7 @@ def union_of(p, q):
     return res
 
 
-def inter_of(p, q):
+def set_intersection(p, q):
     res = set()
     for elem_1 in p:
         for elem_2 in q:
@@ -20,7 +20,7 @@ def inter_of(p, q):
     return res
 
 
-def relcompl(p, q):
+def set_complement(p, q):
     res = set(p)
     for elem_1 in p:
         for elem_2 in q:
@@ -29,9 +29,9 @@ def relcompl(p, q):
     return res
 
 
-union = union_of(a, b)
-inter = inter_of(a, b)
-rcomp = relcompl(a, b)
+union = set_union(a, b)
+inter = set_intersection(a, b)
+rcomp = set_complement(a, b)
 
 print('A is ' + str(a))
 print('B is ' + str(b) + '\n')
