@@ -1,8 +1,11 @@
 def main():
-    s = input("Please enter a sentence: ").lower()
-    s = strip(s)
-    h = mod_hash(sentence_sum(s))
-    print(h)
+    choice = ""
+    while not choice == "n":
+        s = input("Please enter a sentence: ").lower()
+        s = strip(s)
+        h = mod_hash(sentence_sum(s))
+        print("The hash of the sentence you entered is: ", h)
+        choice = input("Would you like to continue? (y/n): ").lower()
 
 
 def strip(sentence):
