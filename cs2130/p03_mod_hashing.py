@@ -1,16 +1,15 @@
 def main():
     choice = ""
-    while not choice == "n":
-        s = input("Please enter a sentence: ").lower()
-        s = strip(s)
-        h = mod_hash(sentence_sum(s))
+    while not choice == "q":
+        s = input("\nPlease enter a sentence: ")
+        h = mod_hash(sum_chars(s))
         print("The hash of the sentence you entered is: ", h)
-        choice = input("Would you like to continue? (y/n): ").lower()
+        choice = input("Press any key to continue, Q to exit: ").lower()
 
 
-def strip(sentence):
+def clean(sentence):
     result = ""
-    for c in sentence:
+    for c in sentence.lower():
         if c == " ":
             result += c
         elif c.isalpha():
@@ -18,9 +17,9 @@ def strip(sentence):
     return result
 
 
-def sentence_sum(sentence):
+def sum_chars(sentence):
     sum = 0
-    for c in sentence:
+    for c in clean(sentence):
         if c == " ":
             sum += 31
         else:
