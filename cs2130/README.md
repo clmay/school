@@ -11,7 +11,7 @@ include modules that are included with Python 3's stdlib.
 python3 <filename>.py
 ```
 
-Tests are included for (most) assignments in modules named `test_*.py`.
+Tests are included in files named `test_*.py`.
 
 You can run the tests the same way you would run a regular program:
 
