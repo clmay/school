@@ -52,23 +52,64 @@ def create_mask(number_of_bits):
 
 def solve_problem(problem):
     result = ""
-    if problem["type"] == "subnet mask":
+    if problem["type"] == "subnet_mask":
         result = bin_to_dec(create_mask(problem["bits"]))
     return result
 
 
-problems = [  # { number, type, problem_data ...}
-    {"number": 1, "part": 1, "type": "subnet mask", "bits": 2},
-    {"number": 1, "part": 2, "type": "subnet mask", "bits": 13},
-    {"number": 1, "part": 3, "type": "subnet mask", "bits": 5},
-    {"number": 1, "part": 4, "type": "subnet mask", "bits": 11},
-    {"number": 1, "part": 5, "type": "subnet mask", "bits": 9},
-    {"number": 1, "part": 6, "type": "subnet mask", "bits": 10},
-    {"number": 1, "part": 7, "type": "subnet mask", "bits": 4},
-    {"number": 1, "part": 8, "type": "subnet mask", "bits": 14},
-    {"number": 1, "part": 9, "type": "subnet mask", "bits": 6},
-    {"number": 1, "part": 10, "type": "subnet mask", "bits": 8},
-    {"number": 1, "part": 11, "type": "subnet mask", "bits": 12},
+problems = [  # { number, part, type, problem data ...}
+    {"number": 1, "part": 1, "type": "subnet_mask", "bits": 2},     # Problem 1
+    {"number": 1, "part": 2, "type": "subnet_mask", "bits": 13},
+    {"number": 1, "part": 3, "type": "subnet_mask", "bits": 5},
+    {"number": 1, "part": 4, "type": "subnet_mask", "bits": 11},
+    {"number": 1, "part": 5, "type": "subnet_mask", "bits": 9},
+    {"number": 1, "part": 6, "type": "subnet_mask", "bits": 10},
+    {"number": 1, "part": 7, "type": "subnet_mask", "bits": 4},
+    {"number": 1, "part": 8, "type": "subnet_mask", "bits": 14},
+    {"number": 1, "part": 9, "type": "subnet_mask", "bits": 6},
+    {"number": 1, "part": 10, "type": "subnet_mask", "bits": 8},
+    {"number": 1, "part": 11, "type": "subnet_mask", "bits": 12},
+    {"number": 2, "part": 1, "type": "network_address",             # Problem 2
+        "ip_address": "132.8.150.67/22"},
+    {"number": 2, "part": 2, "type": "broadcast_address",
+        "ip_address": "132.8.150.67/22"},
+    {"number": 2, "part": 3, "type": "num_hosts",
+        "ip_address": "132.8.150.67/22"},
+    {"number": 2, "part": 4, "type": "valid_host_range",
+        "ip_address": "132.8.150.67/22"},
+    {"number": 3, "part": 1, "type": "network_address",             # Problem 3
+        "ip_address": "200.16.5.74/30"},
+    {"number": 3, "part": 2, "type": "broadcast_address",
+        "ip_address": "200.16.5.74/30"},
+    {"number": 3, "part": 3, "type": "num_hosts",
+        "ip_address": "200.16.5.74/30"},
+    {"number": 3, "part": 4, "type": "valid_host_range",
+        "ip_address": "200.16.5.74/30"},
+    {"number": 4, "part": 1, "type": "network_address",             # Problem 4
+        "ip_address": "166.0.13.8", "subnet_mask": "255.255.252.0"},
+    {"number": 4, "part": 2, "type": "broadcast_address",
+        "ip_address": "166.0.13.8", "subnet_mask": "255.255.252.0"},
+    {"number": 4, "part": 3, "type": "num_hosts",
+        "ip_address": "166.0.13.8", "subnet_mask": "255.255.252.0"},
+    {"number": 4, "part": 4, "type": "valid_host_range",
+        "ip_address": "166.0.13.8", "subnet_mask": "255.255.252.0"},
+    {"number": 5, "part": 1, "type": "bits_in_mask",                # Problem 5
+        "subnet_mask": "255.255.240.0"},
+    {"number": 5, "part": 2, "type": "num_hosts",
+        "subnet_mask": "255.255.240.0"},
+    {"number": 6, "part": 1, "type": "bits_in_mask",                # Problem 6
+        "subnet_mask": "255.255.255.192"},
+    {"number": 6, "part": 2, "type": "num_hosts",
+        "subnet_mask": "255.255.255.192"},
+    {"number": 7, "part": 1, "type": "bits_in_mask",                # Problem 7
+        "subnet_mask": "255.255.252.0"},
+    {"number": 7, "part": 2, "type": "num_hosts",
+        "subnet_mask": "255.255.252.0"},
+    {"number": 8, "part": 1, "type": "bits_in_mask",                # Problem 8
+        "subnet_mask": "255.255.255.248"},
+    {"number": 8, "part": 2, "type": "num_hosts",
+        "subnet_mask": "255.255.255.248"},
+
 ]
 
 if __name__ == "__main__":
