@@ -1,6 +1,13 @@
 # Chase May
-# Lab 2: IP Addresses - Decimal <-> Binary
+# Lab 2: Decimal <-> Binary
 # CS 2705: Fundamentals of Networking
+
+
+def main():
+    for i in range(0, 5):
+        print_problem(i + 1, ip_addresses[i], 2)
+    for i in range(0, 5):
+        print_problem(i + 6, ip_addresses[i], 10)
 
 
 def dec_to_bin(ip_address):
@@ -35,9 +42,8 @@ def print_problem(n, ip_address, base):
     else:
         print('This program currently only supports binary and decimal representations.')
 
+
 # Decimal -> binary problems (Problems 1-5)
-
-
 ip_addresses = [
     '192.168.16.13',    # Problem 1
     '164.10.241.2',     # Problem 2
@@ -46,11 +52,7 @@ ip_addresses = [
     '172.99.62.9'       # Problem 5
 ]
 
-for i in range(0, 5):
-    print_problem(i + 1, ip_addresses[i], 2)
-
 # Binary -> decimal problems (Problems 6-10)
-
 ip_addresses = [
     '10110100.11101011.00001000.10010001',  # Problem 6
     '10001100.11111111.11000000.00000001',  # Problem 7
@@ -59,5 +61,5 @@ ip_addresses = [
     '00010111.11101110.01010101.10000000'  # Problem 10
 ]
 
-for i in range(0, 5):
-    print_problem(i + 6, ip_addresses[i], 10)
+if __name__ == "__main__":
+    main()
