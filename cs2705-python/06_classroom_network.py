@@ -17,47 +17,47 @@ print("\nOffice 1:\n")
 print("Network address: {}".format(offices[0].network_address))
 print("Broadcast address: {}".format(offices[0].broadcast_address))
 print("Number of hosts: {}".format(len(list(offices[0].hosts()))))
-print("Valid host rage: {} - {}".format(
+print("Valid host range: {} - {}".format(
     offices[0].network_address - 1, offices[0].broadcast_address - 1))
 
 print("\nOffice 2:\n")
 print("Network address: {}".format(offices[1].network_address))
 print("Broadcast address: {}".format(offices[1].broadcast_address))
 print("Number of hosts: {}".format(len(list(offices[1].hosts()))))
-print("Valid host rage: {} - {}".format(
+print("Valid host range: {} - {}".format(
     offices[0].network_address - 1, offices[1].broadcast_address - 1))
 
 print("\nClassroom 3:\n")
 print("Network address: {}".format(small_class_1[0].network_address))
 print("Broadcast address: {}".format(small_class_1[0].broadcast_address))
 print("Number of hosts: {}".format(len(list(small_class_1[0].hosts()))))
-print("Valid host rage: {} - {}".format(
+print("Valid host range: {} - {}".format(
     small_class_1[0].network_address - 1, small_class_1[0].broadcast_address - 1))
 
 print("\nClassroom 4:\n")
 print("Network address: {}".format(small_class_1[1].network_address))
 print("Broadcast address: {}".format(small_class_1[1].broadcast_address))
 print("Number of hosts: {}".format(len(list(small_class_1[1].hosts()))))
-print("Valid host rage: {} - {}".format(
+print("Valid host range: {} - {}".format(
     small_class_1[0].network_address - 1, small_class_1[1].broadcast_address - 1))
 
 print("\nClassroom 5:\n")
 print("Network address: {}".format(small_class_2[0].network_address))
 print("Broadcast address: {}".format(small_class_2[0].broadcast_address))
 print("Number of hosts: {}".format(len(list(small_class_2[0].hosts()))))
-print("Valid host rage: {} - {}".format(
+print("Valid host range: {} - {}".format(
     small_class_2[0].network_address - 1, small_class_2[0].broadcast_address - 1))
 
 print("\nLab 1:\n")
 print("Network address: {}".format(classrooms[0].network_address))
 print("Broadcast address: {}".format(classrooms[0].broadcast_address))
 print("Number of hosts: {}".format(len(list(classrooms[0].hosts()))))
-print("Valid host rage: {} - {}".format(
+print("Valid host range: {} - {}".format(
     classrooms[0].network_address - 1, classrooms[0].broadcast_address - 1))
 
 print("\nLab 2:\n")
 print("Network address: {}".format(classrooms[1].network_address))
 print("Broadcast address: {}".format(classrooms[1].broadcast_address))
 print("Number of hosts: {}".format(len(list(classrooms[1].hosts()))))
-print("Valid host rage: {} - {}".format(
+print("Valid host range: {} - {}".format(
     classrooms[0].network_address - 1, classrooms[1].broadcast_address - 1))
