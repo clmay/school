@@ -15,7 +15,8 @@ print("==============")
 print()
 
 for i in range(0, 2):
-    print("Lab " + str(i + 1) + ":\n ")
+    print("Lab " + str(i + 1) + ":")
+    print("------\n")
     print("Network address: {}".format(offices[i].network_address))
     print("Broadcast address: {}".format(offices[i].broadcast_address))
     print("Number of hosts: {}".format(len(list(offices[i].hosts()))))
@@ -24,7 +25,8 @@ for i in range(0, 2):
     print()
 
 for i in range(3, 5):
-    print("Classroom " + str(i) + ":\n ")
+    print("Classroom " + str(i) + ":")
+    print("------------\n")
     print("Network address: {}".format(small_class_1[i - 3].network_address))
     print("Broadcast address: {}".format(
         small_class_1[i - 3].broadcast_address))
@@ -34,7 +36,8 @@ for i in range(3, 5):
         small_class_1[i - 3].network_address + 1, small_class_1[i - 3].broadcast_address - 1))
     print()
 
-print("Classroom 5:\n ")
+print("Classroom 5:")
+print("------------\n")
 print("Network address: {}".format(small_class_2[0].network_address))
 print("Broadcast address: {}".format(small_class_2[0].broadcast_address))
 print("Number of hosts: {}".format(len(list(small_class_2[0].hosts()))))
@@ -43,7 +46,8 @@ print("Valid host range: {} - {}".format(
 print()
 
 for i in range(0, 2):
-    print("Classroom " + str(i + 1) + ":\n ")
+    print("Classroom " + str(i + 1) + ":")
+    print("------------\n")
     print("Network address: {}".format(classrooms[i].network_address))
     print("Broadcast address: {}".format(classrooms[i].broadcast_address))
     print("Number of hosts: {}".format(len(list(classrooms[i].hosts()))))
