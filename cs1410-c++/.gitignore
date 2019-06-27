@@ -1,0 +1,13 @@
+.ipynb_checkpoints/
+
+.__*
+*.o
+run
+.vscode
+.vs
+.DS_Store
+.idea
+logs
+*.log
+build/*
+cmake-build-debug
