@@ -19,6 +19,41 @@ struct Stack
   int size = 0;
 };
 
+// Function prototypes
+void push(Stack *, double);
+double pop(Stack *);
+void printStack(const Stack *);
+
+int main(int argc, char const *argv[])
+{
+  // Create a stack and store its address.
+  Stack *s = new Stack;
+  // Create an item and store its address.
+  Item *i = new Item;
+
+  // Push some values onto the stack.
+  push(s, 20.5);
+  push(s, 60.004);
+  push(s, 10.08);
+  push(s, 40.3);
+  push(s, -160.93);
+
+  // And then pop and print until you get to the end.
+  while (i != nullptr)
+  {
+    pop(s);
+    printStack(s);
+    i = s->top;
+  }
+
+  // Free the memory
+  delete s;
+  delete i;
+
+  // Exit the process
+  return 0;
+}
+
 void push(Stack *stack, double num)
 {
   // Create a new item
@@ -89,26 +124,4 @@ void printStack(const Stack *stack)
   // call, we output its current size.
   cout << setw(10) << "-- "
        << " " << stack->size << " items found" << endl;
-}
-
-int main(int argc, char const *argv[])
-{
-  // Create a stack and store its address.
-  Stack *s = new Stack;
-  // Create an item and store its address.
-  Item *i = new Item;
-  // Push some values onto the stack.
-  push(s, 20.5);
-  push(s, 60.004);
-  push(s, 10.08);
-  push(s, 40.3);
-  push(s, -160.93);
-  // And then pop and print until you get to the end.
-  while (i != nullptr)
-  {
-    pop(s);
-    printStack(s);
-    i = s->top;
-  }
-  return 0;
 }
