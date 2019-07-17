@@ -28,8 +28,6 @@ int main(int argc, char const *argv[])
 {
   // Create a stack and store its address.
   Stack *s = new Stack;
-  // Create an item and store its address.
-  Item *i = new Item;
 
   // Push some values onto the stack.
   push(s, 20.5);
@@ -39,16 +37,16 @@ int main(int argc, char const *argv[])
   push(s, -160.93);
 
   // And then pop and print until you get to the end.
+  Item *i = s->top;
   while (i != nullptr)
   {
-    pop(s);
-    printStack(s);
     i = s->top;
+    printStack(s);
+    pop(s);
   }
 
   // Free the memory
   delete s;
-  delete i;
 
   // Exit the process
   return 0;
@@ -103,7 +101,7 @@ void printStack(const Stack *stack)
   // empty stack, we'll say so:
   if (stack->size == 0)
   {
-    cout << setw(10) << "-- "
+    cout << setw(10) << "--"
          << " " << stack->size << " items found" << endl;
     return;
   }
@@ -122,6 +120,6 @@ void printStack(const Stack *stack)
   }
   // Finally, per the assignment requirements, at the end of every printStack
   // call, we output its current size.
-  cout << setw(10) << "-- "
+  cout << setw(10) << "--"
        << " " << stack->size << " items found" << endl;
 }
