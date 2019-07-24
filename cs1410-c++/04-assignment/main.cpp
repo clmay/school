@@ -77,17 +77,14 @@ public:
   // Auxiliary methods
   string str() const
   {
-    // Need to return a reference to a string, so instead of assigning directly
-    // to a string variable, we'll use new and use indirection.
-    string *output = new string;
     stringstream ss;
     ss << setw(5) << getCrn() << setw(35) << getName() << setw(9)
        << getCreditHours() << setw(10) << getSemester() << setw(6) << getYear()
        << endl;
-    *output = ss.str();
+    string output = ss.str();
     // We've got a pointer to the string, so we need to dereference it to return
     // the string's value
-    return *output;
+    return output;
   }
 };
 
