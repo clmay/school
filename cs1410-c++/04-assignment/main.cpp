@@ -77,6 +77,8 @@ public:
   // Auxiliary methods
   string str() const
   {
+    // Need to return a reference to a string, so instead of assigning directly
+    // to a string variable, we'll use new and use indirection.
     stringstream ss;
     ss << setw(5) << getCrn() << setw(35) << getName() << setw(9)
        << getCreditHours() << setw(10) << getSemester() << setw(6) << getYear()
@@ -113,6 +115,10 @@ int main(int argc, char const *argv[])
   cout << c2->str();
   cout << c3->str();
   cout << endl;
+
+  delete c1;
+  delete c2;
+  delete c3;
 
   return 0;
 }
