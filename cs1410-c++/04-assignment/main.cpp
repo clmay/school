@@ -4,14 +4,6 @@
 #include <string>
 using namespace std;
 
-enum class Semester
-{
-  FALL,
-  SPRING,
-  SUMMER,
-  NONE
-};
-
 class Course
 {
 private:
