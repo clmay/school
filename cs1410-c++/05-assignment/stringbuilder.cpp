@@ -15,6 +15,7 @@ StringBuilder::StringBuilder(const string& str)
 }
 // destructor
 StringBuilder::~StringBuilder() {}
+
 // a method I chose to add for convenience
 void StringBuilder::append(string str)
 {
