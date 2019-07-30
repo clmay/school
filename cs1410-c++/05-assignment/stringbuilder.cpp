@@ -34,7 +34,7 @@ void StringBuilder::operator*(unsigned int n)
         this->content += original;
     }
 }
-// compares whether the contents of two `StringBuilders` is equal
+// compares whether the contents of two `StringBuilders` are equal
 bool StringBuilder::operator==(StringBuilder& sb)
 {
     return this->content == sb.content;
