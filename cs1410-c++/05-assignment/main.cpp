@@ -27,6 +27,12 @@ int main(int argc, char const* argv[])
     cout << sb2 << endl; // would have prettiter output here
     cout << endl;
 
+    // test StringBuilder::operator*() to make sure `sb * 1` does not change `sb`
+    cout << "What is sb2 * 1?" << endl;
+    sb2 * 1; // it easier to add a space, so that StringBuilder::operator*()
+    cout << sb2 << endl; // would have prettiter output here
+    cout << endl;
+
     // test StringBuilder::operator==(), first time
     cout << "Are they equal?" << endl;
     cout << (sb1 == sb2) << endl;
