@@ -29,9 +29,11 @@ const string& StringBuilder::str() const
 // duplicates the content `n` times within the `StringBuilder`
 void StringBuilder::operator*(unsigned int n)
 {
-    string original = this->content;
-    for (int i = 0; i < n; i++) {
-        this->content += original;
+    if (n > 1) {
+        string original = this->content;
+        for (int i = 1; i < n; i++) {
+            this->content += original;
+        }
     }
 }
 // compares whether the contents of two `StringBuilders` are equal
