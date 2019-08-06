@@ -1,19 +1,17 @@
 #include <iostream>
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const* argv[]) {
   std::cout << "Hello, world!" << std::endl;
 
   std ::cout << "Hello, world!" << std ::endl;
 
   // std::cout < < "Hello, world!" < < std : : endl;
 
-  //TODO
+  // TODO
   std::cout << "Hello, world!" << std::endl;
 
   std::cout << "Hello, world!" << std::endl;
-  std::cout << "Good" << std::endl
-            << "morning!" << std::endl;
+  std::cout << "Good" << std::endl << "morning!" << std::endl;
   std::cout << "Welcome\nto\nC++!!!";
 
   std::cout << "Hello, world!" << std::endl
@@ -21,7 +19,7 @@ int main(int argc, char const *argv[])
             << "morning!" << std::endl
             << "Welcome\nto\nC++!!!";
 
-  //TODO
+  // TODO
   std::cout << "Hello, world!" << std::endl
             << "Good" << std::endl
             << "morning!" << std::endl
@@ -35,7 +33,7 @@ int main(int argc, char const *argv[])
 
   using namespace std;
 
-  //TODO
+  // TODO
   cout << "Hello, world!" << endl
        << "Good" << endl
        << "morning!" << endl
@@ -58,7 +56,7 @@ int main(int argc, char const *argv[])
   bool is_active = true;
   string message = "Good morning!";
 
-  //TODO
+  // TODO
   int successor = number + 1;
   double tau = 6.28; // and change
   char not_a_letter = ' ';
@@ -88,7 +86,8 @@ int main(int argc, char const *argv[])
 
   double area = 3.14159 * radius * radius;
 
-  cout << "The area of a circle with a radius of " << radius << " is " << area << ".";
+  cout << "The area of a circle with a radius of " << radius << " is " << area
+       << ".";
 
   const double PI = 3.14159;
 
@@ -99,7 +98,7 @@ int main(int argc, char const *argv[])
        << 7 % 2 << endl // Remainder
        << 7 / 2.0 << endl;
 
-  //TODO
+  // TODO
   cout << (6 > 7) << endl
        << (7 < 5) << endl
        << (4 <= 3) << endl
@@ -107,7 +106,7 @@ int main(int argc, char const *argv[])
        << (9 != 9) << endl
        << (7.1 == 2.0) << endl;
 
-  //TODO
+  // TODO
   cout << !(x < 7 || x > 5) << endl;
   cout << !(x != 5 && x != 7) << endl;
 
@@ -128,7 +127,7 @@ int main(int argc, char const *argv[])
   ans = ans % 3;
   cout << ans << endl;
 
-  //TODO
+  // TODO
   int this_count = 10;
 
   cout << "count=" << this_count << endl;

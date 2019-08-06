@@ -1,5 +1,5 @@
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 using namespace std;
 
 void printStars(int n);
@@ -9,19 +9,21 @@ int minimum(int x, int y);
 double lbsToKgs(double lbs);
 double kgsToLbs(double kgs);
 int incrementBy2(int n);
-void swapValues(int &m, int &n);
-void swapValues(double &m, double &n);
+void swapValues(int& m, int& n);
+void swapValues(double& m, double& n);
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const* argv[]) {
   printStars(69);
   printStars(37);
   printStars(5);
   printStars(45);
 
-  cout << setw(8) << "Number" << setw(6) << "Odd?" << setw(7) << "Even?" << endl;
-  cout << setw(8) << 97 << setw(6) << isOdd(97) << setw(7) << isEven(97) << endl;
-  cout << setw(8) << 34 << setw(6) << isOdd(34) << setw(7) << isEven(34) << endl;
+  cout << setw(8) << "Number" << setw(6) << "Odd?" << setw(7) << "Even?"
+       << endl;
+  cout << setw(8) << 97 << setw(6) << isOdd(97) << setw(7) << isEven(97)
+       << endl;
+  cout << setw(8) << 34 << setw(6) << isOdd(34) << setw(7) << isEven(34)
+       << endl;
 
   cout << minimum(46, 38) << endl;
 
@@ -42,7 +44,7 @@ int main(int argc, char const *argv[])
   cout << "n = " << n << endl;
 
   int x = 9;
-  int &y = x;
+  int& y = x;
 
   y = 17;
   cout << x << endl;
@@ -69,55 +71,35 @@ int main(int argc, char const *argv[])
   return 0;
 }
 
-void printStars(int n)
-{
-  for (int i = 0; i < n; i++)
-  {
+void printStars(int n) {
+  for (int i = 0; i < n; i++) {
     cout << '*';
   }
   cout << endl;
 }
 
-bool isOdd(int x)
-{
-  return x % 2 != 0;
-}
+bool isOdd(int x) { return x % 2 != 0; }
 
-bool isEven(int x)
-{
-  return !isOdd(x);
-}
+bool isEven(int x) { return !isOdd(x); }
 
-int minimum(int x, int y)
-{
-  return x < y ? x : y;
-}
+int minimum(int x, int y) { return x < y ? x : y; }
 
-double lbsToKgs(double lbs)
-{
+double lbsToKgs(double lbs) {
   double kilograms = 0.453592 * lbs;
   return kilograms;
 }
 
-double kgsToLbs(double kgs)
-{
-  return kgs * 2.2;
-}
+double kgsToLbs(double kgs) { return kgs * 2.2; }
 
-int incrementBy2(int n)
-{
-  return ++(++n);
-}
+int incrementBy2(int n) { return ++(++n); }
 
-void swapValues(int &m, int &n)
-{
+void swapValues(int& m, int& n) {
   int o = n;
   n = m;
   m = o;
 }
 
-void swapValues(double &m, double &n)
-{
+void swapValues(double& m, double& n) {
   double tmp = m;
   m = n;
   n = tmp;

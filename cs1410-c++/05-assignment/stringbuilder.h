@@ -7,21 +7,21 @@ using namespace std;
 
 class StringBuilder {
 private:
-    string content;
+  string content;
 
 public:
-    StringBuilder();
-    StringBuilder(const string& str);
-    ~StringBuilder();
+  StringBuilder();
+  StringBuilder(const string& str);
+  ~StringBuilder();
 
-    void append(string str);
-    const string& str() const;
-    void operator*(unsigned int n);
-    bool operator==(StringBuilder& sb);
-    bool operator!=(StringBuilder& sb);
+  void append(string str);
+  const string& str() const;
+  void operator*(unsigned int n);
+  bool operator==(StringBuilder& sb);
+  bool operator!=(StringBuilder& sb);
 
-    friend void operator>>(string str, StringBuilder& sb);
-    friend ostream& operator<<(ostream& out, StringBuilder& sb);
+  friend void operator>>(string str, StringBuilder& sb);
+  friend ostream& operator<<(ostream& out, StringBuilder& sb);
 };
 
 #endif

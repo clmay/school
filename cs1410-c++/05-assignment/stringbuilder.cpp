@@ -4,56 +4,37 @@
 using namespace std;
 
 // constructor: initializes `content` to an empty string
-StringBuilder::StringBuilder()
-{
-    this->content = "";
-}
+StringBuilder::StringBuilder() { this->content = ""; }
 // constructor: initializes `content` to `str`
-StringBuilder::StringBuilder(const string& str)
-{
-    this->content = str;
-}
+StringBuilder::StringBuilder(const string& str) { this->content = str; }
 // destructor
 StringBuilder::~StringBuilder() {}
 
 // a method I chose to add for convenience
-void StringBuilder::append(string str)
-{
-    this->content += str;
-}
+void StringBuilder::append(string str) { this->content += str; }
 // returns the contents of a `StringBuilder` object
-const string& StringBuilder::str() const
-{
-    return this->content;
-}
+const string& StringBuilder::str() const { return this->content; }
 // duplicates the content `n` times within the `StringBuilder`
-void StringBuilder::operator*(unsigned int n)
-{
-    if (n > 1) {
-        string original = this->content;
-        for (int i = 1; i < n; i++) {
-            this->content += original;
-        }
+void StringBuilder::operator*(unsigned int n) {
+  if (n > 1) {
+    string original = this->content;
+    for (int i = 1; i < n; i++) {
+      this->content += original;
     }
+  }
 }
 // compares whether the contents of two `StringBuilders` are equal
-bool StringBuilder::operator==(StringBuilder& sb)
-{
-    return this->content == sb.content;
+bool StringBuilder::operator==(StringBuilder& sb) {
+  return this->content == sb.content;
 }
 // compares whether the contents of two `StringBuilders` are different
-bool StringBuilder::operator!=(StringBuilder& sb)
-{
-    return !(this->content == sb.content);
+bool StringBuilder::operator!=(StringBuilder& sb) {
+  return !(this->content == sb.content);
 }
 // allows you to store a `string` value into a `StringBuilder`
-void operator>>(string str, StringBuilder& sb)
-{
-    sb.content = str;
-}
+void operator>>(string str, StringBuilder& sb) { sb.content = str; }
 // allows you to stream a `StringBuilder` into an output stream
-ostream& operator<<(ostream& out, StringBuilder& sb)
-{
-    out << sb.content;
-    return out;
+ostream& operator<<(ostream& out, StringBuilder& sb) {
+  out << sb.content;
+  return out;
 }

@@ -1,8 +1,7 @@
 #include <iostream>
 using namespace std;
 
-enum class DayOfWeek_2
-{
+enum class DayOfWeek_2 {
   SUNDAY = 1,
   MONDAY,
   TUESDAY,
@@ -14,31 +13,26 @@ enum class DayOfWeek_2
 
 void nameDayOfWeek(DayOfWeek_2);
 
-int main(int argc, char const *argv[])
-{
-  struct Date
-  {
+int main(int argc, char const* argv[]) {
+  struct Date {
     int day;
     int month;
     int year;
   };
 
-  //TODO
-  struct Time
-  {
+  // TODO
+  struct Time {
     int hour;
     int minute;
     int second;
   };
 
-  struct Distance
-  {
+  struct Distance {
     int feet;
     double inches;
   };
 
-  struct Room
-  {
+  struct Room {
     Distance length;
     Distance width;
   };
@@ -57,56 +51,46 @@ int main(int argc, char const *argv[])
 
   Room bedroom = {{12, 4}, {16, 0}};
 
-  cout << "length = " << bedroom.length.feet << "' " << bedroom.length.inches << '"' << endl;
-  cout << "width = " << bedroom.width.feet << "' " << bedroom.width.inches << '"' << endl;
+  cout << "length = " << bedroom.length.feet << "' " << bedroom.length.inches
+       << '"' << endl;
+  cout << "width = " << bedroom.width.feet << "' " << bedroom.width.inches
+       << '"' << endl;
 
-  // TODO: define a date variable named 'today' and initialize it to today's values.
+  // TODO: define a date variable named 'today' and initialize it to today's
+  // values.
   Date today;
   today.day = 8;
   today.month = 7;
   today.year = 2019;
 
   // TODO: print the values of this variable.
-  cout << "Today is " << today.month << "/" << today.day << "/" << today.year << "." << endl;
+  cout << "Today is " << today.month << "/" << today.day << "/" << today.year
+       << "." << endl;
 
-  // TODO: define a time variable named 'noon' and initialize it to time 12:00:00. Use the
+  // TODO: define a time variable named 'noon' and initialize it to time
+  // 12:00:00. Use the
   //       Time structure you created for the previous CODING CHALLENGE.
   Time noon = {12, 0, 0};
 
   // TODO: print the values of this variable.
-  cout << "Noon is at " << noon.hour << ":" << noon.minute << ":" << noon.second << "." << endl;
+  cout << "Noon is at " << noon.hour << ":" << noon.minute << ":" << noon.second
+       << "." << endl;
 
-  // TODO: define a distance variable named 'height' and initialize it to 10 feet and 7 inches.
+  // TODO: define a distance variable named 'height' and initialize it to 10
+  // feet and 7 inches.
   Distance height = {10, 7};
 
   // TODO: print the values of this variable.
-  cout << "The height you measured is " << height.feet << "' " << height.inches << "\"." << endl;
+  cout << "The height you measured is " << height.feet << "' " << height.inches
+       << "\"." << endl;
 
-  enum DayOfWeek
-  {
-    SUN,
-    MON,
-    TUE,
-    WED,
-    THU,
-    FRI,
-    SAT
-  };
+  enum DayOfWeek { SUN, MON, TUE, WED, THU, FRI, SAT };
 
   DayOfWeek tomorrow = WED;
 
   cout << "Tomorrow is: " << tomorrow << endl;
 
-  enum CustomDayOfWeek
-  {
-    SUN = 1,
-    MON,
-    TUE,
-    WED,
-    THU,
-    FRI,
-    SAT
-  };
+  enum CustomDayOfWeek { SUN = 1, MON, TUE, WED, THU, FRI, SAT };
 
   // CustomDayOfWeek a_day = WED;
   // cout << "A day is: " << a_day << endl;
@@ -118,29 +102,19 @@ int main(int argc, char const *argv[])
 
   DayOfWeek_2 day_2 = DayOfWeek_2::WEDNESDAY;
 
-  //TODO: define enumeration
-  enum class Coin
-  {
-    PENNY = 1,
-    NICKEL = 5,
-    DIME = 10,
-    QUARTER = 25
-  };
+  // TODO: define enumeration
+  enum class Coin { PENNY = 1, NICKEL = 5, DIME = 10, QUARTER = 25 };
 
-  //TODO: define an enmeration variable named change
+  // TODO: define an enmeration variable named change
   Coin change = Coin::DIME;
 
-  if (day_2 == DayOfWeek_2::SATURDAY || day_2 == DayOfWeek_2::SUNDAY)
-  {
+  if (day_2 == DayOfWeek_2::SATURDAY || day_2 == DayOfWeek_2::SUNDAY) {
     cout << "It is weekend" << endl;
-  }
-  else
-  {
+  } else {
     cout << "It is a weekday" << endl;
   }
 
-  switch (day_2)
-  {
+  switch (day_2) {
   case DayOfWeek_2::SUNDAY:
     cout << "Sunday";
     break;
@@ -167,8 +141,7 @@ int main(int argc, char const *argv[])
   cout << "day_2 is ";
   nameDayOfWeek(day_2);
 
-  enum class Bill
-  {
+  enum class Bill {
     HUNDRED = 100,
     FIFTY = 50,
     TWENTY = 20,
@@ -177,15 +150,14 @@ int main(int argc, char const *argv[])
     ONE = 1
   };
 
-  struct Amount
-  {
+  struct Amount {
     int number;
     Bill kind;
   };
 
   Amount firstHundred = {5, Bill::TWENTY};
 
-  //TODO
+  // TODO
   Amount fives = {20, Bill::FIVE};
   Amount ones = {100, Bill::ONE};
   Amount tens = {10, Bill::TEN};
@@ -195,10 +167,8 @@ int main(int argc, char const *argv[])
   return 0;
 }
 
-void nameDayOfWeek(DayOfWeek_2 d)
-{
-  switch (d)
-  {
+void nameDayOfWeek(DayOfWeek_2 d) {
+  switch (d) {
   case DayOfWeek_2::SUNDAY:
     cout << "Sunday";
     break;
