@@ -1,5 +1,3 @@
-// N.B.: This code was downloaded from a Jupyter notebook and is not a valid
-// C++ source file
 #include <iostream>
 using namespace std;
 
@@ -38,9 +36,6 @@ GrandChild d;
 d.foo();
 */
 
-GrandChild gc;
-gc.Child2::foo();
-
 class AnotherParent {
  public:
   void foo() {}
@@ -53,16 +48,6 @@ class AnotherChild1 : virtual public AnotherParent {
 
 class AnotherChild2 : virtual public AnotherParent {};
 class AnotherGrandChild : public AnotherChild1, public AnotherChild2 {};
-
-AnotherGrandChild d2;
-d2.foo();
-
-// TODO
-class BaseClass {};
-class DerivedClass1 : virtual public BaseClass {};
-class DerivedClass2 : virtual public BaseClass {};
-class DerivedFurtherClass1 : public DerivedClass1, public DerivedClass2 {};
-class DerivedFurtherClass2 : public DerivedClass1, public DerivedClass2 {};
 
 class Base {
  public:
@@ -79,21 +64,12 @@ class Derived2 : public Base {
   void show() { cout << "Derived 2\n"; }
 };
 
-Derived1 d1;
-Derived2 d2_1, d2_2;
-
-d1.show();
-d2_1.show();
-d2_2.show();
-
-Base* bptr;
-bptr = &d1;
-bptr->show();
-bptr = &d2_1;
-bptr->show();
-
-Base& bref = d2_2;
-bref.show();
+// TODO
+class BaseClass {};
+class DerivedClass1 : virtual public BaseClass {};
+class DerivedClass2 : virtual public BaseClass {};
+class DerivedFurtherClass1 : public DerivedClass1, public DerivedClass2 {};
+class DerivedFurtherClass2 : public DerivedClass1, public DerivedClass2 {};
 
 class AnotherBase {
  public:
@@ -110,22 +86,6 @@ class AnotherDerived2 : public AnotherBase {
  public:
   void show() { cout << "Another Derived 2\n"; }
 };
-
-AnotherDerived1 ad1;
-AnotherDerived2 ad2_1, ad2_2;
-
-ad1.show();
-ad2_1.show();
-ad2_2.show();
-
-AnotherBase* abptr;
-abptr = &ad1;
-abptr->show();
-abptr = &ad2_1;
-abptr->show();
-
-AnotherBase& abref = ad2_2;
-abref.show();
 
 // TODO: The Rectangle class
 class Rectangle {
@@ -149,26 +109,70 @@ class Square : public Rectangle {
   virtual string getName() { return "Square"; }
 };
 
-// TODO
-Rectangle r(0, 0, 10, 20);
-Square s(0, 0, 10);
-
-Rectangle* rptr = nullptr;
-rptr = &r;
-cout << rptr->getName() << endl;
-rptr = &s;
-cout << rptr->getName() << endl;
-
-// TODO
-Rectangle r2(0, 0, 10, 20);
-Square s2(0, 0, 10);
-
-Rectangle& rref = s2;
-cout << rref.getName() << endl;
-
 class SomeClass {
  public:
   virtual void print() = 0;  // a pure function
 };
 
-SomeClass sc;
+int main(int argc, char const* argv[]) {
+  GrandChild gc;
+  gc.Child2::foo();
+
+  AnotherGrandChild d2;
+  d2.foo();
+
+  Derived1 d1;
+  Derived2 d2_1, d2_2;
+
+  d1.show();
+  d2_1.show();
+  d2_2.show();
+
+  Base* bptr;
+  bptr = &d1;
+  bptr->show();
+  bptr = &d2_1;
+  bptr->show();
+
+  Base& bref = d2_2;
+  bref.show();
+
+  AnotherDerived1 ad1;
+  AnotherDerived2 ad2_1, ad2_2;
+
+  ad1.show();
+  ad2_1.show();
+  ad2_2.show();
+
+  AnotherBase* abptr;
+  abptr = &ad1;
+  abptr->show();
+  abptr = &ad2_1;
+  abptr->show();
+
+  AnotherBase& abref = ad2_2;
+  abref.show();
+
+  return 0;
+
+  // TODO
+  Rectangle r(0, 0, 10, 20);
+  Square s(0, 0, 10);
+
+  Rectangle* rptr = nullptr;
+  rptr = &r;
+  cout << rptr->getName() << endl;
+  rptr = &s;
+  cout << rptr->getName() << endl;
+
+  // TODO
+  Rectangle r2(0, 0, 10, 20);
+  Square s2(0, 0, 10);
+
+  Rectangle& rref = s2;
+  cout << rref.getName() << endl;
+
+  // Not allowed, because `SomeClass` becomes abstract with the addition of a
+  // pure virtual function:
+  // SomeClass sc;
+}
