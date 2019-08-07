@@ -1,6 +1,6 @@
 #include "addition.h"
 #include "operation.h"
-#include <fstream>
+#include <ostream>
 using namespace std;
 
 Addition::Addition(double l, double r) : Operation(l, r) {}

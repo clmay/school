@@ -1,5 +1,5 @@
 #include "operation.h"
-#include <iostream>
+#include <ostream>
 using namespace std;
 
 Operation::Operation(double l, double r) : left(l), right(r) {}

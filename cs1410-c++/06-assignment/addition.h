@@ -2,7 +2,7 @@
 #define ADDITION_H
 
 #include "operation.h"
-#include <iostream>
+#include <ostream>
 using namespace std;
 
 class Addition : Operation {
