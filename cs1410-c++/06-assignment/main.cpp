@@ -50,6 +50,11 @@ int main(int argc, char const* argv[]) {
     default:
       break;
     }
+
+    delete add;
+    delete sub;
+    delete mul;
+    delete div;
   }
 
   in_f.close();
