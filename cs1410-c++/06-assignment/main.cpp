@@ -1,5 +1,8 @@
 #include "addition.h"
+// #include "division.h"
+// #include "multiplication.h"
 #include "operation.h"
+// #include "subtraction.h"
 #include <fstream>
 #include <iomanip>
 #include <iostream>
@@ -7,29 +10,32 @@
 using namespace std;
 
 int main(int argc, char const* argv[]) {
-  // file handles for input and output streams
-  ifstream in_f("operations-in.txt");
-  ofstream out_f("operations-out.txt");
+  // variables to store the tokens from each line
+  char op;
+  double lhs;
+  double rhs;
+  double res;
+
+  Addition* add = new Addition(lhs, rhs);
+  // Subtraction* sub = new Subtraction(lhs, rhs);
+  // Multiplication* mul = new Multiplication(lhs, rhs);
+  // Division* div = new Division(lhs, rhs);
 
   // variable to store each line of the file
   string line;
 
-  // variables to store the tokens of in each line
-  char op;
-  double lhs;
-  double rhs;
-
+  // file handles for input and output streams
+  ifstream in_f("operations-in.txt");
+  ofstream out_f("operations-out.txt");
   while (getline(in_f, line)) {
     in_f >> op >> lhs >> rhs;
 
-    // switch (op) {
-    // case '+':
-    //   Addition* opr = new Addition(lhs, rhs);
-    //   break;
-
-    // default:
-    //   break;
-    // }
+    switch (op) {
+    case '+':
+      break;
+    default:
+      break;
+    }
 
     // assignment requires printing each line to stdout
     cout << setprecision(2) << fixed;
