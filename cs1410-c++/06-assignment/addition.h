@@ -1,8 +1,8 @@
 #ifndef ADDITION_H
 #define ADDITION_H
 
-#include <fstream>
 #include "operation.h"
+#include <iostream>
 using namespace std;
 
 class Addition : Operation {
@@ -12,10 +12,12 @@ protected:
 
 public:
   Addition(double l, double r);
-  double perform() const = 0;
-  char symbol() const = 0;
-  friend ostream& operator<<(ostream& out, const Addition &opr);
   ~Addition();
+
+  double perform() const;
+  char symbol() const;
+
+  friend ostream& operator<<(ostream& out, const Addition& opr);
 };
 
 #endif

@@ -1,7 +1,7 @@
 #ifndef OPERATION_H
 #define OPERATION_H
 
-#include <fstream>
+#include <iostream>
 using namespace std;
 
 class Operation {
@@ -11,10 +11,12 @@ protected:
 
 public:
   Operation(double l, double r);
+  virtual ~Operation();
+
   virtual double perform() const = 0;
   virtual char symbol() const = 0;
-  friend ostream& operator<<(ostream& out, const Operation &opr);
-  virtual ~Operation();
+
+  friend ostream& operator<<(ostream& out, const Operation& opr);
 };
 
 #endif
