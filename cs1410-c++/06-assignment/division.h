@@ -5,19 +5,13 @@
 #include <ostream>
 using namespace std;
 
-class Division : Operation {
-protected:
-  double left;
-  double right;
-
+class Division : public Operation {
 public:
   Division(double l, double r);
   ~Division();
 
   double perform() const;
   char symbol() const;
-
-  friend ostream& operator<<(ostream& out, const Division& opr);
 };
 
 #endif

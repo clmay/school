@@ -5,19 +5,13 @@
 #include <ostream>
 using namespace std;
 
-class Multiplication : Operation {
-protected:
-  double left;
-  double right;
-
+class Multiplication : public Operation {
 public:
   Multiplication(double l, double r);
   ~Multiplication();
 
   double perform() const;
   char symbol() const;
-
-  friend ostream& operator<<(ostream& out, const Multiplication& opr);
 };
 
 #endif

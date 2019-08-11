@@ -5,19 +5,13 @@
 #include <ostream>
 using namespace std;
 
-class Subtraction : Operation {
-protected:
-  double left;
-  double right;
-
+class Subtraction : public Operation {
 public:
   Subtraction(double l, double r);
   ~Subtraction();
 
   double perform() const;
   char symbol() const;
-
-  friend ostream& operator<<(ostream& out, const Subtraction& opr);
 };
 
 #endif
