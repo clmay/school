@@ -1,2 +1,3 @@
 # school
-Course work at Weber State University
+
+Coursework in Computer Science B.S. program
