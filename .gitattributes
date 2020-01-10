@@ -1,1 +1,7 @@
+*.sql linguist-detectable=true
+*.sql linguist-language=SQL
+
 cs1410-c++/*.ipynb linguist-vendored
+
+cs2250-c-c++/mod08/* linguist-language=C
+cs2250-c-c++/mod09/* linguist-language=C
