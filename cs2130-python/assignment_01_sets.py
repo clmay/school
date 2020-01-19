@@ -1,3 +1,19 @@
+def main():
+    a = {1, 3, 5, 6, 8}
+    b = {2, 3, 4, 7, 9}
+
+    a_u_b = union(a, b)
+    a_n_b = intersection(a, b)
+    a_c_b = relative_complement(a, b)
+
+    print("A is " + str(a))
+    print("B is " + str(b) + "\n")
+
+    print("A u B is " + str(a_u_b))
+    print("A n B is " + str(a_n_b))
+    print("A - B is " + str(a_c_b))
+
+
 def union(p, q):
     res = set()
     for elem in p:
@@ -25,16 +41,5 @@ def relative_complement(p, q):
     return res
 
 
-a = {1, 3, 5, 6, 8}
-b = {2, 3, 4, 7, 9}
-
-a_u_b = union(a, b)
-a_n_b = intersection(a, b)
-a_c_b = relative_complement(a, b)
-
-print("A is " + str(a))
-print("B is " + str(b) + "\n")
-
-print("A u B is " + str(a_u_b))
-print("A n B is " + str(a_n_b))
-print("A - B is " + str(a_c_b))
+if __name__ == "__main__":
+    main()
