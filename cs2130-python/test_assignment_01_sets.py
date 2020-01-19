@@ -1,8 +1,8 @@
 import unittest
-from p01_sets import set_union, set_intersection, set_complement
+from assignment_01_sets import set_union, set_intersection, set_complement
 
 
-class TestP01Sets(unittest.TestCase):
+class TestAssignment01Sets(unittest.TestCase):
 
     def test_set_union(self):
 

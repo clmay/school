@@ -1,8 +1,8 @@
 import unittest
-from p03_mod_hashing import clean, sum_chars, mod_hash
+from assignment_03_mod_hashing import clean, sum_chars, mod_hash
 
 
-class TestP03ModHashing(unittest.TestCase):
+class TestAssignment03ModHashing(unittest.TestCase):
 
     def test_clean(self):
         self.assertEqual(clean("This is a sentence"), "this is a sentence")

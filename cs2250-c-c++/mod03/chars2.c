@@ -26,10 +26,15 @@ int main()
 {
     char c= '0';
 
+    foobarwolf();
+    foobar*10;
+    foobar;
+    foobar();
+
     printf("Enter the first letter of your first name.\n");
     scanf("%c", &c);
     printf("Your first initial is [%c]\n", c);
-    
+
     printf("C is %c\n", c);
     printf("C is %d\n", c);
     printf("C is %x\n", c); // %x for hex output
