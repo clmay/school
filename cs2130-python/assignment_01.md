@@ -16,12 +16,13 @@ how you got the answer.
 
 3. (18 points) Set Properties. Use the following sets to answer the questions:
 
-   ```
    U = {a, b, c, d, e, f, g, h, i}
+
    A = {c, d, e, i, h}
+
    B = {a, b, c, d, e, f, i, h}
+
    C = {d, {e, f}, g, h}
-   ```
 
    - a. (3 pts) T / F {a, b, c, h, i} ⊆ U
    - b. (3 pts) T / F {} ∈ C
@@ -32,12 +33,13 @@ how you got the answer.
 
 4. (36 points) Set Operations. Use the following sets to answer the questions:
 
-   ```
    U = {a, b, c, d, x, y, z}
+
    A = {b, c, x, y}
+
    B = {a, b, c, z}
+
    C = {a, b, d, y}
-   ```
 
    - a. (6 pts) What is A ∪ C?
    - b. (6 pts) What is A ∩ B ∩ C?
@@ -46,22 +48,24 @@ how you got the answer.
 
 5. (10 pts) Draw the Venn diagram for these sets (U, A, B, C):
 
-   ```
    U = {a, b, c, d, x, y, z}
+
    A = {b, c, x, y}
+
    B = {a, b, c, z}
+
    C = {a, b, d, y}
-   ```
 
 6. (20 points) Set Properties and Operations. Use the following sets to answer
    the questions:
 
-   ```
    U = {a, b, c, d, x, y, z}
+
    A = {b, c, x, y}
+
    B = {a, b, c, z}
+
    C = {a, b, d, y}
-   ```
 
    - a. (3 pt) Find C – B
    - b. (3 pt) Find B - C
@@ -71,11 +75,11 @@ how you got the answer.
 7. (18 points) Cartesian product of sets. Use the following sets to answer the
    questions:
 
-   ```
    A = {1, 2, 3, 4, 5}
+
    B = {x, y, z, w}
+
    C = {q, r, s, t}
-   ```
 
    - a. (3 pt) T / F (5, s) ∈ A x C
    - b. (3 pt) T / F (q, 5) ∈ B x A
