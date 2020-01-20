@@ -5,8 +5,8 @@ how you got the answer.
 
 1. (6 points) Cardinality of a set defined by a Cartesian product.
 
-   - a. (3 pts) What is |{1, 2, 4, 5, 7, 8}³|
-   - b. (3 pts) What is |{a, b, c, d, e}²|
+   - a. (3 pts) What is |{1, 2, 4, 5, 7, 8}³|?
+   - b. (3 pts) What is |{a, b, c, d, e}²|?
 
 2. (10 points) Express each set in roster notation. Express the elements as
    strings, not n-tuples.
@@ -44,7 +44,7 @@ how you got the answer.
    - c. (6 pts) What is U \ (A ∩ C)?
    - d. (8 pts) List all subsets of C ∩ (A ∪ B).
 
-5) (10 pts) Draw the Venn diagram for these sets (U, A, B, C):
+5. (10 pts) Draw the Venn diagram for these sets (U, A, B, C):
 
    ```
    U = {a, b, c, d, x, y, z}
@@ -53,7 +53,7 @@ how you got the answer.
    C = {a, b, d, y}
    ```
 
-6) (20 points) Set Properties and Operations. Use the following sets to answer
+6. (20 points) Set Properties and Operations. Use the following sets to answer
    the questions:
 
    ```
@@ -68,7 +68,7 @@ how you got the answer.
    - c. (6 pt) Find A ⊕ B
    - d. (8 pts) Find |U \ (B ⊕ C)|
 
-7) (18 points) Cartesian product of sets. Use the following sets to answer the
+7. (18 points) Cartesian product of sets. Use the following sets to answer the
    questions:
 
    ```
