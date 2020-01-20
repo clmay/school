@@ -4,14 +4,14 @@ def main():
 
     a_u_b = union(a, b)
     a_n_b = intersection(a, b)
-    a_c_b = relative_complement(a, b)
+    a_minus_b = difference(a, b)
 
     print("A is " + str(a))
     print("B is " + str(b) + "\n")
 
     print("A u B is " + str(a_u_b))
     print("A n B is " + str(a_n_b))
-    print("A - B is " + str(a_c_b))
+    print("A - B is " + str(a_minus_b))
 
 
 def union(p, q):
