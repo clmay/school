@@ -32,7 +32,7 @@ def intersection(p, q):
     return res
 
 
-def relative_complement(p, q):
+def difference(p, q):
     res = set(p)
     for elem_1 in p:
         for elem_2 in q:
