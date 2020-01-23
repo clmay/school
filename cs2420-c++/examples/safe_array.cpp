@@ -44,6 +44,7 @@ int main() {
   myObject.item(3, 27);
   myObject.item(4, 64);
   myObject.item(10, 1000);
-  cout << myObject.get(4) << end cin.get();
+  cout << myObject.get(4) << endl;
+  cin.get();
   return 0;
 }
