@@ -40,7 +40,7 @@ have the following members:
 - [x] A `size()` method.
 
   - [x] The return type is `unsigned int`.
-  - [x] It returns the value of `capacity`.
+  - [x] It returns the value of `index`.
 
 - [ ] A `push()` method:
 
