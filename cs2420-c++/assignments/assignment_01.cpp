@@ -1,9 +1,9 @@
 ﻿// Copyright 2020, Bradley Peterson, Weber State University, All rights reserved.
-// #include <cstdio>
+#include <cstdio> // is this used?
 #include <iostream>
 #include <string>
 
-// using std::cerr;
+using std::cerr; // is this used?
 using std::cin;
 using std::cout;
 using std::endl;
@@ -61,15 +61,19 @@ private:
 template <typename T>
 StackForCS2420<T>::StackForCS2420(const unsigned int size) {
   this->index = 0;
-  this->capacity = 0;
+  this->capacity = size;
   this->arr = new T[size];
 }
 
 template <typename T>
-StackForCS2420<T>::~StackForCS2420() {}
+StackForCS2420<T>::~StackForCS2420() {
+  delete[] arr;
+}
 
 template <typename T>
-unsigned int StackForCS2420<T>::size() const { return 0; }
+unsigned int StackForCS2420<T>::size() const {
+  return this->capacity;
+}
 
 template <typename T>
 void StackForCS2420<T>::push(const T& item) {}

@@ -27,20 +27,20 @@ have the following members:
 
 - [x] A constructor that accepts a `const unsigned int` parameter:
 
-  - [ ] This constructor needs to dynamically allocate an array of the size
+  - [x] This constructor needs to dynamically allocate an array of the size
         passed into the parameter.
-  - [ ] Use the `new` keyword to make this array.
-  - [ ] The constructor should set the data member `index` to zero.
-  - [ ] It should also set the `capacity` data member to the value of the
+  - [x] Use the `new` keyword to make this array.
+  - [x] The constructor should set the data member `index` to zero.
+  - [x] It should also set the `capacity` data member to the value of the
         argument passed in.
 
-- [ ] You need a destructor, because you used the new keyword in the
+- [x] You need a destructor, because you used the new keyword in the
       constructor.
 
-- [ ] A `size()` method.
+- [x] A `size()` method.
 
-  - [ ] The return type is `unsigned int`.
-  - [ ] It returns the value of `index`.
+  - [x] The return type is `unsigned int`.
+  - [x] It returns the value of `capacity`.
 
 - [ ] A `push()` method:
 
