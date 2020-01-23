@@ -2,22 +2,24 @@ Homework – Stacks - [ ] CS24240 - [ ] Brad Peterson – Weber State University
 
 The goals of this assignment are to:
 
-- [ ] Help review C++.
-- [ ] To better understand classes, arrays, dynamic allocation and deallocation,
-      error handling, templates, and basic logic.
-- [ ] To help you prepare for the style of future homework assignments. For this
-      assignment complete the class called StackForCS2420. It should be a
-      template class, meaning you would prefix the class and all class members
-      declared outside the class with template <typename T>. (Note, the book
-      uses template <class T>, which is the exact same thing. The keyword
-      typename is newer and better.) For my unit tests, I made a base class with
-      methods that simply have enough logic to compile. You should not modify
-      the base class. Instead, you should modify the derived class and override
-      the constructor, destructor, and all methods there (I gave you an example
-      of overriding the constructor’s declaration). Note that arr is defined in
-      the base class, but you want to use it in the derived class. For most
-      compilers, you must access it using this->arr instead of just arr. The
-      StackForCS2420 class needs to have the following members:
+- Help review C++.
+- To better understand classes, arrays, dynamic allocation and deallocation,
+  error handling, templates, and basic logic.
+- To help you prepare for the style of future homework assignments.
+
+For this assignment complete the class called StackForCS2420. It should be a
+template class, meaning you would prefix the class and all class members
+declared outside the class with template <typename T>. (Note, the book uses
+template <class T>, which is the exact same thing. The keyword typename is newer
+and better.) For my unit tests, I made a base class with methods that simply
+have enough logic to compile. You should not modify the base class. Instead, you
+should modify the derived class and override the constructor, destructor, and
+all methods there (I gave you an example of overriding the constructor’s
+declaration). Note that arr is defined in the base class, but you want to use it
+in the derived class. For most compilers, you must access it using this->arr
+instead of just arr. The StackForCS2420 class needs to have the following
+members:
+
 - [ ] A private unsigned int index data member, which keeps track of the next
       open index in the array.
 - [ ] A private unsigned int capacity data member.
