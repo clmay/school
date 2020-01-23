@@ -20,10 +20,10 @@ you want to use it in the derived class. For most compilers, you must access it
 using `this->arr` instead of just `arr`. The `StackForCS2420` class needs to
 have the following members:
 
-- [x] A `private` `unsigned int` `index` data member, which keeps track of the
-      next open index in the array.
+- [x] A `private unsigned int index` data member, which keeps track of the next
+      open index in the array.
 
-- [x] A `private` `unsigned int` `capacity` data member.
+- [x] A `private unsigned int capacity` data member.
 
 - [x] A constructor that accepts a `const unsigned int` parameter:
 
