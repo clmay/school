@@ -78,7 +78,7 @@ unsigned int StackForCS2420<T>::size() const {
 template <typename T>
 void StackForCS2420<T>::push(const T& item) {
   if (this->index == this->capacity) {
-    throw std::length_error("The array is already full.");
+    throw std::length_error("The stack is already full");
   } else {
     this->arr[this->index] = item;
     this->index++;
@@ -86,10 +86,18 @@ void StackForCS2420<T>::push(const T& item) {
 }
 
 template <typename T>
-void StackForCS2420<T>::pop() {}
+void StackForCS2420<T>::pop() {
+  this->index--;
+}
 
 template <typename T>
-T StackForCS2420<T>::top() const {}
+T StackForCS2420<T>::top() const {
+  if (this->index == 0) {
+    throw std::out_of_range("The stack is already empty")
+  } else {
+    return this->arr[this->index];
+  }
+}
 
 template <typename T>
 void StackForCS2420<T>::popSecondFromTop() {}

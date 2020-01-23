@@ -55,17 +55,22 @@ have the following members:
     - [x] If so, simply state an error message and return. Otherwise, insert the
           value into the array at the correct spot, and increment `index`.
 
-- [ ] A `pop()` method:
+- [x] A `pop()` method:
 
-  - [ ] This method should not have any parameter.
-  - [ ] The return type should be `void`. The purpose of the method is to “pop”
+  - [x] This method should not have any parameter.
+  - [x] The return type should be `void`. The purpose of the method is to “pop”
         the item off the stack. It doesn't actually pop the item off the array,
         it just changes index.
 
-- [ ] A `top()` method. This method should not have any parameter. The return
-      type should be `T`. It should return what is at the top of the stack. It
-      should first check if `capacity` is zero. If so, then the stack is empty,
-      so throw an error (e.g. `throw 1;`). Otherwise, return the correct value.
+- [x] A `top()` method.
+
+  - [x] This method should not have any parameter.
+  - [x] The return type should be `T`.
+  - [x] It should return what is at the top of the stack.
+  - [x] It should first check if `index` is zero.
+
+    - [x] If so, then the stack is empty, so throw an error (e.g. `throw 1;`).
+          Otherwise, return the correct value.
 
 - [ ] A `popSecondFromTop()` method. As the name implies, pops the item
       underneath the top item. (Note, stacks typically aren’t used this way, but
