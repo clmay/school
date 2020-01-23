@@ -72,14 +72,12 @@ StackForCS2420<T>::~StackForCS2420() {
 
 template <typename T>
 unsigned int StackForCS2420<T>::size() const {
-  return this->capacity;
+  return this->index;
 }
 
 template <typename T>
 void StackForCS2420<T>::push(const T& item) {
-  if (this->index == this->capacity) {
-    throw std::length_error("Stack is full");
-  } else {
+  if (this->index < this->capacity) {
     this->arr[this->index] = item;
     this->index++;
   }
@@ -87,17 +85,17 @@ void StackForCS2420<T>::push(const T& item) {
 
 template <typename T>
 void StackForCS2420<T>::pop() {
-  if (this->index == 0) {
-    throw std::out_of_range("Stack is empty")
-  } else {
+  if (this->index > 0) {
     this->index--;
+  } else {
+    return;
   }
 }
 
 template <typename T>
 T StackForCS2420<T>::top() const {
   if (this->index == 0) {
-    throw std::out_of_range("Stack is empty")
+    throw 1;
   } else {
     return this->arr[this->index - 1];
   }
@@ -105,9 +103,7 @@ T StackForCS2420<T>::top() const {
 
 template <typename T>
 void StackForCS2420<T>::popSecondFromTop() {
-  if (this->index < 2) {
-    throw std::out_of_range("Undefined for one or fewer items");
-  } else {
+  if (this->index >= 1) {
     T tmp = this->top();
     this->pop();
     this->pop();
@@ -117,9 +113,7 @@ void StackForCS2420<T>::popSecondFromTop() {
 
 template <typename T>
 void StackForCS2420<T>::pushUnderTop(const T& item) {
-  if (this->index < 2) {
-    throw std::out_of_range("Undefined for one or fewer items");
-  } else {
+  if (this->index >= 1 && this->index <= this->capacity) {
     T tmp = this->top();
     this->pop();
     this->push(item);
@@ -129,8 +123,8 @@ void StackForCS2420<T>::pushUnderTop(const T& item) {
 
 template <typename T>
 T StackForCS2420<T>::topSecondFromTop() const {
-  if (this->index < 2) {
-    throw std::out_of_range("Undefined for one or fewer items");
+  if (this->index <= 1) {
+    throw 1;
   } else {
     return this->arr[this->index - 2];
   }
