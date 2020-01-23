@@ -1,3 +1,3 @@
 # school
 
-Coursework in Computer Science B.S. program
+Computer Science coursework: C++, C, Java, SQL, Python, and web development.
