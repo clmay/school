@@ -1,9 +1,9 @@
 ﻿// Copyright 2020, Bradley Peterson, Weber State University, All rights reserved.
-#include <cstdio>
+// #include <cstdio>
 #include <iostream>
 #include <string>
 
-using std::cerr;
+// using std::cerr;
 using std::cin;
 using std::cout;
 using std::endl;
@@ -44,30 +44,50 @@ class StackForCS2420 : public BaseStack<T> {
 public:
   StackForCS2420(const unsigned int size);
   ~StackForCS2420();
-  unsigned int size() const { return 0; }
-  void push(const T& item) {}
-  T top() const {
-    T temp{};
-    return temp;
-  }
-  void pop() {}
-  void popSecondFromTop() {}
-  void pushUnderTop(const T& item) {}
-  T topSecondFromTop() const {
-    T temp{};
-    return temp;
-  }
+  unsigned int size() const;
+  void push(const T& item);
+  T top() const;
+  void pop();
+  void popSecondFromTop();
+  void pushUnderTop(const T& item);
+  T topSecondFromTop() const;
 
 private:
-  // TODO: Put your two other data members here
+  unsigned int index{ 0 };
+  unsigned int capacity{ 0 };
+  T* arr{ nullptr };
 };
 
 template <typename T>
 StackForCS2420<T>::StackForCS2420(const unsigned int size) {
-  // TODO: Write this
+  this->index = 0;
+  this->capacity = 0;
+  this->arr = new T[size];
 }
 
-// TODO: Write all other methods
+template <typename T>
+StackForCS2420<T>::~StackForCS2420() {}
+
+template <typename T>
+unsigned int StackForCS2420<T>::size() const { return 0; }
+
+template <typename T>
+void StackForCS2420<T>::push(const T& item) {}
+
+template <typename T>
+T StackForCS2420<T>::top() const {}
+
+template <typename T>
+void StackForCS2420<T>::pop() {}
+
+template <typename T>
+void StackForCS2420<T>::popSecondFromTop() {}
+
+template <typename T>
+void StackForCS2420<T>::pushUnderTop(const T& item) {}
+
+template <typename T>
+T StackForCS2420<T>::topSecondFromTop() const {}
 
 /******************************
  * Write your code above here *
