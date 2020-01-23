@@ -72,17 +72,17 @@ have the following members:
     - [x] If so, then the stack is empty, so throw an error (e.g. `throw 1;`).
           Otherwise, return the correct value.
 
-- [ ] A `popSecondFromTop()` method. As the name implies, pops the item
+- [x] A `popSecondFromTop()` method. As the name implies, pops the item
       underneath the top item. (Note, stacks typically aren’t used this way, but
       this method is here to help you extend your understanding of both stacks
       and programming.)
 
-- [ ] A `pushUnderTop()` method. As the name implies, pushes an item under the
+- [x] A `pushUnderTop()` method. As the name implies, pushes an item under the
       top item.
 
-- [ ] A `topSecondFromTop()` method:
+- [x] A `topSecondFromTop()` method:
 
-  - [ ] As the name implies, retrieves the value of the item under the top item.
-  - [ ] Throws an error (e.g. `throw 1;`) if this isn’t possible.
+  - [x] As the name implies, retrieves the value of the item under the top item.
+  - [x] Throws an error (e.g. `throw 1;`) if this isn’t possible.
 
 Use the `.cpp` file given. Your assignment should pass all tests.
