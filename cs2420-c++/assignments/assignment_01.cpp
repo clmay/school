@@ -18,11 +18,11 @@ public:
   BaseStack(const unsigned int size) {} // In the derived classes below, you will be overriding these with your own versions.
   unsigned int size() const { return 0; }
   void push(const T& item) {}
+  void spop() {}
   T top() const {
     T temp{};
     return temp;
   }
-  void pop() {}
   void popSecondFromTop() {}
   void pushUnderTop(const T& item) {}
   T topSecondFromTop() const {
@@ -46,8 +46,8 @@ public:
   ~StackForCS2420();
   unsigned int size() const;
   void push(const T& item);
-  T top() const;
   void pop();
+  T top() const;
   void popSecondFromTop();
   void pushUnderTop(const T& item);
   T topSecondFromTop() const;
@@ -76,13 +76,20 @@ unsigned int StackForCS2420<T>::size() const {
 }
 
 template <typename T>
-void StackForCS2420<T>::push(const T& item) {}
-
-template <typename T>
-T StackForCS2420<T>::top() const {}
+void StackForCS2420<T>::push(const T& item) {
+  if (this->index == this->capacity) {
+    throw std::length_error("The array is already full.");
+  } else {
+    this->arr[this->index] = item;
+    this->index++;
+  }
+}
 
 template <typename T>
 void StackForCS2420<T>::pop() {}
+
+template <typename T>
+T StackForCS2420<T>::top() const {}
 
 template <typename T>
 void StackForCS2420<T>::popSecondFromTop() {}

@@ -44,15 +44,15 @@ have the following members:
 
 - [ ] A `push()` method:
 
-  - [ ] This method should have a single parameter, the data type of that
+  - [x] This method should have a single parameter, the data type of that
         parameter should be `const T&`. The `const` means it can't be changed.
         The `&` means it will be passed in by reference (instead of by value,
         which makes a copy).
-  - [ ] The `push()` method should have a `void` return value.
-  - [ ] This method should see if the `index` equals the `capacity` (seeing if
+  - [x] The `push()` method should have a `void` return value.
+  - [x] This method should see if the `index` equals the `capacity` (seeing if
         it is full).
 
-    - [ ] If so, simply state an error message and return. Otherwise, insert the
+    - [x] If so, simply state an error message and return. Otherwise, insert the
           value into the array at the correct spot, and increment `index`.
 
 - [ ] A `pop()` method:
