@@ -10,7 +10,7 @@
 | 6   | Numeric characters                 | `1234567890`                 | `Input may only include letters and spaces` |
 | 7   | Non-alphanumeric characters        | `!@#$%^&*()`                 | `Input may only include letters and spaces` |
 | 8   | Non-alphanumeric characters        | `~-=_+[]{}\|;':",./<>?`      | `Input may only include letters and spaces` |
-| 9   | Empty input                        | ``                           | [Prompts for new sentence]                  |
+| 9   | Empty input                        |                              | [Prompts for new sentence]                  |
 
 | #   | Input description | Example value     | Expected behavior                    |
 | --- | ----------------- | ----------------- | ------------------------------------ |
