@@ -8,4 +8,10 @@
 | 5   | Any number of words              | an owl roosts in the woods | 24                                          |
 | 6   | Numeric characters               | 1234567890                 | 'Input may only include letters and spaces' |
 | 7   | Non-alphanumeric characters      | !@#\$%^&\*()               | 'Input may only include letters and spaces' |
-| 8   | Non-alphanumeric characters      | `-=~-=[]\{};':",./<>?\|\   |                                             |
+| 8   | Non-alphanumeric characters      | `-=~-=[]\{};':",./<>?\|\   | 'Input may only include letters and spaces' |
+
+| #   | Input description | Example value     | Expected behavior                  |
+| --- | ----------------- | ----------------- | ---------------------------------- |
+| 1   | User quits        | q                 | Program exits                      |
+| 2   | User quits        | Q                 | Program exits                      |
+| 3   | User continues    | [Any other value] | Loops and prompts for new sentence |
