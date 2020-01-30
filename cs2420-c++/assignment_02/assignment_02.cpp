@@ -68,10 +68,120 @@ protected:
 template <typename T>
 class QueueForCS2420 : public BaseQueue<T> {
 public:
-  QueueForCS2420(const unsigned int capacity) { cout << "You need to define the constructor" << endl; }
+  QueueForCS2420(const unsigned int);
+  QueueForCS2420(QueueForCS2420&&);
+  ~QueueForCS2420();
+  QueueForCS2420<T>& operator=(QueueForCS2420&&);
+  const unsigned int numItems() const;
+  void push_back(const T&);
+  void pop_front();
+  T front();
+  T back();
 
 private:
+  int capacity{ 0 };
+  int size{ 0 };
+  int head{ 0 };
+  int tail{ 0 };
+
+  T* arr{ nullptr };
 };
+
+template <typename T>
+QueueForCS2420<T>::QueueForCS2420(const unsigned int capacity) {
+  this->capacity = capacity;
+  this->arr = new T[capacity];
+}
+
+template <typename T>
+QueueForCS2420<T>::QueueForCS2420(QueueForCS2420&& other) {
+  this->capacity = other.capacity;
+  other.capacity = 0;
+  this->size = other.size;
+  other.size = 0;
+  this->head = other.head;
+  other.head = 0;
+  this->tail = other.tail;
+  other.tail = 0;
+  this->arr = other.arr;
+  other.arr = nullptr;
+}
+
+template <typename T>
+QueueForCS2420<T>::~QueueForCS2420() {
+  delete[] this->arr;
+}
+
+template <typename T>
+QueueForCS2420<T>& QueueForCS2420<T>::operator=(QueueForCS2420&& other) {
+  if (this->arr) {
+    delete[] this->arr;
+  }
+  this->capacity = other.capacity;
+  other.capacity = 0;
+  this->size = other.size;
+  other.size = 0;
+  this->head = other.head;
+  other.head = 0;
+  this->tail = other.tail;
+  other.tail = 0;
+  this->arr = other.arr;
+  other.arr = nullptr;
+
+  return *this;
+}
+
+template <typename T>
+const unsigned int QueueForCS2420<T>::numItems() const {
+  return this->size;
+}
+
+template <typename T>
+void QueueForCS2420<T>::push_back(const T& item) {
+  if (this->size == this->capacity) {
+    cout << "The queue is full" << endl;
+    return;
+  }
+  if (this->tail == this->capacity) {
+    this->tail = 0;
+  }
+  this->arr[this->tail] = item;
+  this->size++;
+  this->tail++;
+}
+
+template <typename T>
+void QueueForCS2420<T>::pop_front() {
+  if (this->size == 0) {
+    cout << "The queue is empty" << endl;
+    return;
+  }
+  this->head++;
+  if (this->head == this->capacity) {
+    this->head = 0;
+  }
+  this->size--;
+}
+
+template <typename T>
+T QueueForCS2420<T>::front() {
+  if (this->size == 0) {
+    cout << "The queue is empty" << endl;
+    throw 1;
+  }
+  cout << "Head: " << this->arr[this->head] << endl;
+  return this->arr[this->head];
+}
+
+template <typename T>
+T QueueForCS2420<T>::back() {
+  if (this->size == 0) {
+    cout << "The queue is empty" << endl;
+    throw 1;
+  }
+  cout << "Tail: " << this->arr[this->tail - 1] << endl;
+  return this->arr[this->tail - 1];
+}
 
 //**********************************
 // Write your code above here
