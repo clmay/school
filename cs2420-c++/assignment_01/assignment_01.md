@@ -1,4 +1,4 @@
-Homework – Stacks - [ ] CS24240 - [ ] Brad Peterson – Weber State University
+Homework – Stacks - CS24240 - Brad Peterson – Weber State University
 
 The goals of this assignment are to:
 
