@@ -222,7 +222,22 @@ public:
 };
 
 template <typename T>
-T SinglyLinkedList<T>::getFifthElement() const {}
+T SinglyLinkedList<T>::getFifthElement() const {
+  Node<T>* currentNode = this->first;
+
+  int count = 1;
+  while (currentNode->link != nullptr) {
+    currentNode = currentNode->link;
+    if (currentNode->link == nullptr && count < 5) {
+      throw 1;
+    } else if (count == 5) {
+      break;
+    } else {
+      count++;
+    }
+  }
+  return currentNode->data;
+}
 
 template <typename T>
 void SinglyLinkedList<T>::insertNewFifthElement(const T& value) {}
