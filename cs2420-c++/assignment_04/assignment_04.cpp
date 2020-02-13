@@ -213,9 +213,8 @@ T DoublyLinkedList<T>::get(const unsigned int index) const {
   // if loop exited before reaching index, index is out of bounds
   if (position != index) {
     throw 1;
-  } else {
-    return currentNode->data;
   }
+  return currentNode->data;
 }
 
 template <typename T>
@@ -238,9 +237,8 @@ T& DoublyLinkedList<T>::operator[](const unsigned int index) const {
   // if loop exited before reaching index, index is out of bounds
   if (position != index) {
     throw 1;
-  } else {
-    return currentNode->data;
   }
+  return currentNode->data;
 }
 
 // template <typename T>
