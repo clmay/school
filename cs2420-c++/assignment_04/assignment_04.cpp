@@ -184,7 +184,29 @@ string BaseDoublyLinkedList<T>::getListBackwardsAsString() {
 // Write your code below here
 //**********************************
 template <typename T>
-class DoublyLinkedList : public BaseDoublyLinkedList<T> {};
+class DoublyLinkedList : public BaseDoublyLinkedList<T> {
+public:
+  T get(const unsigned int) const;
+  T& operator[](const unsigned int) const;
+  void insert(const unsigned int, const T&) {}
+  void remove(const unsigned int) {}
+  void removeAllInstances(const T&) {}
+};
+
+template <typename T>
+T DoublyLinkedList<T>::get(const unsigned int index) const {}
+
+template <typename T>
+T& DoublyLinkedList<T>::operator[](const unsigned int index) const {}
+
+template <typename T>
+void DoublyLinkedList<T>::insert(const unsigned int index, const T& value) {}
+
+template <typename T>
+void DoublyLinkedList<T>::remove(const unsigned int index) {}
+
+template <typename T>
+void DoublyLinkedList<T>::removeAllInstances(const T& value) {}
 
 //**********************************
 // Write your code above here
