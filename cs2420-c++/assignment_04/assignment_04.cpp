@@ -199,7 +199,6 @@ T DoublyLinkedList<T>::get(const unsigned int index) const {
   if (this->first == nullptr) {
     throw 1;
   }
-
   Node<T>* currentNode = this->first;
   int position = 0;
   while (currentNode->forward != nullptr) {
@@ -209,7 +208,6 @@ T DoublyLinkedList<T>::get(const unsigned int index) const {
     currentNode = currentNode->forward;
     position++;
   }
-
   // if loop exited before reaching index, index is out of bounds
   if (position < index) {
     throw 1;
@@ -223,7 +221,6 @@ T& DoublyLinkedList<T>::operator[](const unsigned int index) const {
   if (this->first == nullptr) {
     throw 1;
   }
-
   Node<T>* currentNode = this->first;
   int position = 0;
   while (currentNode->forward != nullptr) {
@@ -233,7 +230,6 @@ T& DoublyLinkedList<T>::operator[](const unsigned int index) const {
     currentNode = currentNode->forward;
     position++;
   }
-
   // if loop exited before reaching index, index is out of bounds
   if (position < index) {
     throw 1;
@@ -243,25 +239,24 @@ T& DoublyLinkedList<T>::operator[](const unsigned int index) const {
 
 template <typename T>
 void DoublyLinkedList<T>::insert(const unsigned int index, const T& value) {
-  Node<T>* currentNode = this->first;
-
   if (index == 0) {
     Node<T>* newNode = new Node<T>();
     newNode->data = value;
     newNode->backward = nullptr;
 
-    if (currentNode == nullptr) {
+    if (this->first == nullptr) {
       newNode->forward = nullptr;
       this->first = newNode;
       this->last = newNode;
     } else {
-      newNode->forward = currentNode;
+      newNode->forward = nullptr;
       currentNode->backward = newNode;
       this->first = newNode;
     }
     return;
   }
 
+  Node<T>* currentNode = this->first;
   int position = 0;
   while (currentNode->forward != nullptr) {
     if (position == index) {
