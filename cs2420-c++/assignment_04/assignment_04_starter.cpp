@@ -560,7 +560,6 @@ void testRemoveAllInstances() {
   double actualTime = diff.count() / 1000.0;
   if (actualTime < (benchmarkTime * 2 * 1.5)) { //The 1.5 gives an extra 50% wiggle room
     cout << "Passed testRemoveAllInstances #18, completed removeAllInstances in " << actualTime << " milliseconds." << endl;
-
   } else {
     cout << "*** Failed testRemoveAllInstances #18, removeAllInstances took " << actualTime
          << " milliseconds." << endl;
@@ -576,40 +575,23 @@ void pressAnyKeyToContinue() {
 }
 
 int main() {
-
   //For your assignment, write the code to make these three methods work
   //You should not modify the code here in main.
   checkTestMemory("Memory Leak/Allocation Test #1", 0, ManageMemory::getTotalSize());
-
   testGet();
-
   checkTestMemory("Memory Leak/Allocation Test #2", 0, ManageMemory::getTotalSize());
-
   pressAnyKeyToContinue();
-
   testSquareBrackets();
-
   checkTestMemory("Memory Leak/Allocation Test #3", 0, ManageMemory::getTotalSize());
-
   pressAnyKeyToContinue();
-
   testInsert();
-
   checkTestMemory("Memory Leak/Allocation Test #4", 0, ManageMemory::getTotalSize());
-
   pressAnyKeyToContinue();
-
   testRemove();
-
   checkTestMemory("Memory Leak/Allocation Test #5", 0, ManageMemory::getTotalSize());
-
   pressAnyKeyToContinue();
-
   testRemoveAllInstances();
-
   checkTestMemory("Memory Leak/Allocation Test #6", 0, ManageMemory::getTotalSize());
-
   pressAnyKeyToContinue();
-
   return 0;
 }
