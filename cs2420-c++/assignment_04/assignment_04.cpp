@@ -188,9 +188,9 @@ class DoublyLinkedList : public BaseDoublyLinkedList<T> {
 public:
   T get(const unsigned int) const;
   T& operator[](const unsigned int) const;
-  void insert(const unsigned int, const T&) {}
-  void remove(const unsigned int) {}
-  void removeAllInstances(const T&) {}
+  void insert(const unsigned int, const T&);
+  // void remove(const unsigned int);
+  // void removeAllInstances(const T&);
 };
 
 template <typename T>
@@ -202,7 +202,7 @@ T DoublyLinkedList<T>::get(const unsigned int index) const {
 
   Node<T>* currentNode = this->first;
   int position = 0;
-  while (currentNode != nullptr) {
+  while (currentNode->forward != nullptr) {
     if (position == index) {
       break;
     }
@@ -211,7 +211,7 @@ T DoublyLinkedList<T>::get(const unsigned int index) const {
   }
 
   // if loop exited before reaching index, index is out of bounds
-  if (position != index) {
+  if (position < index) {
     throw 1;
   }
   return currentNode->data;
@@ -226,7 +226,7 @@ T& DoublyLinkedList<T>::operator[](const unsigned int index) const {
 
   Node<T>* currentNode = this->first;
   int position = 0;
-  while (currentNode != nullptr) {
+  while (currentNode->forward != nullptr) {
     if (position == index) {
       break;
     }
@@ -235,14 +235,59 @@ T& DoublyLinkedList<T>::operator[](const unsigned int index) const {
   }
 
   // if loop exited before reaching index, index is out of bounds
-  if (position != index) {
+  if (position < index) {
     throw 1;
   }
   return currentNode->data;
 }
 
-// template <typename T>
-// void DoublyLinkedList<T>::insert(const unsigned int index, const T& value) {}
+template <typename T>
+void DoublyLinkedList<T>::insert(const unsigned int index, const T& value) {
+  Node<T>* currentNode = this->first;
+
+  if (index == 0) {
+    Node<T>* newNode = new Node<T>();
+    newNode->data = value;
+    newNode->backward = nullptr;
+
+    if (currentNode == nullptr) {
+      newNode->forward = nullptr;
+      this->first = newNode;
+      this->last = newNode;
+    } else {
+      newNode->forward = currentNode;
+      currentNode->backward = newNode;
+      this->first = newNode;
+    }
+    return;
+  }
+
+  int position = 0;
+  while (currentNode->forward != nullptr) {
+    if (position == index) {
+      break;
+    }
+    currentNode = currentNode->forward;
+    position++;
+  }
+
+  Node<T>* newNode = new Node<T>();
+  newNode->data = value;
+
+  if (currentNode == this->last) {
+    newNode->backward = currentNode;
+    newNode->forward = nullptr;
+
+    currentNode->forward = newNode;
+    this->last = newNode;
+  } else {
+    newNode->backward = currentNode->backward;
+    newNode->forward = currentNode;
+
+    currentNode->backward->forward = newNode;
+    currentNode->backward = newNode;
+  }
+}
 
 // template <typename T>
 // void DoublyLinkedList<T>::remove(const unsigned int index) {}
