@@ -262,8 +262,8 @@ bool checkTest(string testName, string whatItShouldBe, string whatItIs) {
     return true;
   } else {
     cout << "****** Failed test " << testName << " ****** " << endl
-         << "     Output was       " << whatItIs << endl
-         << "     Output should be " << whatItShouldBe << endl;
+         << "     Output was:       " << whatItIs << endl
+         << "     Output should be: " << whatItShouldBe << endl;
     return false;
   }
 }
@@ -276,8 +276,8 @@ bool checkTest(string testName, int whatItShouldBe, int whatItIs) {
     return true;
   } else {
     cout << "****** Failed test " << testName << " ****** " << endl
-         << "     Output was       " << whatItIs << endl
-         << "     Output should be " << whatItShouldBe << endl;
+         << "     Output was:       " << whatItIs << endl
+         << "     Output should be: " << whatItShouldBe << endl;
     return false;
   }
 }
