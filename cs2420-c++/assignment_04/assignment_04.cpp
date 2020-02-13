@@ -189,8 +189,8 @@ public:
   T get(const unsigned int) const;
   T& operator[](const unsigned int) const;
   void insert(const unsigned int, const T&);
-  // void remove(const unsigned int);
-  // void removeAllInstances(const T&);
+  void remove(const unsigned int);
+  void removeAllInstances(const T&);
 };
 
 template <typename T>
@@ -199,7 +199,7 @@ T DoublyLinkedList<T>::get(const unsigned int index) const {
     throw 1;
   }
   Node<T>* currentNode = this->first;
-  int position = 0;
+  unsigned int position = 0;
   while (currentNode->forward != nullptr) {
     if (position == index) {
       break;
@@ -219,7 +219,7 @@ T& DoublyLinkedList<T>::operator[](const unsigned int index) const {
     throw 1;
   }
   Node<T>* currentNode = this->first;
-  int position = 0;
+  unsigned int position = 0;
   while (currentNode->forward != nullptr) {
     if (position == index) {
       break;
@@ -251,7 +251,7 @@ void DoublyLinkedList<T>::insert(const unsigned int index, const T& value) {
   }
 
   Node<T>* currentNode = this->first;
-  int position = 0;
+  unsigned int position = 0;
   while (currentNode->forward != nullptr) {
     if (position == index) {
       break;
@@ -272,11 +272,66 @@ void DoublyLinkedList<T>::insert(const unsigned int index, const T& value) {
   }
 }
 
-// template <typename T>
-// void DoublyLinkedList<T>::remove(const unsigned int index) {}
+template <typename T>
+void DoublyLinkedList<T>::remove(const unsigned int index) {
+  if (this->first == nullptr) {
+    return;
+  }
 
-// template <typename T>
-// void DoublyLinkedList<T>::removeAllInstances(const T& value) {}
+  Node<T>* currentNode = this->first;
+  if (index == 0) {
+    if (this->first == this->last) {
+      this->first = nullptr;
+      this->last = nullptr;
+      delete currentNode;
+    } else {
+      currentNode->forward->backward = nullptr;
+      this->first = currentNode->forward;
+      delete currentNode;
+    }
+    return;
+  }
+
+  unsigned int position = 0;
+  while (currentNode->forward != nullptr) {
+    if (position == index) {
+      break;
+    }
+    currentNode = currentNode->forward;
+    position++;
+  }
+  if (position < index) {
+    return;
+  }
+
+  if (currentNode == this->last) {
+    currentNode->backward->forward = nullptr;
+    this->last = currentNode->backward;
+    delete currentNode;
+  } else {
+    currentNode->backward->forward = currentNode->forward;
+    currentNode->forward->backward = currentNode->backward;
+    delete currentNode;
+  }
+}
+
+template <typename T>
+void DoublyLinkedList<T>::removeAllInstances(const T& value) {
+  if (this->first == nullptr) {
+    cout << "The list is empty." << endl;
+    return;
+  }
+
+  Node<T>* currentNode = this->first;
+  unsigned int position = 0;
+  while (currentNode->forward != nullptr) {
+    if (currentNode->data == value) {
+      this->remove(position);
+    }
+    currentNode = currentNode->forward;
+    position++;
+  }
+}
 
 //**********************************
 // Write your code above here
@@ -523,6 +578,8 @@ void testRemove() {
 
 // This helps with testing, do not modify.
 void testRemoveAllInstances() {
+
+  cout << "got here" << endl;
 
   DoublyLinkedList<int>* d = new DoublyLinkedList<int>;
 
