@@ -243,19 +243,17 @@ void DoublyLinkedList<T>::insert(const unsigned int index, const T& value) {
   newNode->data = value;
 
   if (index == 0) {
-    newNode->backward = nullptr;
-
-    if (this->first == nullptr) {
-      newNode->forward = nullptr;
+    if (this->first == nullptr && this->last == nullptr) {
       this->first = newNode;
       this->last = newNode;
     } else {
-      newNode->forward = nullptr;
-      currentNode->backward = newNode;
+      newNode->forward = this->first;
+      this->first->backward = newNode;
       this->first = newNode;
     }
     return;
   }
+
   Node<T>* currentNode = this->first;
   int position = 0;
   while (currentNode->forward != nullptr) {
@@ -268,15 +266,12 @@ void DoublyLinkedList<T>::insert(const unsigned int index, const T& value) {
 
   if (currentNode == this->last) {
     newNode->backward = currentNode;
-    newNode->forward = nullptr;
-
     currentNode->forward = newNode;
     this->last = newNode;
   } else {
+    currentNode->backward->forward = newNode;
     newNode->backward = currentNode->backward;
     newNode->forward = currentNode;
-
-    currentNode->backward->forward = newNode;
     currentNode->backward = newNode;
   }
 }
