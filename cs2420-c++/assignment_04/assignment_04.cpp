@@ -279,16 +279,15 @@ void DoublyLinkedList<T>::remove(const unsigned int index) {
   }
 
   Node<T>* currentNode = this->first;
-  if (index == 0) {
-    if (this->first == this->last) {
-      this->first = nullptr;
-      this->last = nullptr;
-      delete currentNode;
-    } else {
-      currentNode->forward->backward = nullptr;
-      this->first = currentNode->forward;
-      delete currentNode;
-    }
+  if (index == 0 && this->first == this->last) {
+    this->first = nullptr;
+    this->last = nullptr;
+    delete currentNode;
+    return;
+  } else if (index == 0) {
+    currentNode->forward->backward = nullptr;
+    this->first = currentNode->forward;
+    delete currentNode;
     return;
   }
 
@@ -318,18 +317,33 @@ void DoublyLinkedList<T>::remove(const unsigned int index) {
 template <typename T>
 void DoublyLinkedList<T>::removeAllInstances(const T& value) {
   if (this->first == nullptr) {
-    cout << "The list is empty." << endl;
     return;
   }
 
   Node<T>* currentNode = this->first;
-  unsigned int position = 0;
-  while (currentNode->forward != nullptr) {
+  if (currentNode == this->first && this->first == this->last) {
+    this->first = nullptr;
+    this->last = nullptr;
+    delete currentNode;
+    return;
+  }
+
+  while (currentNode != nullptr) {
     if (currentNode->data == value) {
-      this->remove(position);
+      if (currentNode == this->first) {
+        currentNode->forward->backward = nullptr;
+        this->first = currentNode->forward;
+      } else if (currentNode == this->last) {
+        currentNode->backward->forward = nullptr;
+        this->last = currentNode->backward;
+      } else {
+        currentNode->backward->forward = currentNode->forward;
+        currentNode->forward->backward = currentNode->backward;
+      }
+      Node<T>* nodeToDelete = currentNode;
+      delete nodeToDelete;
     }
     currentNode = currentNode->forward;
-    position++;
   }
 }
 
@@ -578,11 +592,7 @@ void testRemove() {
 
 // This helps with testing, do not modify.
 void testRemoveAllInstances() {
-
-  cout << "got here" << endl;
-
   DoublyLinkedList<int>* d = new DoublyLinkedList<int>;
-
   d->insertLast(4);
   d->insertLast(2);
   d->insertLast(6);
