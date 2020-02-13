@@ -1,4 +1,4 @@
-//Copyright 2020, Bradley Peterson, Weber State University, All rights reserved.
+// Copyright 2020, Bradley Peterson, Weber State University, All rights reserved.
 #include <chrono>
 #include <iostream>
 #include <map>
@@ -12,11 +12,11 @@ using std::string;
 using std::stringstream;
 
 //************************************************************************
-//A class I designed to help keep track of how much memory you allocate
-//Do not modify, this is not part of your assignment, it just helps test it.
-//For this to work, a class needs to inherit off of this one.
-//Then this does the rest of the work, since it
-//overloads new, new[], delete, and delete[].
+// A class I designed to help keep track of how much memory you allocate
+// Do not modify, this is not part of your assignment, it just helps test it.
+// For this to work, a class needs to inherit off of this one.
+// Then this does the rest of the work, since it
+// overloads new, new[], delete, and delete[].
 //************************************************************************
 class ManageMemory {
 public:
@@ -29,7 +29,7 @@ public:
     return total;
   }
 
-  //I overloaded the new and delete keywords so I could manually track allocated memory.
+  // I overloaded the new and delete keywords so I could manually track allocated memory.
   void* operator new(std::size_t x) {
     void* ptr = ::operator new(x);
     mapOfAllocations[ptr] = x;
@@ -55,7 +55,7 @@ private:
 std::map<void*, std::size_t> ManageMemory::mapOfAllocations;
 
 //******************
-//The node class
+// The node class
 //******************
 template <typename T>
 class Node : public ManageMemory {
@@ -66,13 +66,13 @@ public:
 };
 
 //******************
-//The linked list base class
-//This contains within it a class declaration for an iterator
+// The linked list base class
+// This contains within it a class declaration for an iterator
 //******************
 template <typename T>
 class BaseDoublyLinkedList : public ManageMemory {
 public:
-  //public members of the DoublyLinkedList class
+  // public members of the DoublyLinkedList class
   ~BaseDoublyLinkedList();
   string getListAsString();
   string getListBackwardsAsString();
@@ -138,7 +138,7 @@ void BaseDoublyLinkedList<T>::insertLast(const T& item) {
   last = temp;
 }
 
-//This method helps return a string representation of all nodes in the linked list, do not modify.
+// This method helps return a string representation of all nodes in the linked list, do not modify.
 template <typename T>
 string BaseDoublyLinkedList<T>::getListAsString() {
   stringstream ss;
@@ -158,7 +158,7 @@ string BaseDoublyLinkedList<T>::getListAsString() {
   return ss.str();
 }
 
-//This method helps return a string representation of all nodes in the linked list, do not modify.
+// This method helps return a string representation of all nodes in the linked list, do not modify.
 template <typename T>
 string BaseDoublyLinkedList<T>::getListBackwardsAsString() {
   stringstream ss;
@@ -178,19 +178,19 @@ string BaseDoublyLinkedList<T>::getListBackwardsAsString() {
   return ss.str();
 }
 
-//Copyright 2020, Bradley Peterson, Weber State University, All rights reserved. (2/20)
+// Copyright 2020, Bradley Peterson, Weber State University, All rights reserved. (2/20)
 //**********************************
-//Write your code below here
+// Write your code below here
 //**********************************
 template <typename T>
 class DoublyLinkedList : public BaseDoublyLinkedList<T> {
 };
 
 //**********************************
-//Write your code above here
+// Write your code above here
 //**********************************
 
-//This helps with testing, do not modify.
+// This helps with testing, do not modify.
 bool checkTest(string testName, string whatItShouldBe, string whatItIs) {
 
   if (whatItShouldBe == whatItIs) {
@@ -204,7 +204,7 @@ bool checkTest(string testName, string whatItShouldBe, string whatItIs) {
   }
 }
 
-//This helps with testing, do not modify.
+// This helps with testing, do not modify.
 bool checkTest(string testName, int whatItShouldBe, int whatItIs) {
 
   if (whatItShouldBe == whatItIs) {
@@ -218,7 +218,7 @@ bool checkTest(string testName, int whatItShouldBe, int whatItIs) {
   }
 }
 
-//This helps with testing, do not modify.
+// This helps with testing, do not modify.
 bool checkTestMemory(string testName, int whatItShouldBe, int whatItIs) {
 
   if (whatItShouldBe == whatItIs) {
@@ -231,18 +231,18 @@ bool checkTestMemory(string testName, int whatItShouldBe, int whatItIs) {
   }
 }
 
-//This helps with testing, do not modify.
+// This helps with testing, do not modify.
 void testGet() {
   DoublyLinkedList<int>* d = new DoublyLinkedList<int>;
   for (int i = 10; i < 20; i++) {
     d->insertLast(i);
   }
 
-  //Test just to make sure the data went in the list.
+  // Test just to make sure the data went in the list.
   checkTest("testGet #1", "10 11 12 13 14 15 16 17 18 19", d->getListAsString());
   checkTest("testGet #2", "19 18 17 16 15 14 13 12 11 10", d->getListBackwardsAsString());
 
-  //Test retrieving items.
+  // Test retrieving items.
   int item = d->get(0);
   checkTest("testGet #3", 10, item);
 
@@ -252,10 +252,10 @@ void testGet() {
   item = d->get(9);
   checkTest("testGet #5", 19, item);
 
-  //Make sure the list was undisturbed during this time
+  // Make sure the list was undisturbed during this time
   checkTest("testGet #6", "10 11 12 13 14 15 16 17 18 19", d->getListAsString());
 
-  //Try to access out of bounds.
+  // Try to access out of bounds.
   string caughtError = "";
   try {
     int item = d->get(-1);
@@ -280,18 +280,18 @@ void testGet() {
   delete d;
 }
 
-//This helps with testing, do not modify.
+// This helps with testing, do not modify.
 void testSquareBrackets() {
   DoublyLinkedList<int> d;
   for (int i = 10; i < 20; i++) {
     d.insertLast(i);
   }
 
-  //Test just to make sure the data went in the list.
+  // Test just to make sure the data went in the list.
   checkTest("testSquareBrackets #1", "10 11 12 13 14 15 16 17 18 19", d.getListAsString());
   checkTest("testSquareBrackets #2", "19 18 17 16 15 14 13 12 11 10", d.getListBackwardsAsString());
 
-  //Test retrieving items.
+  // Test retrieving items.
   int item = d[0];
   checkTest("testSquareBrackets #3", 10, item);
 
@@ -301,17 +301,17 @@ void testSquareBrackets() {
   item = d[9];
   checkTest("testSquareBrackets #5", 19, item);
 
-  //Make sure the list was undisturbed during this time
+  // Make sure the list was undisturbed during this time
   checkTest("testSquareBrackets #6", "10 11 12 13 14 15 16 17 18 19", d.getListAsString());
   checkTest("testSquareBrackets #7", "19 18 17 16 15 14 13 12 11 10", d.getListBackwardsAsString());
 
-  //now test the return by reference
+  // now test the return by reference
   d[1] = 1000;
 
   checkTest("testSquareBrackets #8", "10 1000 12 13 14 15 16 17 18 19", d.getListAsString());
   checkTest("testSquareBrackets #9", "19 18 17 16 15 14 13 12 1000 10", d.getListBackwardsAsString());
 
-  //Try to access out of bounds.
+  // Try to access out of bounds.
   string caughtError = "";
   try {
     int item = d[-1];
@@ -328,14 +328,14 @@ void testSquareBrackets() {
   checkTest("testSquareBrackets #11", "caught", caughtError);
 }
 
-//This helps with testing, do not modify.
+// This helps with testing, do not modify.
 void testInsert() {
   DoublyLinkedList<int>* s = new DoublyLinkedList<int>();
   for (int i = 10; i < 20; i++) {
     s->insertLast(i);
   }
 
-  //Test just to make sure the data went in the list.
+  // Test just to make sure the data went in the list.
   checkTest("testInsert #1", "10 11 12 13 14 15 16 17 18 19", s->getListAsString());
   checkTest("testInsert #2", "19 18 17 16 15 14 13 12 11 10", s->getListBackwardsAsString());
 
@@ -369,18 +369,18 @@ void testInsert() {
   delete s;
 }
 
-//This helps with testing, do not modify.
+// This helps with testing, do not modify.
 void testRemove() {
   DoublyLinkedList<int>* d = new DoublyLinkedList<int>;
   for (int i = 10; i < 17; i++) {
     d->insertLast(i);
   }
 
-  //Test just to make sure the data went in the list.
+  // Test just to make sure the data went in the list.
   checkTest("testRemove #1", "10 11 12 13 14 15 16", d->getListAsString());
   checkTest("testRemove #2", "16 15 14 13 12 11 10", d->getListBackwardsAsString());
 
-  //Test deleting first items.
+  // Test deleting first items.
   d->remove(0);
   checkTest("testRemove #3", "11 12 13 14 15 16", d->getListAsString());
   checkTest("testRemove #4", "16 15 14 13 12 11", d->getListBackwardsAsString());
@@ -389,12 +389,12 @@ void testRemove() {
   checkTest("testRemove #5", "12 13 14 15 16", d->getListAsString());
   checkTest("testRemove #6", "16 15 14 13 12", d->getListBackwardsAsString());
 
-  //Test deleting a middle item
+  // Test deleting a middle item
   d->remove(2);
   checkTest("testRemove #7", "12 13 15 16", d->getListAsString());
   checkTest("testRemove #8", "16 15 13 12", d->getListBackwardsAsString());
 
-  //Test deleting last itmes
+  // Test deleting last itmes
   d->remove(3);
   checkTest("testRemove #9", "12 13 15", d->getListAsString());
   checkTest("testRemove #10", "15 13 12", d->getListBackwardsAsString());
@@ -403,33 +403,33 @@ void testRemove() {
   checkTest("testRemove #11", "12 13", d->getListAsString());
   checkTest("testRemove #12", "13 12", d->getListBackwardsAsString());
 
-  //Test deleting a Kth element that doesn't exist.
+  // Test deleting a Kth element that doesn't exist.
   d->remove(500);
   checkTest("testRemove #13", "12 13", d->getListAsString());
   checkTest("testRemove #14", "13 12", d->getListBackwardsAsString());
 
-  //Test deleting a last item
+  // Test deleting a last item
   d->remove(1);
   checkTest("testRemove #15", "12", d->getListAsString());
   checkTest("testRemove #16", "12", d->getListBackwardsAsString());
 
-  //Test deleting item that doesn't exist
+  // Test deleting item that doesn't exist
   d->remove(1);
   checkTest("testRemove #17", "12", d->getListAsString());
   checkTest("testRemove #18", "12", d->getListBackwardsAsString());
 
-  //Test deleting item on the first
+  // Test deleting item on the first
   d->remove(0);
   checkTest("testRemove #19", "The list is empty.", d->getListAsString());
 
-  //Test attempting to delete from an empty list
+  // Test attempting to delete from an empty list
   d->remove(0);
   checkTest("testRemove #20", "The list is empty.", d->getListAsString());
 
   delete d;
 }
 
-//This helps with testing, do not modify.
+// This helps with testing, do not modify.
 void testRemoveAllInstances() {
 
   DoublyLinkedList<int>* d = new DoublyLinkedList<int>;
@@ -441,7 +441,7 @@ void testRemoveAllInstances() {
   d->insertLast(6);
   d->insertLast(9);
 
-  //Do a delete, test it.
+  // Do a delete, test it.
   d->removeAllInstances(6);
   checkTest("testRemoveAllInstances #1", "4 2 5 9", d->getListAsString());
   checkTest("testRemoveAllInstances #2", "9 5 2 4", d->getListBackwardsAsString());
@@ -488,17 +488,17 @@ void testRemoveAllInstances() {
   d->insertLast(9);
   d->insertLast(9);
 
-  //Do a delete, test it.
+  // Do a delete, test it.
   d->removeAllInstances(9);
   checkTest("testRemoveAllInstances #7", "4 2 5 1 2", d->getListAsString());
   checkTest("testRemoveAllInstances #8", "2 1 5 2 4", d->getListBackwardsAsString());
 
-  //Test deleting something that doesn't exist
+  // Test deleting something that doesn't exist
   d->removeAllInstances(7);
   checkTest("testRemoveAllInstances #9", "4 2 5 1 2", d->getListAsString());
   checkTest("testRemoveAllInstances #10", "2 1 5 2 4", d->getListBackwardsAsString());
 
-  //A few more tests
+  // A few more tests
   d->removeAllInstances(2);
   checkTest("testRemoveAllInstances #11", "4 5 1", d->getListAsString());
   checkTest("testRemoveAllInstances #12", "1 5 4", d->getListBackwardsAsString());
@@ -513,14 +513,14 @@ void testRemoveAllInstances() {
   d->removeAllInstances(1);
   checkTest("testRemoveAllInstances #16", "The list is empty.", d->getListAsString());
 
-  //retest deleting something that doesn't exist.
+  // retest deleting something that doesn't exist.
   d->removeAllInstances(7);
   checkTest("testRemoveAllInstances #17", "The list is empty.", d->getListAsString());
   delete d;
 
-  //Now ramp it up and do some huge tests.  Start by timing how long a smaller approach takes.
+  // Now ramp it up and do some huge tests.  Start by timing how long a smaller approach takes.
   d = new DoublyLinkedList<int>;
-  //Fill the list with a pattern of
+  // Fill the list with a pattern of
   //1 2 2 3 3 3 4 4 4 4 1 2 2 3 3 3 4 4 4 4 ...
   cout << endl
        << "Preparing for testRemoveAllInstances #18, placing 50,000 numbers into the linked list to see how long things take." << endl;
@@ -530,7 +530,7 @@ void testRemoveAllInstances() {
     }
   }
   cout << "    Calling removeAllInstances to remove 15,000 3s in the list." << endl;
-  //delete all the 3s.
+  // delete all the 3s.
   auto start = std::chrono::high_resolution_clock::now();
   d->removeAllInstances(3);
   auto end = std::chrono::high_resolution_clock::now();
@@ -543,7 +543,7 @@ void testRemoveAllInstances() {
 
   cout << "Starting testRemoveAllInstances #18, filling in 100,000 numbers into the linked list to get it started." << endl;
   d = new DoublyLinkedList<int>;
-  //Fill the list with a pattern of
+  // Fill the list with a pattern of
   //1 2 2 3 3 3 4 4 4 4 1 2 2 3 3 3 4 4 4 4 ...
   for (int i = 0; i < 40000; i++) {
     for (int j = 0; j < i % 4 + 1; j++) {
@@ -552,13 +552,13 @@ void testRemoveAllInstances() {
   }
   cout << "    Finished inserting 100,000 numbers." << endl;
   cout << "    Calling removeAllInstances to remove 30,000 3s.  This should take about " << (benchmarkTime * 2) << " milliseconds." << endl;
-  //delete all the 3s.
+  // delete all the 3s.
   start = std::chrono::high_resolution_clock::now();
   d->removeAllInstances(3);
   end = std::chrono::high_resolution_clock::now();
   diff = end - start;
   double actualTime = diff.count() / 1000.0;
-  if (actualTime < (benchmarkTime * 2 * 1.5)) { //The 1.5 gives an extra 50% wiggle room
+  if (actualTime < (benchmarkTime * 2 * 1.5)) { // The 1.5 gives an extra 50% wiggle room
     cout << "Passed testRemoveAllInstances #18, completed removeAllInstances in " << actualTime << " milliseconds." << endl;
   } else {
     cout << "*** Failed testRemoveAllInstances #18, removeAllInstances took " << actualTime
@@ -575,8 +575,8 @@ void pressAnyKeyToContinue() {
 }
 
 int main() {
-  //For your assignment, write the code to make these three methods work
-  //You should not modify the code here in main.
+  // For your assignment, write the code to make these three methods work
+  // You should not modify the code here in main.
   checkTestMemory("Memory Leak/Allocation Test #1", 0, ManageMemory::getTotalSize());
   testGet();
   checkTestMemory("Memory Leak/Allocation Test #2", 0, ManageMemory::getTotalSize());
