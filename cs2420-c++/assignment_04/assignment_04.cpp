@@ -195,21 +195,23 @@ public:
 
 template <typename T>
 T DoublyLinkedList<T>::get(const unsigned int index) const {
+  // guard clause for empty list
   if (this->first == nullptr) {
     throw 1;
   }
-  Node<T>* currentNode = this->first;
-  int count = 0;
 
+  Node<T>* currentNode = this->first;
+  int position = 0;
   while (currentNode != nullptr) {
-    if (count == index) {
+    if (position == index) {
       break;
     }
     currentNode = currentNode->forward;
-    count++;
+    position++;
   }
 
-  if (count != index) {
+  // if loop exited before reaching index, index is out of bounds
+  if (position != index) {
     throw 1;
   } else {
     return currentNode->data;
@@ -218,21 +220,23 @@ T DoublyLinkedList<T>::get(const unsigned int index) const {
 
 template <typename T>
 T& DoublyLinkedList<T>::operator[](const unsigned int index) const {
+  // guard clause for empty list
   if (this->first == nullptr) {
     throw 1;
   }
-  Node<T>* currentNode = this->first;
-  int count = 0;
 
+  Node<T>* currentNode = this->first;
+  int position = 0;
   while (currentNode != nullptr) {
-    if (count == index) {
+    if (position == index) {
       break;
     }
     currentNode = currentNode->forward;
-    count++;
+    position++;
   }
 
-  if (count != index) {
+  // if loop exited before reaching index, index is out of bounds
+  if (position != index) {
     throw 1;
   } else {
     return currentNode->data;
