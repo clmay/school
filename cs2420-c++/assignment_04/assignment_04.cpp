@@ -194,19 +194,59 @@ public:
 };
 
 template <typename T>
-T DoublyLinkedList<T>::get(const unsigned int index) const {}
+T DoublyLinkedList<T>::get(const unsigned int index) const {
+  if (this->first == nullptr) {
+    throw 1;
+  }
+  Node<T>* currentNode = this->first;
+  int count = 0;
+
+  while (currentNode != nullptr) {
+    if (count == index) {
+      break;
+    }
+    currentNode = currentNode->forward;
+    count++;
+  }
+
+  if (count != index) {
+    throw 1;
+  } else {
+    return currentNode->data;
+  }
+}
 
 template <typename T>
-T& DoublyLinkedList<T>::operator[](const unsigned int index) const {}
+T& DoublyLinkedList<T>::operator[](const unsigned int index) const {
+  if (this->first == nullptr) {
+    throw 1;
+  }
+  Node<T>* currentNode = this->first;
+  int count = 0;
 
-template <typename T>
-void DoublyLinkedList<T>::insert(const unsigned int index, const T& value) {}
+  while (currentNode != nullptr) {
+    if (count == index) {
+      break;
+    }
+    currentNode = currentNode->forward;
+    count++;
+  }
 
-template <typename T>
-void DoublyLinkedList<T>::remove(const unsigned int index) {}
+  if (count != index) {
+    throw 1;
+  } else {
+    return currentNode->data;
+  }
+}
 
-template <typename T>
-void DoublyLinkedList<T>::removeAllInstances(const T& value) {}
+// template <typename T>
+// void DoublyLinkedList<T>::insert(const unsigned int index, const T& value) {}
+
+// template <typename T>
+// void DoublyLinkedList<T>::remove(const unsigned int index) {}
+
+// template <typename T>
+// void DoublyLinkedList<T>::removeAllInstances(const T& value) {}
 
 //**********************************
 // Write your code above here
