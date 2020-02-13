@@ -239,9 +239,10 @@ T& DoublyLinkedList<T>::operator[](const unsigned int index) const {
 
 template <typename T>
 void DoublyLinkedList<T>::insert(const unsigned int index, const T& value) {
+  Node<T>* newNode = new Node<T>();
+  newNode->data = value;
+
   if (index == 0) {
-    Node<T>* newNode = new Node<T>();
-    newNode->data = value;
     newNode->backward = nullptr;
 
     if (this->first == nullptr) {
@@ -255,7 +256,6 @@ void DoublyLinkedList<T>::insert(const unsigned int index, const T& value) {
     }
     return;
   }
-
   Node<T>* currentNode = this->first;
   int position = 0;
   while (currentNode->forward != nullptr) {
@@ -265,9 +265,6 @@ void DoublyLinkedList<T>::insert(const unsigned int index, const T& value) {
     currentNode = currentNode->forward;
     position++;
   }
-
-  Node<T>* newNode = new Node<T>();
-  newNode->data = value;
 
   if (currentNode == this->last) {
     newNode->backward = currentNode;
