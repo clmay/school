@@ -40,7 +40,6 @@ def convert_to_base(base, value):
 
 
 def convert_to_hex(digits):
-    print("DIGITS ==", digits)
     for i in range(len(digits)):
         if digits[i] == '10':
             digits[i] = 'A'
