@@ -26,8 +26,35 @@ def print_results(n):
     print(n, "in base 16:", convert_to_base(16, n))
 
 
-def convert_to_base(base, decimal):
-    pass
+def convert_to_base(base, value):
+    digits = []
+    while True:
+        digits.append(str(value % base))
+        if value < base:
+            break
+        value //= base
+    digits.reverse()
+    if base == 16:
+        digits = convert_to_hex(digits)
+    return ''.join(digits)
+
+
+def convert_to_hex(digits):
+    print("DIGITS ==", digits)
+    for i in range(len(digits)):
+        if digits[i] == '10':
+            digits[i] = 'A'
+        elif digits[i] == '11':
+            digits[i] = 'B'
+        elif digits[i] == '12':
+            digits[i] = 'C'
+        elif digits[i] == '13':
+            digits[i] = 'D'
+        elif digits[i] == '14':
+            digits[i] = 'E'
+        elif digits[i] == '15':
+            digits[i] = 'F'
+    return digits
 
 
 if __name__ == "__main__":
