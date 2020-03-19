@@ -23,7 +23,6 @@ def list_from_int(i):
 
 
 def result(a, b, c, d, e):
-    props = [bool(p) for p in [a, b, c, d, e]]
     return bool((c + (not d)) * b) * (not (d + a * e))
 
 
