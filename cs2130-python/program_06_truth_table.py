@@ -4,8 +4,6 @@ def main():
     print()
     print_table_header()
     for i in reversed(range(0, 2**5)):
-        # print('{:05b}'.format(i))
-        # print(list('{:05b}'.format(i)))
         print_row(i)
 
 
